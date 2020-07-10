@@ -1,0 +1,69 @@
+Problems:
+2. multiple touches won't register.  perhaps change event away from click.
+    maybe use touchstart or mouseon.
+3. figure out package.json, npm, and folder structure setup better.
+    
+11.17.2019
+Currently working on v0.3
+
+** mobile testing CLI notes *********************
+cordova run android --device
+
+***** Plans *******
+
+Testing v. 0.0.0
+game screen
+-colored regions, occupying 50% of screen.
+-click increments score.
+-model and controller score control only.
+
+-On the game over screen:
+--Sad message
+--score
+
+v 0.1.0
+game over screen
+-display score
+-play again button
+
+v 0.1.1
+crab logic
+-start with interval-timed switches.
+-alter to randomize.
+
+v 0.2
+-add view
+-show score
+
+v 0.3
+-assume horizontal orientation
+--11.17.2019: I don't know what I meant about horizontal orientation.
+-add crab image
+--can do with either SVG or canvas.  I'm gonna try SVG.
+--Inkscape is possible, if I get rid of its cabbage.
+
+v 0.3.1
+-animate crab.
+--check out https://vimeo.com/373163932
+--CSS or JS or both?
+--spinny eyes?
+--mouse-tracking eyes?  Check out https://creepyface.io/
+--blinking?
+--diving into sand for switch?
+
+v 0.4
+-animated background?
+
+v 0.5
+-add clicks per second logic and view.
+
+v 0.6
+-monetize
+
+v 1.0
+-lock down for production.  See readme.md and index.html comments.
+
+v 1.1
+-social
+--leaderboard?  (firebase?)
+--NFC contest?
