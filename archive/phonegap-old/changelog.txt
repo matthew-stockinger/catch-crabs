@@ -42,6 +42,13 @@ v 0.3
 --can do with either SVG or canvas.  I'm gonna try SVG.
 --Inkscape is possible, if I get rid of its cabbage.
 
+v 1.0
+-lock down for production.  MCV product?
+--device state change saving?
+--see readme.md and index.html comments.
+
+----------------------------- redo below ---------------------------------
+
 v 0.3.1
 -animate crab.
 --check out https://vimeo.com/373163932
