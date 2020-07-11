@@ -38,25 +38,41 @@ var app = {
 let swapTimer;
 const Dispatch = {
 	init() {
-		this.gameStart_ = this.gameStart.bind(this);
-		this.scorePoint_ = this.scorePoint.bind(this);
-		this.crabSwap_ = this.crabSwap.bind(this);
-		this.resetCrab_ = this.resetCrab.bind(this);
-		this.gameOver_ = this.gameOver.bind(this);
-		View.playAgainBtn.addEventListener("click", this.gameStart_);
-	  	View.playAgainBtn.click();
+		// all event listener callbacks in this code use anonymous arrow functions
+		// so that the value of 'this' will always be the parent object, not
+		// the click target element.
+		View.playAgainBtn.addEventListener("click", (event) => {
+			this.gameStart(event);
+		}, false);
+		View.region1.addEventListener("click", (event) => {
+			this.regionClick(event, View.region1);
+		}, false);
+		View.region2.addEventListener("click", (event) => {
+			this.regionClick(event, View.region2);
+		}, false);
+		View.playAgainBtn.click();
 	},
 
 	gameStart(event) {
 		event.preventDefault();
 		Game.start(); // reset score to 0.
 		View.render(View.scoreLabel, 0);
-		this.resetCrab(); // put crab in left/top again.  Reset/place event handlers.
+		this.resetCrab(); // put crab in left/top again.
 		View.hide(View.gameOverScreen);
 		View.show(View.gameScreen);
-		swapTimer = setInterval(this.crabSwap_, 2000);
+		swapTimer = setInterval(this.crabSwap, 2000);
 	},
 
+	regionClick(event, region) {
+		event.preventDefault();
+		console.log(`Dispatch.regionClick: ${region.id} clicked`);
+		if (region.classList.contains("crab-here")) {
+			this.scorePoint(event);
+		} else if (region.classList.contains("crab-not-here")) {
+			this.gameOver(event);
+		}
+	},
+	
 	scorePoint(event) {
 		event.preventDefault();
 		Game.scorePoint(); // update score variable
@@ -65,20 +81,12 @@ const Dispatch = {
 
 	crabSwap() {
 		console.log("Dispatch.crabSwap()");
-		View.crabHere.removeEventListener("click", this.scorePoint_);
-		View.crabNotHere.removeEventListener("click", this.gameOver_);
 		View.crabSwap();
-		View.crabHere.addEventListener("click", this.scorePoint_);
-		View.crabNotHere.addEventListener("click", this.gameOver_);
 	},
 
 	resetCrab() {
 		console.log("Dispatch.resetCrab()");
-		View.crabHere.removeEventListener("click", this.scorePoint_);
-		View.crabNotHere.removeEventListener("click", this.gameOver_);
 		View.resetCrab();
-		View.crabHere.addEventListener("click", this.scorePoint_);
-		View.crabNotHere.addEventListener("click", this.gameOver_);
 	},
 
 	gameOver(event) {

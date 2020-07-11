@@ -23,13 +23,11 @@ const View = {
     },
 
     hide(elt) {
-        elt.classList.remove("visible");
-        elt.classList.add("hidden");
+        elt.classList.replace("visible", "hidden");
     },
 
     show(elt) {
-        elt.classList.remove("hidden");
-        elt.classList.add("visible");
+        elt.classList.replace("hidden", "visible");
     },
 
     crabSwap() {

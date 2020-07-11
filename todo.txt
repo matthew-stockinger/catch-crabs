@@ -1,6 +1,0 @@
-6.14.2020
-
-1. Dig through src and dist folders under phonegap-old.  Compare files and find most recent copy of code.
-2. Create template for android app.
-3. Move code into that template structure.  (No src and dist for android app?  What about for browser?  Do I need to do any minifying or packaging?).
-4. Change JS code structure: don't add and remove event listeners any more.  Just have events fire on both active and inactive divs.  Use a flag variable to identify which one is active and direct to the appropriate event handler based on that.  Also: did I make it so that the divs actually move in the DOM tree?  Preferrable would be to leave the DOM tree alone and change the look of the divs.

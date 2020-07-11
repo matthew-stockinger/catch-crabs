@@ -45,6 +45,7 @@ v 0.3
 v 1.0
 -lock down for production.  MCV product?
 --device state change saving?
+--minifying or packaging for browser?
 --see readme.md and index.html comments.
 
 ----------------------------- redo below ---------------------------------
