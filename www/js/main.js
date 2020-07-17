@@ -17,6 +17,9 @@
  * under the License.
  */
 
+ /* to shut some eslint errors.  */
+ /* global View:writable, Game:writable */
+
 var app = {
     initialize() {
 		document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);

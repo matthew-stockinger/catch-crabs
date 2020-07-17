@@ -35,25 +35,40 @@ v 0.2
 -add view
 -show score
 
-v 0.3
+v 0.2.1
+-refactor event listener code, so that the listeners remain on the two divs.
+Instead of moving them each flip, the listeners just fire all the time,
+and the handler decides what to do, based on whether the target div is 
+crabHere or not.
+
+v 0.3.0
+make something with inkscape--anything--and try to get it into the app as SVG.
+
+v 0.3.1
 -assume horizontal orientation
 --11.17.2019: I don't know what I meant about horizontal orientation.
 -add crab image
---can do with either SVG or canvas.  I'm gonna try SVG.
---Inkscape is possible, if I get rid of its cabbage.
+--next step: put into HTML
 
 v 1.0
 -lock down for production.  MCV product?
 --device state change saving?
---minifying or packaging for browser?
+--minifying or packaging for browser?  optimize svg (svgomg or svgo)
 --see readme.md and index.html comments.
 
------------------------------ redo below ---------------------------------
+----------------------------- version redo needed below ---------------------------------
 
 v 0.3.1
 -animate crab.
 --check out https://vimeo.com/373163932
 --CSS or JS or both?
+
+--start with teleport effect, between regions.
+    make the crab a symbol.  then have two instances.
+    toggle css display on them to get movement.
+    to animate change, use css transitions?
+    Maybe make the crab drop into a hole that opens up.
+
 --spinny eyes?
 --mouse-tracking eyes?  Check out https://creepyface.io/
 --blinking?
