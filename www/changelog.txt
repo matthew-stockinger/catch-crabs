@@ -45,23 +45,18 @@ v 0.3.0
 make something with inkscape--anything--and try to get it into the app as SVG.
 
 v 0.3.1
--assume horizontal orientation
---11.17.2019: I don't know what I meant about horizontal orientation.
 -add crab image
 --next step: put into HTML
+-work on orientation issues and positioning.  Will it work in both orientations of the phone?
 
-v 1.0
--lock down for production.  MCV product?
---device state change saving?
---minifying or packaging for browser?  optimize svg (svgomg or svgo)
---see readme.md and index.html comments.
+v 0.3.2
+-really not fun with predictable changeups.  Need to randomize timing.
 
------------------------------ version redo needed below ---------------------------------
-
-v 0.3.1
+v 0.3.3
 -animate crab.
 --check out https://vimeo.com/373163932
---CSS or JS or both?
+--try CSS first.  Cross-browser test.
+    If that doesn't work well, then requestAnimationFrame with JS.
 
 --start with teleport effect, between regions.
     make the crab a symbol.  then have two instances.
@@ -75,6 +70,7 @@ v 0.3.1
 --diving into sand for switch?
 
 v 0.4
+-sound, with accessibility in mind.
 -animated background?
 
 v 0.5
@@ -84,9 +80,22 @@ v 0.6
 -monetize
 
 v 1.0
--lock down for production.  See readme.md and index.html comments.
+-lock down for production.  Is this the MCV product?
+--device state change saving?
+--minifying or packaging for browser?  optimize svg (svgomg or svgo)
+--see readme.md and index.html comments.
 
 v 1.1
+-publish to web
+    cross browser testing.  See https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction
+    scalability - how do I ensure service level?
+
+v 1.1
+-full accessibility
+    keyboard playability on web
+    really dig into blind user experience.  Can it be played independently from the beginning?
+
+v 1.2
 -social
 --leaderboard?  (firebase?)
 --NFC contest?

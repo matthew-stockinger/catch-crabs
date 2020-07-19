@@ -68,7 +68,7 @@ const Dispatch = {
 
 	regionClick(event, region) {
 		event.preventDefault();
-		console.log(`Dispatch.regionClick: ${region.id} clicked`);
+		// console.log(`Dispatch.regionClick: ${region.id} clicked`);
 		if (region.classList.contains("crab-here")) {
 			this.scorePoint(event);
 		} else if (region.classList.contains("crab-not-here")) {
@@ -83,12 +83,12 @@ const Dispatch = {
 	},
 
 	crabSwap() {
-		console.log("Dispatch.crabSwap()");
+		// console.log("Dispatch.crabSwap()");
 		View.crabSwap();
 	},
 
 	resetCrab() {
-		console.log("Dispatch.resetCrab()");
+		// console.log("Dispatch.resetCrab()");
 		View.resetCrab();
 	},
 
