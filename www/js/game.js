@@ -2,6 +2,7 @@
 
 /* Back-end game functionality.  e.g. score handling. */
 
+// eslint-disable-next-line no-unused-vars
 const Game = {
     score: null,
     start() {
@@ -19,6 +20,9 @@ const Game = {
     },
     getScore() {
         return this.score;
+    },
+    randBetween(a, b) {
+        return Math.floor(Math.random() * (b - a + 1) + a);
     }
 };
 

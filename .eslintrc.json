@@ -57,11 +57,6 @@
         "default-param-last": "error",
         "dot-location": "error",
         "dot-notation": "error",
-        "eol-last": [
-            "error",
-            "never"
-        ],
-        "eqeqeq": "error",
         "func-call-spacing": "error",
         "func-name-matching": "error",
         "func-names": "error",
@@ -74,7 +69,6 @@
         "handle-callback-err": "error",
         "id-blacklist": "error",
         "id-denylist": "error",
-        "id-length": "error",
         "id-match": "error",
         "implicit-arrow-linebreak": "error",
         "indent": "off",
@@ -90,10 +84,6 @@
             }
         ],
         "line-comment-position": "off",
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
         "lines-around-comment": "error",
         "lines-around-directive": "error",
         "lines-between-class-members": "error",
@@ -147,7 +137,6 @@
         "no-loop-func": "error",
         "no-loss-of-precision": "error",
         "no-magic-numbers": "off",
-        "no-mixed-operators": "error",
         "no-mixed-requires": "error",
         "no-multi-assign": "error",
         "no-multi-spaces": "error",
@@ -165,7 +154,6 @@
         "no-octal-escape": "error",
         "no-param-reassign": "error",
         "no-path-concat": "error",
-        "no-plusplus": "error",
         "no-process-env": "error",
         "no-process-exit": "error",
         "no-promise-executor-return": "error",
@@ -240,7 +228,6 @@
         "prefer-rest-params": "error",
         "prefer-spread": "error",
         "prefer-template": "error",
-        "quote-props": "error",
         "quotes": "off",
         "radix": "error",
         "require-atomic-updates": "error",
@@ -265,14 +252,6 @@
         ],
         "space-infix-ops": "error",
         "space-unary-ops": "error",
-        "spaced-comment": [
-            "error",
-            "always"
-        ],
-        "strict": [
-            "error",
-            "never"
-        ],
         "switch-colon-spacing": "error",
         "symbol-description": "error",
         "template-curly-spacing": [

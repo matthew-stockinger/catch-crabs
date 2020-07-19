@@ -63,7 +63,25 @@ const Dispatch = {
 		this.resetCrab(); // put crab in left/top again.
 		View.hide(View.gameOverScreen);
 		View.show(View.gameScreen);
-		swapTimer = setInterval(this.crabSwap, 2000);
+		this.cycleCrab(1, 5);
+	},
+
+	/*
+	pick a random length of time, between 1 and 5 seconds.
+	after that amount of time, crabSwap.
+	only at that moment of crabSwap, begin again at the top (recurse).
+
+	If crab-not-here clicked, clear the timer and game over.
+	*/
+	
+	// moves crab between regions at random time intervals.
+	cycleCrab(minTime, maxTime) {
+		let t = Math.random() * (maxTime - minTime) + minTime;
+		t = t.toFixed(3);
+		swapTimer = setTimeout(() => {
+			this.crabSwap();
+			this.cycleCrab(minTime, maxTime);
+		}, t * 1000);
 	},
 
 	regionClick(event, region) {
@@ -94,7 +112,8 @@ const Dispatch = {
 
 	gameOver(event) {
 		event.preventDefault();
-		clearInterval(swapTimer);
+		console.log(`game over.  swapTimer = ${swapTimer}.  clearing timeout.`);
+		clearTimeout(swapTimer);
 		View.hide(View.gameScreen);
 		View.show(View.gameOverScreen);
 		let endMessage = `<p>Game over.</p>`;
