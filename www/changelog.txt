@@ -52,22 +52,28 @@ v 0.3.1
 v 0.3.2
 -really not fun with predictable changeups.  Need to randomize timing.
 
+v 0.3.2.1
+-cross-browser testing.  if I wait until app is out, I may run into serious problems.
+https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction
+
 v 0.3.3
 -animate crab.
 --check out https://vimeo.com/373163932
 --try CSS first.  Cross-browser test.
     If that doesn't work well, then requestAnimationFrame with JS.
 
---start with teleport effect, between regions.
-    make the crab a symbol.  then have two instances.
-    toggle css display on them to get movement.
+--click animation: simple depression.
+--teleport effect:
+    option 1: crab scurries between regions.  
+        no more divs.  uniform background.  listen for clicks on svg hitbox.
+    option 2: crab drops into hole and pops out.
+
     to animate change, use css transitions?
     Maybe make the crab drop into a hole that opens up.
 
 --spinny eyes?
 --mouse-tracking eyes?  Check out https://creepyface.io/
 --blinking?
---diving into sand for switch?
 
 v 0.4
 -sound, with accessibility in mind.
