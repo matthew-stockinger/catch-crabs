@@ -1,6 +1,3 @@
-'use strict';
-
-/* View module for updating items on the screen. */
 
 const View = {
     // main game screen elements.
@@ -22,90 +19,90 @@ const View = {
         target.innerHTML = content;
     },
 
+    preventDrag() {
+        document.addEventListener("dragstart", (event) => {
+            event.preventDefault();
+        });
+    },
+
+    // no using classList.replace on Safari, per MDN on 7.20.2020
+    // using remove and add instead.
     hide(elt) {
-        elt.classList.replace("visible", "hidden");
+        elt.classList.remove("visible");
+        elt.classList.add("hidden");
     },
 
     show(elt) {
-        elt.classList.replace("hidden", "visible");
+        elt.classList.remove("hidden");
+        elt.classList.add("visible");
     },
 
     crabSwap() {
-        this.crabHere.classList.replace("crab-here", "crab-not-here");
-        this.crabNotHere.classList.replace("crab-not-here", "crab-here");
-        // swap the pointers.
+        this.crabHere.classList.remove("crab-here");
+        this.crabHere.classList.add("crab-not-here");
+        this.crabNotHere.classList.remove("crab-not-here");
+        this.crabNotHere.classList.add("crab-here");
+        // swap the code references.
         [this.crabHere, this.crabNotHere] = [this.crabNotHere, this.crabHere];
+        // get rid of stars on blank side
+        this.animateResetStars();
     },
 
     resetCrab() {
-        this.region1.classList.replace("crab-not-here", "crab-here");
-        this.region2.classList.replace("crab-here", "crab-not-here");
+        this.region1.classList.remove("crab-not-here");
+        this.region1.classList.add("crab-here");
+        this.region2.classList.remove("crab-here");
+        this.region2.classList.add("crab-not-here");
         this.crabHere = document.querySelector(".crab-here");
         this.crabNotHere = document.querySelector(".crab-not-here");
+    },
+
+    // parameter = string name of animation class to add.
+    animate(animation) {
+        const crab = this.crabHere.querySelector("svg");
+        // in case the current animation is already in process, remove that.
+        crab.classList.remove(animation);
+        // restarts animation.
+        // explanation here: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Tips
+        window.requestAnimationFrame(() => {
+            window.requestAnimationFrame(() => {
+                crab.classList.add(animation);
+            });
+        });
+    },
+
+    animateResetAll() {
+        // stop crab animations
+        this.crabHere.querySelector("svg").removeAttribute("class");
+        // delete stars
+        this.animateResetStars();
+    },
+
+    animateClickStar(event, region) {
+        const image = document.createElement("img");
+        image.setAttribute("src", "img/star1-dist.svg");
+        image.setAttribute("alt", "star");
+        // 15 px is half the width and height of the svg, as specified in 
+        // the svg file.  Need to change both at once.
+        image.style.left = `${event.clientX - 15}px`;
+        image.style.top = `${event.clientY - 15}px`;
+        image.classList.add("star"); // contains animation details
+
+        // image removes itself from DOM once animation completes.
+        image.addEventListener("animationend", () => {
+            region.removeChild(image);
+        });
+
+        // insert at top of #game-screen div.
+        region.insertBefore(image, region.querySelector("svg"));
+    },
+
+    animateResetStars() {
+        this.region1.querySelectorAll("img").forEach((im) => {
+            im.remove();
+        });
+        this.region2.querySelectorAll("img").forEach((im) => {
+            im.remove();
+        });
     }
 };
-
-//const View = (function() {
-//    // main game screen elements.
-//    const gameScreen = document.querySelector("#game-screen");
-//    const region1 = document.querySelector("#region1");
-//    const region2 = document.querySelector("#region2");
-//    let crabHere = document.querySelector(".crab-here"); // The div with the crab
-//    let crabNotHere = document.querySelector(".crab-not-here"); // The div without the crab
-//    const scoreLabel = document.querySelector("#score-label");
-//    // game over screen elements.
-//    const gameOverScreen = document.querySelector("#game-over-screen");
-//    const gameOverMsg = document.querySelector("#game-over-msg");
-//    const playAgainBtn = document.querySelector("#play-again-btn");
-//
-//    function render(target, content, attributes) {
-//        for (const key in attributes) {
-//            target.setAttribute(key, attributes[key]);
-//        }
-//        target.innerHTML = content;
-//    }
-//
-//    function hide(elt) {
-//        elt.classList.remove("visible");
-//        elt.classList.add("hidden");
-//    }
-//
-//    function show(elt) {
-//        elt.classList.remove("hidden");
-//        elt.classList.add("visible");
-//    }
-//
-//    function crabSwap() {
-//        View.crabHere.classList.replace("crab-here", "crab-not-here");
-//        View.crabNotHere.classList.replace("crab-not-here", "crab-here");
-//        // swap the pointers.
-//        [View.crabHere, View.crabNotHere] = [View.crabNotHere, View.crabHere];
-//    }
-//
-//    function resetCrab() {
-//        region1.classList.replace("crab-not-here", "crab-here");
-//        region2.classList.replace("crab-here", "crab-not-here");
-//        View.crabHere = document.querySelector(".crab-here");
-//        View.crabNotHere = document.querySelector(".crab-not-here");
-//    }
-//
-//    return {
-//        // main screen elements
-//        gameScreen: gameScreen,
-//        region1: region1,
-//        region2: region2,
-//        crabHere: crabHere,
-//        crabNotHere: crabNotHere,
-//        scoreLabel: scoreLabel,
-//        // game over screen elements
-//        gameOverScreen: gameOverScreen,
-//        gameOverMsg: gameOverMsg,
-//        playAgainBtn: playAgainBtn,
-//        // View methods
-//        render: render,
-//        hide: hide,
-//        show: show,
-//        crabSwap: crabSwap,
-//        resetCrab: resetCrab
-//    };
-//})();

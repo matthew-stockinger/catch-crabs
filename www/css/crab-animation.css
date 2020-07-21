@@ -1,0 +1,47 @@
+.animate-pause {
+    animation-play-state: paused;
+}
+
+.star {
+    display: block;
+    width: 30px;
+    position: absolute;
+    /* top and left set by clientX and clientY */
+    z-index: 10;
+    user-select: none;
+    /* prevent ugly accidental selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    opacity: 0;
+    /* keep it faded out after animation end. */
+    animation-name: star-fade;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes star-fade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* .animate-depress {
+                    animation-name: depress;
+                    animation-duration: 50ms;
+                    animation-timing-function: linear;
+                    animation-direction: alternate;
+                    animation-iteration-count: 2;
+                }
+                
+                @keyframes depress {
+                    from {
+                        transform: scale(1.0);
+                    }
+                
+                    to {
+                        transform: scale(0.99);
+                    }
+                } */

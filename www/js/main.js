@@ -44,13 +44,14 @@ const Dispatch = {
 		// all event listener callbacks in this code use anonymous arrow functions
 		// so that the value of 'this' will always be the parent object, not
 		// the click target element.
+		View.preventDrag();
 		View.playAgainBtn.addEventListener("click", (event) => {
 			this.gameStart(event);
 		}, false);
-		View.region1.addEventListener("click", (event) => {
+		View.region1.addEventListener("mousedown", (event) => {
 			this.regionClick(event, View.region1);
 		}, false);
-		View.region2.addEventListener("click", (event) => {
+		View.region2.addEventListener("mousedown", (event) => {
 			this.regionClick(event, View.region2);
 		}, false);
 		View.playAgainBtn.click();
@@ -63,7 +64,7 @@ const Dispatch = {
 		this.resetCrab(); // put crab in left/top again.
 		View.hide(View.gameOverScreen);
 		View.show(View.gameScreen);
-		this.cycleCrab(1, 5);
+		this.cycleCrab(1, 5); // start crab moving back and forth.
 	},
 
 	/*
@@ -86,8 +87,8 @@ const Dispatch = {
 
 	regionClick(event, region) {
 		event.preventDefault();
-		// console.log(`Dispatch.regionClick: ${region.id} clicked`);
 		if (region.classList.contains("crab-here")) {
+			View.animateClickStar(event, region);
 			this.scorePoint(event);
 		} else if (region.classList.contains("crab-not-here")) {
 			this.gameOver(event);
@@ -101,21 +102,19 @@ const Dispatch = {
 	},
 
 	crabSwap() {
-		// console.log("Dispatch.crabSwap()");
 		View.crabSwap();
 	},
 
 	resetCrab() {
-		// console.log("Dispatch.resetCrab()");
 		View.resetCrab();
 	},
 
 	gameOver(event) {
 		event.preventDefault();
-		console.log(`game over.  swapTimer = ${swapTimer}.  clearing timeout.`);
 		clearTimeout(swapTimer);
 		View.hide(View.gameScreen);
 		View.show(View.gameOverScreen);
+		View.animateResetAll();
 		let endMessage = `<p>Game over.</p>`;
 		endMessage += `<p>You scored ${Game.getScore()} point` + 
 		`${Game.getScore() === 1 ? '' : 's'}.</p>`;

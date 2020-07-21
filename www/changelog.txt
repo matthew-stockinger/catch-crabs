@@ -54,15 +54,15 @@ v 0.3.2
 
 v 0.3.2.1
 -cross-browser testing.  if I wait until app is out, I may run into serious problems.
-https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction
+https://developer.mozilla.org/en-US/docs/Lea
+rn/Tools_and_testing/Cross_browser_testing/Introduction
 
 v 0.3.3
 -animate crab.
 --check out https://vimeo.com/373163932
---try CSS first.  Cross-browser test.
-    If that doesn't work well, then requestAnimationFrame with JS.
+    7.20.2020: eslint not respecting on-save setting, or ignore settings.
 
---click animation: simple depression.
+--multicolor stars?
 --teleport effect:
     option 1: crab scurries between regions.  
         no more divs.  uniform background.  listen for clicks on svg hitbox.
@@ -88,6 +88,7 @@ v 0.6
 v 1.0
 -lock down for production.  Is this the MCV product?
 --device state change saving?
+--lint all js.
 --minifying or packaging for browser?  optimize svg (svgomg or svgo)
 --see readme.md and index.html comments.
 

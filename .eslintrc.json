@@ -12,12 +12,7 @@
         "array-bracket-newline": "error",
         "array-bracket-spacing": "error",
         "array-callback-return": "error",
-        "array-element-newline": "error",
         "arrow-body-style": "error",
-        "arrow-parens": [
-            "error",
-            "always"
-        ],
         "arrow-spacing": [
             "error",
             {
@@ -65,7 +60,6 @@
         "generator-star-spacing": "error",
         "global-require": "error",
         "grouped-accessor-pairs": "error",
-        "guard-for-in": "error",
         "handle-callback-err": "error",
         "id-blacklist": "error",
         "id-denylist": "error",

@@ -1,8 +1,4 @@
-'use strict';
-
 /* Back-end game functionality.  e.g. score handling. */
-
-// eslint-disable-next-line no-unused-vars
 const Game = {
     score: null,
     start() {
