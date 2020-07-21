@@ -9,7 +9,7 @@
 			<![CDATA[
 			.star {
 			filter: url(#filter188);
-			fill: #ffd42a;
+			fill: #ff2aca;
 			stroke: #000000;
 			stroke-width: 2;
 			}

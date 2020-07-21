@@ -28,6 +28,15 @@
     }
 }
 
+
+.temp {
+    color: #ffd42a;
+    color: #66ff2a;
+    color: #2a86ff;
+    color: #ff2aca;
+    color: #ff2a2a;
+}
+
 /* .animate-depress {
                     animation-name: depress;
                     animation-duration: 50ms;
