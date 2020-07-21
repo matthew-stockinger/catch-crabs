@@ -80,7 +80,7 @@ const View = {
 
     animateClickStar(event, region) {
         const image = document.createElement("img");
-        image.setAttribute("src", `img/star${Game.randBetween(1,5)}-dist.svg`);
+        image.setAttribute("src", `img/star1-dist.svg`);
         image.setAttribute("alt", "star");
         // 15 px is half the width and height of the svg, as specified in 
         // the svg file.  Need to change both at once.
