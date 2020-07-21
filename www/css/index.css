@@ -116,3 +116,9 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
+#game-over-msg, #play-again-btn {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}

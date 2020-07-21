@@ -62,10 +62,14 @@ v 0.3.3
 --check out https://vimeo.com/373163932
     7.20.2020: eslint not respecting on-save setting, or ignore settings.
 
---multicolor stars?
+--multicolor stars?  tried and didn't like.  removed.  (committed with multicolor, to make rewind available).
 --teleport effect:
     option 1: crab scurries between regions.  
         no more divs.  uniform background.  listen for clicks on svg hitbox.
+        1. Put one crab on screen.  Restructure divs.
+        2. Make crab translate between regions.  Test on both orientations.
+        3. Animate legs
+        4. Make whole crab translation herky-jerky, like a real crab?
     option 2: crab drops into hole and pops out.
 
     to animate change, use css transitions?
