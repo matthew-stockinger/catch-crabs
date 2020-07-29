@@ -66,10 +66,11 @@ v 0.3.3
 --teleport effect:
     option 1: crab scurries between regions.  
         no more divs.  uniform background.  listen for clicks on svg hitbox.
-        1. Put one crab on screen.  Restructure divs.
+        1. Put one crab on screen.  Restructure divs.  Will have to change crabswap, too.
         2. Make crab translate between regions.  Test on both orientations.
         3. Animate legs
         4. Make whole crab translation herky-jerky, like a real crab?
+        5. Add single leg twitch before each move.
     option 2: crab drops into hole and pops out.
 
     to animate change, use css transitions?
@@ -79,19 +80,26 @@ v 0.3.3
 --mouse-tracking eyes?  Check out https://creepyface.io/
 --blinking?
 
+v 0.3.4
+-add background.
+
 v 0.4
 -sound, with accessibility in mind.
 -animated background?
 
 v 0.5
+-remove game over.  Change to some sort of penalty, with visual and audible feedback.
 -add clicks per second logic and view.
 
 v 0.6
 -monetize
 
+v 0.7
+-device state change testing.
+
 v 1.0
 -lock down for production.  Is this the MCV product?
---device state change saving?
+--security
 --lint all js.
 --minifying or packaging for browser?  optimize svg (svgomg or svgo)
 --see readme.md and index.html comments.
