@@ -47,22 +47,25 @@ body {
     color: white;
     margin: 1rem;
     user-select: none;
+    z-index: 2;
 }
 
 #svg-wrap {
     padding: 2rem;
     position: absolute;
-    width: 100%;
-    /* need some way to deal with multiple screen sizes.
-    svg-wrap needs to move up and down, occupying
-    top half and bottom half of phone screen. */
-    
-    /* one possibility: use flex, and animate one of the 
-    flex properties.   Another: use absolute positioning and
-    animate top and bottom properties. */
+    /* center the crab vertically, within the svg-wrap div */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    /* to animate crab movement, use top or left.  50% is region 2 */
 }
 
-.crab-here {
+#hitbox {
+    width: 100%;
+}
+
+/* .crab-here {
     background-color: lightgreen;
 }
 
@@ -72,11 +75,24 @@ body {
 
 .crab-not-here > svg {
     visibility: hidden;
-}
+} */
 
 
 /* portrait */
 @media screen and (max-aspect-ratio: 1/1) {
+    #svg-wrap {
+        width: 100%;
+        height: 50%;
+    }
+    
+    .region1 {
+        top: 0%;
+    }
+
+    .region2 {
+        top: 50%;
+    }
+
     .visible {
         display: block;
     }
@@ -88,15 +104,29 @@ body {
 
 /* landscape layout */
 @media screen and (min-aspect-ratio: 1/1) {
-    /* #game-screen.visible {
+    #game-screen.visible {
         display: flex;
-    } */
+    }
+
     #game-over-screen.visible {
         display: flex;
         flex-direction: column;
         justify-content: center; /* vertical center */
         align-items: center; /* horizontal center */
         text-align: center;
+    }
+
+    #svg-wrap {
+        height: 100%;
+        width: 50%;
+    }
+
+    .region1 {
+        left: 0%;
+    }
+
+    .region2 {
+        left: 50%;
     }
 
     .hidden {

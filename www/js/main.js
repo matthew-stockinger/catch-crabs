@@ -48,11 +48,11 @@ const Dispatch = {
 		View.playAgainBtn.addEventListener("click", (event) => {
 			this.gameStart(event);
 		}, false);
-		View.region1.addEventListener("mousedown", (event) => {
-			this.regionClick(event, View.region1);
+		View.hitbox.addEventListener("mousedown", (event) => {
+			this.crabClick(event);
 		}, false);
-		View.region2.addEventListener("mousedown", (event) => {
-			this.regionClick(event, View.region2);
+		View.gameScreen.addEventListener("mousedown", (event) => {
+			this.crabMiss(event);
 		}, false);
 		View.playAgainBtn.click();
 	},
@@ -67,14 +67,6 @@ const Dispatch = {
 		this.cycleCrab(1, 5); // start crab moving back and forth.
 	},
 
-	/*
-	pick a random length of time, between 1 and 5 seconds.
-	after that amount of time, crabSwap.
-	only at that moment of crabSwap, begin again at the top (recurse).
-
-	If crab-not-here clicked, clear the timer and game over.
-	*/
-	
 	// moves crab between regions at random time intervals.
 	cycleCrab(minTime, maxTime) {
 		let t = Math.random() * (maxTime - minTime) + minTime;
@@ -85,14 +77,20 @@ const Dispatch = {
 		}, t * 1000);
 	},
 
-	regionClick(event, region) {
+	/* new code */
+	crabClick(event) {
+		console.log(`hitbox clicked.  event target = ${event.target}`);
 		event.preventDefault();
-		if (region.classList.contains("crab-here")) {
-			View.animateClickStar(event, region);
-			this.scorePoint(event);
-		} else if (region.classList.contains("crab-not-here")) {
-			this.gameOver(event);
-		}
+		event.stopPropagation();
+		View.animateClickStar(event, true);
+		this.scorePoint(event);
+	},
+	
+	crabMiss(event) {
+		console.log(`game-screen clicked.  event target = ${event.target}`);
+		event.preventDefault();
+		View.animateClickStar(event, false);
+		// this.gameOver(event);
 	},
 	
 	scorePoint(event) {

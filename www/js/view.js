@@ -1,11 +1,9 @@
-
 const View = {
     // main game screen elements.
     gameScreen: document.querySelector("#game-screen"),
-    region1: document.querySelector("#region1"),
-    region2: document.querySelector("#region2"),
-    crabHere: document.querySelector(".crab-here"), // The div with the crab
-    crabNotHere: document.querySelector(".crab-not-here"), // The div without the crab
+    svgWrap: document.querySelector("#svg-wrap"),
+    hitbox: document.querySelector("#hitbox"),
+    svg: document.querySelector("#svg-crab"),
     scoreLabel: document.querySelector("#score-label"),
     // game over screen elements.
     gameOverScreen: document.querySelector("#game-over-screen"),
@@ -38,30 +36,21 @@ const View = {
     },
 
     crabSwap() {
-        this.crabHere.classList.remove("crab-here");
-        this.crabHere.classList.add("crab-not-here");
-        this.crabNotHere.classList.remove("crab-not-here");
-        this.crabNotHere.classList.add("crab-here");
-        // swap the code references.
-        [this.crabHere, this.crabNotHere] = [this.crabNotHere, this.crabHere];
-        // get rid of stars on blank side
-        this.animateResetStars();
+        // make crab move to other side of screen
+        this.svgWrap.classList.toggle("region1");
+        this.svgWrap.classList.toggle("region2");
     },
 
     resetCrab() {
-        this.region1.classList.remove("crab-not-here");
-        this.region1.classList.add("crab-here");
-        this.region2.classList.remove("crab-here");
-        this.region2.classList.add("crab-not-here");
-        this.crabHere = document.querySelector(".crab-here");
-        this.crabNotHere = document.querySelector(".crab-not-here");
+        /* new code */
+        this.svgWrap.classList.remove("region2");
+        this.svgWrap.classList.add("region1");
     },
 
     // parameter = string name of animation class to add.
     animate(animation) {
-        const crab = this.crabHere.querySelector("svg");
         // in case the current animation is already in process, remove that.
-        crab.classList.remove(animation);
+        this.svg.classList.remove(animation);
         // restarts animation.
         // explanation here: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Tips
         window.requestAnimationFrame(() => {
@@ -73,14 +62,16 @@ const View = {
 
     animateResetAll() {
         // stop crab animations
-        this.crabHere.querySelector("svg").removeAttribute("class");
+        this.svg.removeAttribute("class");
         // delete stars
         this.animateResetStars();
     },
 
-    animateClickStar(event, region) {
+    // hitCrab is boolean
+    animateClickStar(event, hitCrab) {
         const image = document.createElement("img");
-        image.setAttribute("src", `img/star1-dist.svg`);
+        // star1-dist.svg is yellow.  star2 is red.
+        image.setAttribute("src", `img/star${hitCrab ? 1 : 2}-dist.svg`);
         image.setAttribute("alt", "star");
         // 15 px is half the width and height of the svg, as specified in 
         // the svg file.  Need to change both at once.
@@ -91,18 +82,14 @@ const View = {
 
         // image removes itself from DOM once animation completes.
         image.addEventListener("animationend", () => {
-            region.removeChild(image);
+            this.gameScreen.removeChild(image);
         });
 
-        // insert at top of #game-screen div.
-        region.insertBefore(image, region.querySelector("svg"));
+        this.gameScreen.insertBefore(image, this.scoreLabel);
     },
 
     animateResetStars() {
-        this.region1.querySelectorAll("img").forEach((im) => {
-            im.remove();
-        });
-        this.region2.querySelectorAll("img").forEach((im) => {
+        this.gameScreen.querySelectorAll("img").forEach((im) => {
             im.remove();
         });
     }
