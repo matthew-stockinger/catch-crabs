@@ -67,8 +67,8 @@ v 0.3.3
     option 1: crab scurries between regions.  
         no more divs.  uniform background.  listen for clicks on svg hitbox.
         1. Put one crab on screen.  Restructure divs.
-        ***7.29.2020 - working on step 2. 
         2. Make crab translate between regions.  Test on both orientations.
+        ** 7.29.2020 working on step 3.
         3. Animate legs
         4. Make whole crab translation herky-jerky, like a real crab?
         5. Add single leg twitch before each move.

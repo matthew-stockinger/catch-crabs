@@ -2,6 +2,22 @@
     animation-play-state: paused;
 }
 
+/* portrait */
+@media screen and (max-aspect-ratio: 1/1) {
+    .region1, .region2 {
+        transition: top 1s;
+    }
+}
+
+/* landscape */
+@media screen and (min-aspect-ratio: 1/1) {
+    .region1, .region2 {
+        transition: left 1s;
+    }
+}
+
+/*************** click star stuff ***************************/
+
 .star {
     display: block;
     width: 30px;
@@ -29,21 +45,3 @@
         opacity: 0;
     }
 }
-
-/* .animate-depress {
-                    animation-name: depress;
-                    animation-duration: 50ms;
-                    animation-timing-function: linear;
-                    animation-direction: alternate;
-                    animation-iteration-count: 2;
-                }
-                
-                @keyframes depress {
-                    from {
-                        transform: scale(1.0);
-                    }
-                
-                    to {
-                        transform: scale(0.99);
-                    }
-                } */
