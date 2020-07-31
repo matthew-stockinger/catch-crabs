@@ -46,6 +46,9 @@ body {
     font-size: 2rem;
     color: white;
     margin: 1rem;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     z-index: 2;
 }
@@ -142,7 +145,8 @@ body {
 }
 
 #game-over-msg, #play-again-btn {
-    user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

@@ -17,28 +17,29 @@
  * under the License.
  */
 
- /* to shut some eslint errors.  */
- /* global View:writable, Game:writable */
+/* to shut some eslint errors.  */
+/* global View:writable, Game:writable */
 
 var app = {
-    initialize() {
+	initialize() {
 		document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
-	
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady() {
+	},
+
+	// deviceready Event Handler
+	//
+	// Bind any cordova events here. Common events are:
+	// 'pause', 'resume', etc.
+	onDeviceReady() {
 		this.runApp();
-    },
-	
-    runApp() {
+	},
+
+	runApp() {
 		Dispatch.init();
 	}
 };
 
 let swapTimer;
+let lastMouseMoveTimeStamp = 0;
 const Dispatch = {
 	init() {
 		// all event listener callbacks in this code use anonymous arrow functions
@@ -48,12 +49,26 @@ const Dispatch = {
 		View.playAgainBtn.addEventListener("click", (event) => {
 			this.gameStart(event);
 		}, false);
+
+		// desktop
 		View.hitbox.addEventListener("mousedown", (event) => {
+			console.log(`hitbox mousedown fired.  event target = ${event.target}`);
 			this.crabClick(event);
 		}, false);
 		View.gameScreen.addEventListener("mousedown", (event) => {
+			console.log(`gameScreen mousedown fired.  event target = ${event.target}`);
 			this.crabMiss(event);
 		}, false);
+		// mobile
+		View.hitbox.addEventListener("touchstart", (event) => {
+			console.log(`hitbox touchstart fired.  event target = ${event.target}`);
+			this.crabClick(event);
+		}, false);
+		View.gameScreen.addEventListener("touchstart", (event) => {
+			console.log(`gameScreen touchstart fired.  event target = ${event.target}`);
+			this.crabMiss(event);
+		}, false);
+
 		View.playAgainBtn.click();
 	},
 
@@ -77,22 +92,21 @@ const Dispatch = {
 		}, t * 1000);
 	},
 
-	/* new code */
 	crabClick(event) {
-		console.log(`hitbox clicked.  event target = ${event.target}`);
+		console.log(`crabClick() called`);
 		event.preventDefault();
 		event.stopPropagation();
 		View.animateClickStar(event, true);
 		this.scorePoint(event);
 	},
-	
+
 	crabMiss(event) {
-		console.log(`game-screen clicked.  event target = ${event.target}`);
+		console.log(`crabMiss() called`);
 		event.preventDefault();
 		View.animateClickStar(event, false);
 		// this.gameOver(event);
 	},
-	
+
 	scorePoint(event) {
 		event.preventDefault();
 		Game.scorePoint(); // update score variable
@@ -114,8 +128,8 @@ const Dispatch = {
 		View.show(View.gameOverScreen);
 		View.animateResetAll();
 		let endMessage = `<p>Game over.</p>`;
-		endMessage += `<p>You scored ${Game.getScore()} point` + 
-		`${Game.getScore() === 1 ? '' : 's'}.</p>`;
+		endMessage += `<p>You scored ${Game.getScore()} point` +
+			`${Game.getScore() === 1 ? '' : 's'}.</p>`;
 		View.render(View.gameOverMsg, endMessage);
 	}
 };

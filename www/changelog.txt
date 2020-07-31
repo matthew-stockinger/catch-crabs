@@ -69,6 +69,20 @@ v 0.3.3
         1. Put one crab on screen.  Restructure divs.
         2. Make crab translate between regions.  Test on both orientations.
         ** 7.29.2020 working on step 3.
+        ** mouse/touchpad/mobile-touch issues.
+
+---------------------------- touch event  issues ---------------------------------------
+
+Solutions:
+
+ok - desktop browser with mouse: mousedown.
+ok - mobile browser: touchstart  (need clientX clientY fix for star location)
+ok - mobile webview: touchstart
+pc desktop touchpad: not distinguishable from fast mouse movement.  Touchpad indistinguishable from mouse, as well.  Leave out support.
+
+----------------------------------------------------------------------------------------
+
+        ** Crab sizing needs fixing.  Positioning on some browsers.
         3. Animate legs
         4. Make whole crab translation herky-jerky, like a real crab?
         5. Add single leg twitch before each move.

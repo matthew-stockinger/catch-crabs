@@ -27,9 +27,10 @@
     /* prevent click events from firing on stars */
     pointer-events: none;
     /* prevent ugly accidental selection */
-    user-select: none;
-    -webkit-user-select: none;
     -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     opacity: 0;
     /* keep it faded out after animation end. */
     animation-name: star-fade;
