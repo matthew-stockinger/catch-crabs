@@ -82,7 +82,18 @@ pc desktop touchpad: not distinguishable from fast mouse movement.  Touchpad ind
 
 ----------------------------------------------------------------------------------------
 
+-------------- sizing issue ------------------------------------------------------------
         ** Crab sizing needs fixing.  Positioning on some browsers.
+            svg: width and height = 100%
+            hitbox: width and height = 100%
+            this should kinda solve it.  If I want the hitbox to be tight, then I see two, difficult options.
+            Option 1: Use media queries that correlate screen sizes to the aspect ratio of the crab.
+                Scale the crab according to height for one scenario, and width for the other.
+            Option 2: Try putting a new master <g> inside of the <svg>.  Maybe the event listener could
+                be attached to this.  Will it size smaller than the <svg>?
+        *** next step 8.2.2020: browser testing.  Option 2 solution worked!  Also make sure positioning is ok.
+------------- end sizing issue -----------------------------------------------------------
+
         3. Animate legs
         4. Make whole crab translation herky-jerky, like a real crab?
         5. Add single leg twitch before each move.

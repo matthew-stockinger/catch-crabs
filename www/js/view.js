@@ -2,7 +2,7 @@ const View = {
     // main game screen elements.
     gameScreen: document.querySelector("#game-screen"),
     svgWrap: document.querySelector("#svg-wrap"),
-    hitbox: document.querySelector("#hitbox"),
+    hitbox: document.querySelector("#g-wrap"),
     svg: document.querySelector("#svg-crab"),
     scoreLabel: document.querySelector("#score-label"),
     // game over screen elements.
