@@ -54,13 +54,15 @@ v 0.3.2
 
 v 0.3.2.1
 -cross-browser testing.  if I wait until app is out, I may run into serious problems.
-https://developer.mozilla.org/en-US/docs/Lea
-rn/Tools_and_testing/Cross_browser_testing/Introduction
+https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction
 
 v 0.3.3
+LESSONS LEARNED:
+-a laptop touchpad is indistinguishable from a mouse.  This means that a touch-move-release on the touchpad is the same as a quick mouse move.  On a touch device, however, this will fire a touchstart.  Bottom line: use event listeners for both mousedown and touchstart.
+-a <g> element is not a rectangle, for the purposes of event listeners.  The boundaries are set by the svg elements inside of it.  For this game, can use parent svg element for a loose hitbox, or can use the <g> for a strict hitbox.
+
 -animate crab.
 --check out https://vimeo.com/373163932
-    7.20.2020: eslint not respecting on-save setting, or ignore settings.
 
 --multicolor stars?  tried and didn't like.  removed.  (committed with multicolor, to make rewind available).
 --teleport effect:
@@ -68,32 +70,11 @@ v 0.3.3
         no more divs.  uniform background.  listen for clicks on svg hitbox.
         1. Put one crab on screen.  Restructure divs.
         2. Make crab translate between regions.  Test on both orientations.
-        ** 7.29.2020 working on step 3.
-        ** mouse/touchpad/mobile-touch issues.
-
----------------------------- touch event  issues ---------------------------------------
-
-Solutions:
-
-ok - desktop browser with mouse: mousedown.
-ok - mobile browser: touchstart  (need clientX clientY fix for star location)
-ok - mobile webview: touchstart
-pc desktop touchpad: not distinguishable from fast mouse movement.  Touchpad indistinguishable from mouse, as well.  Leave out support.
-
-----------------------------------------------------------------------------------------
-
--------------- sizing issue ------------------------------------------------------------
-        ** Crab sizing needs fixing.  Positioning on some browsers.
-            svg: width and height = 100%
-            hitbox: width and height = 100%
-            this should kinda solve it.  If I want the hitbox to be tight, then I see two, difficult options.
-            Option 1: Use media queries that correlate screen sizes to the aspect ratio of the crab.
-                Scale the crab according to height for one scenario, and width for the other.
-            Option 2: Try putting a new master <g> inside of the <svg>.  Maybe the event listener could
-                be attached to this.  Will it size smaller than the <svg>?
-        *** next step 8.2.2020: browser testing.  Option 2 solution worked!  Also make sure positioning is ok.
-------------- end sizing issue -----------------------------------------------------------
-
+****bookmark here, as of 8.23.2020.  
+    -Working on iOS Safari display issues. 
+    --Try Safari developer tools, on my mac.  Also can run Simulator, which runs on top of XCode.  It emulates iOS Safari.
+    -upgrade to cordova 10.0.0.  Test for any problems.
+****
         3. Animate legs
         4. Make whole crab translation herky-jerky, like a real crab?
         5. Add single leg twitch before each move.
@@ -143,6 +124,7 @@ v 1.1
 v 1.?
 -difficulty settings.  Use crabswap parameters to set things.
     also consider changing animation and sound timings to be tighter or looser.
+--option for loose or strict hitbox.  (target parent <svg> or <g> inside, respectively)
 
 v 2.0?
 -social

@@ -1,9 +1,9 @@
 const View = {
     // main game screen elements.
     gameScreen: document.querySelector("#game-screen"),
-    svgWrap: document.querySelector("#svg-wrap"),
-    hitbox: document.querySelector("#g-wrap"),
-    svg: document.querySelector("#svg-crab"),
+    svgWrap: document.querySelector("#svg-wrap"), // the container div
+    hitbox: document.querySelector("#g-wrap"), // g elt. inside svg elt.
+    svg: document.querySelector("#svg-crab"), // main svg elt.
     scoreLabel: document.querySelector("#score-label"),
     // game over screen elements.
     gameOverScreen: document.querySelector("#game-over-screen"),

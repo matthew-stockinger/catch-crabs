@@ -51,7 +51,7 @@ const Dispatch = {
 		}, false);
 
 		// desktop
-		View.hitbox.addEventListener("mousedown", (event) => {
+		View.svg.addEventListener("mousedown", (event) => {
 			console.log(`hitbox mousedown fired.  event target = ${event.target}`);
 			this.crabClick(event);
 		}, false);
@@ -60,7 +60,7 @@ const Dispatch = {
 			this.crabMiss(event);
 		}, false);
 		// mobile
-		View.hitbox.addEventListener("touchstart", (event) => {
+		View.svg.addEventListener("touchstart", (event) => {
 			console.log(`hitbox touchstart fired.  event target = ${event.target}`);
 			this.crabClick(event);
 		}, false);
@@ -79,7 +79,7 @@ const Dispatch = {
 		this.resetCrab(); // put crab in left/top again.
 		View.hide(View.gameOverScreen);
 		View.show(View.gameScreen);
-		// this.cycleCrab(1, 5); // start crab moving back and forth.
+		this.cycleCrab(1, 5); // start crab moving back and forth.
 	},
 
 	// moves crab between regions at random time intervals.
