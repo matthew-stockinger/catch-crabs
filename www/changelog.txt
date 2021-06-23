@@ -70,11 +70,7 @@ LESSONS LEARNED:
         no more divs.  uniform background.  listen for clicks on svg hitbox.
         1. Put one crab on screen.  Restructure divs.
         2. Make crab translate between regions.  Test on both orientations.
-****bookmark here, as of 8.23.2020.  
-    -Working on iOS Safari display issues. 
-    --Try Safari developer tools, on my mac.  Also can run Simulator, which runs on top of XCode.  It emulates iOS Safari.
-    -upgrade to cordova 10.0.0.  Test for any problems.
-****
+****bookmark here, as of 8.23.2020.  ****
         3. Animate legs
         4. Make whole crab translation herky-jerky, like a real crab?
         5. Add single leg twitch before each move.
@@ -107,6 +103,7 @@ v 0.7
 v 1.0
 -lock down for production.  Is this the MCV product?
 --security
+----vulnerability email: https://github.com/advisories/GHSA-c6pw-q7f2-97hv
 --lint all js.
 --minifying or packaging for browser?  optimize svg (svgomg or svgo)
 --see readme.md and index.html comments.

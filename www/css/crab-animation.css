@@ -2,19 +2,37 @@
     animation-play-state: paused;
 }
 
+/******************* crab movement ***************************/
+:root {
+    --crab-duration: 1s;
+}
+
+.rLeg1 { transform-origin: 33% 51.5%; }
+.rLeg2 { transform-origin: 33% 52%; }
+.rLeg3 { transform-origin: 34% 51.5%; }
+.rLeg4 { transform-origin: 37% 45%; }
+.lLeg1 { transform-origin: 62% 53%; }
+.lLeg2 { transform-origin: 64% 44%; }
+.lLeg3 { transform-origin: 63% 51%; }
+.lLeg4 { transform-origin: 63% 45%; }
+
+
 /* portrait */
 @media screen and (max-aspect-ratio: 1/1) {
     .region1, .region2 {
-        transition: top 1s;
+        transition: top var(--crab-duration);
+        animation-name: r-leg1;
+        animation-duration: var(--crab-duration);
     }
 }
 
 /* landscape */
 @media screen and (min-aspect-ratio: 1/1) {
     .region1, .region2 {
-        transition: left 1s;
+        transition: left var(--crab-duration);
     }
 }
+
 
 /*************** click star stuff ***************************/
 

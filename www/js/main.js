@@ -79,7 +79,7 @@ const Dispatch = {
 		this.resetCrab(); // put crab in left/top again.
 		View.hide(View.gameOverScreen);
 		View.show(View.gameScreen);
-		this.cycleCrab(1, 5); // start crab moving back and forth.
+		// this.cycleCrab(1, 5); // start crab moving back and forth.
 	},
 
 	// moves crab between regions at random time intervals.
