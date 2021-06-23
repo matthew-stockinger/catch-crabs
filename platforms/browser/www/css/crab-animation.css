@@ -1,0 +1,48 @@
+.animate-pause {
+    animation-play-state: paused;
+}
+
+/* portrait */
+@media screen and (max-aspect-ratio: 1/1) {
+    .region1, .region2 {
+        transition: top 1s;
+    }
+}
+
+/* landscape */
+@media screen and (min-aspect-ratio: 1/1) {
+    .region1, .region2 {
+        transition: left 1s;
+    }
+}
+
+/*************** click star stuff ***************************/
+
+.star {
+    display: block;
+    width: 30px;
+    position: fixed;
+    /* top and left set by clientX and clientY */
+    z-index: 1;
+    /* prevent click events from firing on stars */
+    pointer-events: none;
+    /* prevent ugly accidental selection */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 0;
+    /* keep it faded out after animation end. */
+    animation-name: star-fade;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes star-fade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,159 @@
+.face {
+    fill: none;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.lClaw {
+    fill: #ff791f;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.lArm {
+    fill: url(#linearGradient10770);
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.rClaw {
+    fill: #ff791f;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.rArm {
+    display: inline;
+    fill: url(#linearGradient10768);
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.eyes {
+    stroke-opacity: 1;
+}
+
+.eyeStalk {
+    fill: #ffcd7e;
+    stroke-width: .26458px;
+    stroke: #000
+}
+
+.eyePhong {
+    fill: #fff;
+    stroke-width: 0
+}
+
+.eyeBlack {
+    stroke-width: .26458px;
+    stroke: #000
+}
+
+.lLeg4 {
+    fill: url(#linearGradient1223);
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.lLeg3 {
+    fill: #ffbf5a;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.lLeg2 {
+    fill: #ff9c00;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.lLeg1 {
+    fill: #ffae2f;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.rLeg4 {
+    fill: url(#linearGradient1209);
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.rLeg3 {
+    fill: #ffc66e;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.rLeg2 {
+    fill: #ffb848;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.rLeg1 {
+    fill: #ffaa23;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-opacity: 1;
+    stroke-width: 0.264583px;
+}
+
+.body {
+    fill: url(#linearGradient1263);
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-dasharray: none;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 0.264583;
+}
