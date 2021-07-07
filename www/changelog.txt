@@ -1,13 +1,8 @@
-Problems:
-2. multiple touches won't register.  perhaps change event away from click.
-    maybe use touchstart or mouseon.
-3. figure out package.json, npm, and folder structure setup better.
-    
-11.17.2019
-Currently working on v0.3
+See below for current progress point bookmark.
 
 ** mobile testing CLI notes *********************
 cordova run android --device
+cordova run browser
 
 ***** Plans *******
 
@@ -43,6 +38,7 @@ crabHere or not.
 
 v 0.3.0
 make something with inkscape--anything--and try to get it into the app as SVG.
+use svgomg to fix it up.  add group id's for future animation.
 
 v 0.3.1
 -add crab image
@@ -70,10 +66,10 @@ LESSONS LEARNED:
         no more divs.  uniform background.  listen for clicks on svg hitbox.
         1. Put one crab on screen.  Restructure divs.
         2. Make crab translate between regions.  Test on both orientations.
-****bookmark here, as of 8.23.2020.  ****
         3. Animate legs
+            -will need to test on Firefox and Safari, since transform-origin is funky in those browsers.  May possibly fix problems with transform-box: fill-box.
         4. Make whole crab translation herky-jerky, like a real crab?
-        5. Add single leg twitch before each move.
+        5. Add single leg twitch before each move?
     option 2: crab drops into hole and pops out.
 
     to animate change, use css transitions?
@@ -82,9 +78,13 @@ LESSONS LEARNED:
 --spinny eyes?
 --mouse-tracking eyes?  Check out https://creepyface.io/
 --blinking?
+--randomly moving eye Phongs.  Model after Dispatch.cycleCrab method.
+--randomly twitching claws.
 
+****bookmark here, as of 7.7.2021.  ****
 v 0.3.4
 -add background.
+-splash screen.
 
 v 0.4
 -sound, with accessibility in mind.
