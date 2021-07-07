@@ -1,13 +1,8 @@
-See below for current progress point.
-
-Problems:
-2. multiple touches won't register.  perhaps change event away from click.
-    maybe use touchstart or mouseon.
-3. figure out package.json, npm, and folder structure setup better.
-    
+See below for current progress point bookmark.
 
 ** mobile testing CLI notes *********************
 cordova run android --device
+cordova run browser
 
 ***** Plans *******
 
@@ -83,9 +78,10 @@ LESSONS LEARNED:
 --spinny eyes?
 --mouse-tracking eyes?  Check out https://creepyface.io/
 --blinking?
-****bookmark here, as of 8.23.2020.  ****
 --randomly moving eye Phongs.  Model after Dispatch.cycleCrab method.
+--randomly twitching claws.
 
+****bookmark here, as of 7.7.2021.  ****
 v 0.3.4
 -add background.
 -splash screen.

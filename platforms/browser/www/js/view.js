@@ -220,6 +220,3 @@ View.svgWrap.addEventListener("crabMoveStart", () => {
         });
     });
 });
-
-// View.svgWrap.addEventListener("crabMoveEnd", () => {
-// });
