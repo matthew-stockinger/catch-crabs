@@ -1,10 +1,10 @@
+See below for current progress point.
+
 Problems:
 2. multiple touches won't register.  perhaps change event away from click.
     maybe use touchstart or mouseon.
 3. figure out package.json, npm, and folder structure setup better.
     
-11.17.2019
-Currently working on v0.3
 
 ** mobile testing CLI notes *********************
 cordova run android --device
@@ -43,6 +43,7 @@ crabHere or not.
 
 v 0.3.0
 make something with inkscape--anything--and try to get it into the app as SVG.
+use svgomg to fix it up.  add group id's for future animation.
 
 v 0.3.1
 -add crab image
@@ -70,14 +71,10 @@ LESSONS LEARNED:
         no more divs.  uniform background.  listen for clicks on svg hitbox.
         1. Put one crab on screen.  Restructure divs.
         2. Make crab translate between regions.  Test on both orientations.
-****bookmark here, as of 8.23.2020.  
-    -Working on iOS Safari display issues. 
-    --Try Safari developer tools, on my mac.  Also can run Simulator, which runs on top of XCode.  It emulates iOS Safari.
-    -upgrade to cordova 10.0.0.  Test for any problems.
-****
         3. Animate legs
+            -will need to test on Firefox and Safari, since transform-origin is funky in those browsers.  May possibly fix problems with transform-box: fill-box.
         4. Make whole crab translation herky-jerky, like a real crab?
-        5. Add single leg twitch before each move.
+        5. Add single leg twitch before each move?
     option 2: crab drops into hole and pops out.
 
     to animate change, use css transitions?
@@ -86,9 +83,12 @@ LESSONS LEARNED:
 --spinny eyes?
 --mouse-tracking eyes?  Check out https://creepyface.io/
 --blinking?
+****bookmark here, as of 8.23.2020.  ****
+--randomly moving eye Phongs.  Model after Dispatch.cycleCrab method.
 
 v 0.3.4
 -add background.
+-splash screen.
 
 v 0.4
 -sound, with accessibility in mind.
@@ -107,6 +107,7 @@ v 0.7
 v 1.0
 -lock down for production.  Is this the MCV product?
 --security
+----vulnerability email: https://github.com/advisories/GHSA-c6pw-q7f2-97hv
 --lint all js.
 --minifying or packaging for browser?  optimize svg (svgomg or svgo)
 --see readme.md and index.html comments.

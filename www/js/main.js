@@ -40,8 +40,11 @@ var app = {
 
 let swapTimer;
 let lastMouseMoveTimeStamp = 0;
+const crabMoveStart = new Event('crabMoveStart'); // see Dispatch.cycleCrab
+const crabMoveEnd = new Event('crabMoveEnd');
 const Dispatch = {
 	init() {
+		// note:
 		// all event listener callbacks in this code use anonymous arrow functions
 		// so that the value of 'this' will always be the parent object, not
 		// the click target element.
@@ -79,7 +82,10 @@ const Dispatch = {
 		this.resetCrab(); // put crab in left/top again.
 		View.hide(View.gameOverScreen);
 		View.show(View.gameScreen);
-		// this.cycleCrab(1, 5); // start crab moving back and forth.
+		View.animateEyes(2, 4);
+		View.twitchLClaw(5, 8);
+		View.twitchRClaw(10, 20);
+		this.cycleCrab(1, 5); // start crab moving back and forth.
 	},
 
 	// moves crab between regions at random time intervals.
@@ -88,6 +94,8 @@ const Dispatch = {
 		t = t.toFixed(3);
 		swapTimer = setTimeout(() => {
 			this.crabSwap();
+			// safari <=12 doesn't fire transitionstart event, so need synthetic.
+			View.svgWrap.dispatchEvent(crabMoveStart); // listener is in view.js
 			this.cycleCrab(minTime, maxTime);
 		}, t * 1000);
 	},
