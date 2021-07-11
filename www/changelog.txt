@@ -88,16 +88,19 @@ v 0.3.0-5
 -no splash screen.  Just status/action bar.
 --first click begins game.
 ****bookmark here, as of 7.10.2021.  ****
---what happens if you miss?
+--what happens if you miss? default: score gets reset.
+
+v 0.3.0-6
 --info on bar: clicks per second, time elapsed, settings icon
 
 settings:
 -mode: idle, 5s time trial, 10s time trial
 -checkbox: strict hit box
--checkbox: sound
+-checkbox: misses reset game
 
 v 0.4.0
 -sound, with accessibility in mind.
+-settings checkbox: sound
 -animated background?
 
 v 0.5

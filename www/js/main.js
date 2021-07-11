@@ -114,6 +114,7 @@ const Dispatch = {
 	crabMiss(event) {
 		event.preventDefault();
 		View.animateClickStar(event, false);
+		this.resetScore(event);
 		// this.gameOver(event);
 	},
 
@@ -121,6 +122,12 @@ const Dispatch = {
 		event.preventDefault();
 		Game.scorePoint(); // update score variable
 		View.render(View.scoreLabel, Game.getScore());
+	},
+
+	resetScore(event) {
+		event.preventDefault();
+		Game.setScore(0);
+		View.render(View.scoreLabel, 0);
 	},
 
 	crabSwap() {
