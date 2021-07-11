@@ -83,8 +83,10 @@ LESSONS LEARNED:
 
 ****bookmark here, as of 7.7.2021.  ****
 v 0.3.0-4
--add background.
--splash screen.
+-add game screen background.
+
+v 0.3.0-5
+-add splash screen.
 
 v 0.4.0
 -sound, with accessibility in mind.
@@ -92,7 +94,7 @@ v 0.4.0
 
 v 0.5
 -remove game over.  Change to some sort of penalty, with visual and audible feedback.
--add clicks per second logic and view.
+-add clicks per second logic and view.  Status bar(s).  Anything else?
 
 v 0.6
 -monetize
