@@ -81,12 +81,20 @@ LESSONS LEARNED:
 --randomly moving eye Phongs.  Model after Dispatch.cycleCrab method.
 --randomly twitching claws.
 
-****bookmark here, as of 7.7.2021.  ****
 v 0.3.0-4
 -add game screen background.
 
 v 0.3.0-5
--add splash screen.
+-no splash screen.  Just status/action bar.
+--first click begins game.
+****bookmark here, as of 7.10.2021.  ****
+--what happens if you miss?
+--info on bar: clicks per second, time elapsed, settings icon
+
+settings:
+-mode: idle, 5s time trial, 10s time trial
+-checkbox: strict hit box
+-checkbox: sound
 
 v 0.4.0
 -sound, with accessibility in mind.

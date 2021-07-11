@@ -22,11 +22,6 @@
 
 /* Global Styles
 ------------------------------------------ */
-@font-face {
-    font-family: modak;
-    src: url("../fonts/modak.ttf");
-}
-
 html {
     box-sizing: border-box;
 }
@@ -37,30 +32,13 @@ body {
     margin: 0;
 }
 
-/* Splash Screen
---------------------------------------------*/
-#splash-screen {
-    width: 100vw;
-    height: 100vh;
-}
-
-#splash-logo {
-    text-align: center;
-    font-family: modak, sans-serif;
-    font-size: 12rem;
-    background: radial-gradient(orange, blue);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
 /* Game Screen
 ---------------------------------------------*/
 
 #game-screen {
     width: 100vw;
     height: 100vh;
-    background-image: url("../img/beach-sand-pattern-5.jpg");
+    background-image: url("../img/beach-sand-pattern-5s.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -98,19 +76,6 @@ body {
 #hitbox {
     width: 100%;
 }
-
-/* .crab-here {
-    background-color: lightgreen;
-}
-
-.crab-not-here {
-    background-color: black;
-}
-
-.crab-not-here > svg {
-    visibility: hidden;
-} */
-
 
 /* portrait */
 @media screen and (max-aspect-ratio: 1/1) {
