@@ -87,9 +87,9 @@ v 0.3.0-4
 v 0.3.0-5
 -no splash screen.  Just status/action bar.
 --first click begins game.
-****bookmark here, as of 7.10.2021.  ****
 --what happens if you miss? default: score gets reset.
 
+****bookmark here, as of 7.10.2021.  ****
 v 0.3.0-6
 --info on bar: clicks per second, time elapsed, settings icon
 
