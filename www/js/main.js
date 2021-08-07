@@ -81,7 +81,7 @@ const Dispatch = {
 
 	gameStart(event) {
 		event.preventDefault();
-		Game.start(); // reset score to 0.
+		Game.start(); // reset everything.
 		View.render(View.scoreLabel, 0);
 		this.resetCrab(); // put crab in left/top again.
 		View.hide(View.gameOverScreen);
@@ -106,8 +106,10 @@ const Dispatch = {
 
 	crabClick(event) {
 		event.preventDefault();
-		event.stopPropagation();
+		event.stopPropagation(); // avoid click firing on background.
 		View.animateClickStar(event, true);
+		Game.hits.push(event.timeStamp);
+		console.log(Game.hits);
 		this.statusUpdate(event);
 	},
 
@@ -119,23 +121,32 @@ const Dispatch = {
 	},
 
 	statusUpdate(event) {
-		event.preventDefault();
 		this.scorePoint(event);
+		this.updateMaxScore(event);
 		this.updateCPS(event);
+		this.updateMaxCPS(event);
 	},
 
 	scorePoint(event) {
-		event.preventDefault();
-		Game.scorePoint(); // update score variable
+		Game.score += 1;
 		View.render(View.scoreLabel, Game.getScore());
 	},
 
+	updateMaxScore(event) {
+		if (Game.score > Game.maxScore) {
+			Game.maxScore = Game.score;
+			View.render(View.maxScoreLabel, Game.maxScore);
+		}
+	},
+
 	updateCPS(event) {
-		event.preventDefault();
+	},
+	
+	updateMaxCPS(event) {
+
 	},
 
 	resetScore(event) {
-		event.preventDefault();
 		Game.setScore(0);
 		View.render(View.scoreLabel, 0);
 	},

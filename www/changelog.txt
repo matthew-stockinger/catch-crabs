@@ -92,7 +92,9 @@ v 0.3.0-5
 ****bookmark here, as of 7.10.2021.  ****
 v 0.3.0-6
 --info on bar: clicks per second, time elapsed, settings icon
-----working on Dispatch.updateCPS() right now.
+    get cps and max cps to work.
+    get timer working
+    add styling to new max events.  CSS transitions?
 
 settings:
 -mode: idle, 5s time trial, 10s time trial

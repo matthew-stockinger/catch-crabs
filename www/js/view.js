@@ -6,6 +6,7 @@ const View = {
     hitbox: document.querySelector("#g-wrap"), // g elt. inside svg elt.
     svg: document.querySelector("#svg-crab"), // main svg elt.
     scoreLabel: document.querySelector("#score-label"),
+    maxScoreLabel: document.querySelector("#max-score"),
     // game over screen elements.
     gameOverScreen: document.querySelector("#game-over-screen"),
     gameOverMsg: document.querySelector("#game-over-msg"),

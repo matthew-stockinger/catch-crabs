@@ -1,11 +1,15 @@
 /* Back-end game functionality.  e.g. score handling. */
 const Game = {
     score: null,
+    maxScore: null,
+    cps: null,
+    maxCPS: null,
+    hits: [],
     start() {
         this.score = 0;
-    },
-    scorePoint() {
-        this.score++;
+        this.maxScore = 0;
+        this.cps = 0;
+        this.maxCPS = 0;
     },
     setScore(value) {
         if (typeof value == "number") {
