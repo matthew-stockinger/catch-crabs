@@ -49,7 +49,11 @@
 
 <body>
   <div id="game-screen" class="visible">
-    <p id="score-label">0</p>
+    <div id="status-bar">
+      <p id="score-label">0</p>
+      <p><span id="cps">0</span>/s</p>
+      <p id="time">00:00</p>
+    </div>
     <!-- svg-wrap is half screen size, crab centered inside. -->
     <div id="svg-wrap" class="region1">
       <svg id="svg-crab" viewBox="0 0 90.358 57.685" xmlns="http://www.w3.org/2000/svg"
@@ -130,9 +134,6 @@
         </g>
         <!-- <rect x="0" y="0" width="1" height="1" style="transform: translateX(0%) translateY(0%);" /> -->
       </svg>
-    </div>
-    <div id="status-bar">
-      status bar
     </div>
   </div>
 

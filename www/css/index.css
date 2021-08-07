@@ -20,6 +20,10 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+/* Trying to follow Snook's SMACSS.
+http://smacss.com/book/formatting#grouping
+*/
+
 /* Global Styles
 ------------------------------------------ */
 html {
@@ -98,19 +102,33 @@ body {
     background-size: cover;
 }
 
-#score-label {
+#status-bar {
     position: absolute;
-    margin: 1rem;
+    top: 0;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+
+    background-color: black;
     
     font-family: Verdana, sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
-    z-index: 2;
     
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#score-label {
+    /* font-family: Verdana, sans-serif;
+    font-size: 2rem;
+    color: white;
+    z-index: 2; */
 }
 
 #svg-wrap {
@@ -132,22 +150,6 @@ body {
 
 #hitbox {
     width: 100%;
-}
-
-#status-bar {
-    position: absolute;
-    bottom: 0;
-    height: 40px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: black;
-    
-    font-family: Verdana, sans-serif;
-    font-size: 1.5rem;
-    color: white;
 }
 
 /* Game Over Screen

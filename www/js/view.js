@@ -171,7 +171,8 @@ const View = {
             this.gameScreen.removeChild(image);
         });
 
-        this.gameScreen.insertBefore(image, this.scoreLabel);
+        // this.gameScreen.insertBefore(image, this.scoreLabel);
+        this.gameScreen.insertBefore(image, null);
     },
 
     animateResetStars() {
