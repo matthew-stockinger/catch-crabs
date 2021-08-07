@@ -108,7 +108,7 @@ const Dispatch = {
 		event.preventDefault();
 		event.stopPropagation();
 		View.animateClickStar(event, true);
-		this.scorePoint(event);
+		this.statusUpdate(event);
 	},
 
 	crabMiss(event) {
@@ -118,10 +118,20 @@ const Dispatch = {
 		// this.gameOver(event);
 	},
 
+	statusUpdate(event) {
+		event.preventDefault();
+		this.scorePoint(event);
+		this.updateCPS(event);
+	},
+
 	scorePoint(event) {
 		event.preventDefault();
 		Game.scorePoint(); // update score variable
 		View.render(View.scoreLabel, Game.getScore());
+	},
+
+	updateCPS(event) {
+		event.preventDefault();
 	},
 
 	resetScore(event) {

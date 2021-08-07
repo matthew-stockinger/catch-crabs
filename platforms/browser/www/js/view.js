@@ -146,9 +146,6 @@ const View = {
 
     // hitCrab is boolean
     animateClickStar(event, hitCrab) {
-        console.log(`in animateClickStar(event, hitCrab).  
-        event = ${event} and hitCrab = ${hitCrab}
-        event.type = ${event.type}`);
         const image = document.createElement("img");
         let clientX = 15, clientY = 15;
         // star1-dist.svg is yellow.  star2 is red.
@@ -156,18 +153,14 @@ const View = {
         image.setAttribute("alt", "star");
         // get coords of touchstart/mousedown
         if (event.type === 'mousedown') {
-            console.log(`event.type === mousedown`);
             clientX = Math.round(event.clientX);
             clientY = Math.round(event.clientY);
         } else if (event.type === 'touchstart') {
-            console.log(`event.type === touchstart`);
             clientX = Math.round(event.touches[0].clientX);
             clientY = Math.round(event.touches[0].clientY);
         }
         // 15 px is half the width and height of the svg, as specified in 
         // the svg file.  Need to change both at once.
-        console.log(`clientX = ${clientX}`);
-        console.log(`clientY = ${clientY}`);
         image.style.left = `${clientX - 15}px`;
         image.style.top = `${clientY - 15}px`;
         // add animation CSS
@@ -178,7 +171,8 @@ const View = {
             this.gameScreen.removeChild(image);
         });
 
-        this.gameScreen.insertBefore(image, this.scoreLabel);
+        // this.gameScreen.insertBefore(image, this.scoreLabel);
+        this.gameScreen.insertBefore(image, null);
     },
 
     animateResetStars() {

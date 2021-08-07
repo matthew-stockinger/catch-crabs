@@ -39,40 +39,44 @@ var app = {
 };
 
 let swapTimer;
-let lastMouseMoveTimeStamp = 0;
 const crabMoveStart = new Event('crabMoveStart'); // see Dispatch.cycleCrab
 const crabMoveEnd = new Event('crabMoveEnd');
 const Dispatch = {
 	init() {
+		this.gameRunning = false;
+		View.preventDrag();
+
 		// note:
 		// all event listener callbacks in this code use anonymous arrow functions
 		// so that the value of 'this' will always be the parent object, not
 		// the click target element.
-		View.preventDrag();
 		View.playAgainBtn.addEventListener("click", (event) => {
 			this.gameStart(event);
 		}, false);
 
 		// desktop
-		View.svg.addEventListener("mousedown", (event) => {
-			console.log(`hitbox mousedown fired.  event target = ${event.target}`);
+		View.hitbox.addEventListener("mousedown", (event) => {
+			if (!this.gameRunning) {
+				this.gameStart(event);
+				this.gameRunning = true;
+			}
 			this.crabClick(event);
 		}, false);
 		View.gameScreen.addEventListener("mousedown", (event) => {
-			console.log(`gameScreen mousedown fired.  event target = ${event.target}`);
-			this.crabMiss(event);
-		}, false);
-		// mobile
-		View.svg.addEventListener("touchstart", (event) => {
-			console.log(`hitbox touchstart fired.  event target = ${event.target}`);
-			this.crabClick(event);
-		}, false);
-		View.gameScreen.addEventListener("touchstart", (event) => {
-			console.log(`gameScreen touchstart fired.  event target = ${event.target}`);
 			this.crabMiss(event);
 		}, false);
 
-		View.playAgainBtn.click();
+		// mobile
+		View.hitbox.addEventListener("touchstart", (event) => {
+			if (!this.gameRunning) {
+				this.gameStart(event);
+				this.gameRunning = true;
+			}
+			this.crabClick(event);
+		}, false);
+		View.gameScreen.addEventListener("touchstart", (event) => {
+			this.crabMiss(event);
+		}, false);
 	},
 
 	gameStart(event) {
@@ -101,24 +105,39 @@ const Dispatch = {
 	},
 
 	crabClick(event) {
-		console.log(`crabClick() called`);
 		event.preventDefault();
 		event.stopPropagation();
 		View.animateClickStar(event, true);
-		this.scorePoint(event);
+		this.statusUpdate(event);
 	},
 
 	crabMiss(event) {
-		console.log(`crabMiss() called`);
 		event.preventDefault();
 		View.animateClickStar(event, false);
+		this.resetScore(event);
 		// this.gameOver(event);
+	},
+
+	statusUpdate(event) {
+		event.preventDefault();
+		this.scorePoint(event);
+		this.updateCPS(event);
 	},
 
 	scorePoint(event) {
 		event.preventDefault();
 		Game.scorePoint(); // update score variable
 		View.render(View.scoreLabel, Game.getScore());
+	},
+
+	updateCPS(event) {
+		event.preventDefault();
+	},
+
+	resetScore(event) {
+		event.preventDefault();
+		Game.setScore(0);
+		View.render(View.scoreLabel, 0);
 	},
 
 	crabSwap() {

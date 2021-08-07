@@ -48,11 +48,16 @@
 </head>
 
 <body>
-  <div id="game-screen" class="visible" style="background-color:rgb(0, 255, 34);">
-    <p id="score-label">0</p>
+  <div id="game-screen" class="visible">
+    <div id="status-bar">
+      <p><span id="score-label">0</span> / <span id="max-score">0</span> max</p>
+      <p><span id="cps">0</span> cps / <span id="max-cps">0</span> max</p>
+      <p id="time">00:00</p>
+      <p id="settings-icon">iconhere</p>
+    </div>
     <!-- svg-wrap is half screen size, crab centered inside. -->
-    <div id="svg-wrap" class="region1" style="background-color: orange;">
-      <svg id="svg-crab" viewBox="0 0 90.358 57.685" style="background-color:yellow;" xmlns="http://www.w3.org/2000/svg"
+    <div id="svg-wrap" class="region1">
+      <svg id="svg-crab" viewBox="0 0 90.358 57.685" xmlns="http://www.w3.org/2000/svg"
         xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
           <linearGradient id="linearGradient1215">
@@ -133,14 +138,11 @@
     </div>
   </div>
 
-  </div>
-
   <div id="game-over-screen" class="hidden">
     <div id="game-over-msg"></div>
     <button type="button" id="play-again-btn">Play Again</button>
   </div>
 
-  <!-- <script src="debug.js"></script> -->
   <script src="cordova.js"></script>
   <script src="js/game.js"></script> <!-- model/back-end -->
   <script src="js/view.js"></script> <!-- view/front-end -->

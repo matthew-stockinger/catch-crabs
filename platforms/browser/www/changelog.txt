@@ -52,7 +52,7 @@ v 0.3.2.1
 -cross-browser testing.  if I wait until app is out, I may run into serious problems.
 https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction
 
-v 0.3.3
+v 0.3.0-3
 LESSONS LEARNED:
 -a laptop touchpad is indistinguishable from a mouse.  This means that a touch-move-release on the touchpad is the same as a quick mouse move.  On a touch device, however, this will fire a touchstart.  Bottom line: use event listeners for both mousedown and touchstart.
 -a <g> element is not a rectangle, for the purposes of event listeners.  The boundaries are set by the svg elements inside of it.  For this game, can use parent svg element for a loose hitbox, or can use the <g> for a strict hitbox.
@@ -81,18 +81,32 @@ LESSONS LEARNED:
 --randomly moving eye Phongs.  Model after Dispatch.cycleCrab method.
 --randomly twitching claws.
 
-****bookmark here, as of 7.7.2021.  ****
-v 0.3.4
--add background.
--splash screen.
+v 0.3.0-4
+-add game screen background.
 
-v 0.4
+v 0.3.0-5
+-no splash screen.  Just status/action bar.
+--first click begins game.
+--what happens if you miss? default: score gets reset.
+
+****bookmark here, as of 7.10.2021.  ****
+v 0.3.0-6
+--info on bar: clicks per second, time elapsed, settings icon
+----working on Dispatch.updateCPS() right now.
+
+settings:
+-mode: idle, 5s time trial, 10s time trial
+-checkbox: strict hit box
+-checkbox: misses reset game
+
+v 0.4.0
 -sound, with accessibility in mind.
+-settings checkbox: sound
 -animated background?
 
 v 0.5
 -remove game over.  Change to some sort of penalty, with visual and audible feedback.
--add clicks per second logic and view.
+-add clicks per second logic and view.  Status bar(s).  Anything else?
 
 v 0.6
 -monetize

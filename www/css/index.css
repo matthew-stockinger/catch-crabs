@@ -35,22 +35,26 @@ html {
 body {
     margin: 0;
 }
+:root {
+    --status-bar-height: 8vw;
+}
 
 /* Game Screen
 ---------------------------------------------*/
+
 /* portrait */
 @media screen and (max-aspect-ratio: 1/1) {
     #svg-wrap {
         width: 100%;
-        height: calc(50% - 20px);
+        height: calc(50% - var(--status-bar-height) / 2);
     }
     
     .region1 {
-        top: 0%;
+        top: var(--status-bar-height);
     }
 
     .region2 {
-        top: calc(50% - 20px);
+        top: calc(50% + var(--status-bar-height) / 2);
     }
 
     .visible {
@@ -77,8 +81,9 @@ body {
     }
 
     #svg-wrap {
-        height: 100%;
+        height: calc(100% - var(--status-bar-height));
         width: 50%;
+        top: var(--status-bar-height);
     }
 
     .region1 {
@@ -105,7 +110,7 @@ body {
 #status-bar {
     position: absolute;
     top: 0;
-    height: 40px;
+    height: var(--status-bar-height);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -113,9 +118,10 @@ body {
     padding: 0 1rem;
 
     background-color: black;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
     
     font-family: Verdana, sans-serif;
-    font-size: 1.5rem;
+    font-size: 3vw;
     color: white;
     
     -moz-user-select: none;
@@ -129,6 +135,10 @@ body {
     font-size: 2rem;
     color: white;
     z-index: 2; */
+}
+
+#settings-icon {
+    display: none;
 }
 
 #svg-wrap {
