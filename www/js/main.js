@@ -53,6 +53,7 @@ const Dispatch = {
 		View.playAgainBtn.addEventListener("click", (event) => {
 			this.gameStart(event);
 		}, false);
+		window.addEventListener("timeUpdate", this.updateCPS);
 
 		// desktop
 		View.hitbox.addEventListener("mousedown", (event) => {
@@ -90,7 +91,7 @@ const Dispatch = {
 		View.twitchLClaw(5, 8);
 		View.twitchRClaw(10, 20);
 		this.cycleCrab(1, 5); // start crab moving back and forth.
-		Game.startTime();
+		Game.startTime(event);
 	},
 
 	// moves crab between regions at random time intervals.
@@ -109,9 +110,9 @@ const Dispatch = {
 		event.preventDefault();
 		event.stopPropagation(); // avoid click firing on background.
 		View.animateClickStar(event, true);
-		Game.hits.push(Math.round(event.timeStamp));
-		console.log(Game.hits);
-		this.statusUpdate(event);
+		Game.hits.push(Math.round(event.timeStamp) - Game.startStamp);
+		this.scorePoint(event);
+		this.updateMaxScore(event);
 	},
 
 	crabMiss(event) {
@@ -119,13 +120,6 @@ const Dispatch = {
 		View.animateClickStar(event, false);
 		this.resetScore(event);
 		// this.gameOver(event);
-	},
-
-	statusUpdate(event) {
-		this.scorePoint(event);
-		this.updateMaxScore(event);
-		this.updateCPS(event);
-		this.updateMaxCPS(event);
 	},
 
 	scorePoint(event) {
@@ -140,11 +134,12 @@ const Dispatch = {
 		}
 	},
 
-	updateCPS(event) {
-		
+	updateCPS() {
+		let cps = Game.getCPS();
+		View.render(View.cpsLabel, cps);
 	},
 	
-	updateMaxCPS(event) {
+	updateMaxCPS() {
 
 	},
 

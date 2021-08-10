@@ -89,11 +89,12 @@ v 0.3.0-5
 --first click begins game.
 --what happens if you miss? default: score gets reset.
 
-****bookmark here, as of 7.10.2021.  ****
 v 0.3.0-6
 --info on bar: clicks per second, time elapsed, settings icon
-    get cps and max cps to work.
     get timer working
+****bookmark here, as of 7.10.2021.  ****
+    get cps and max cps to work.
+    add miss/reset behavior.  don't forget to kill timeUpdate event listener?
     add styling to new max events.  CSS transitions?
 
 settings:
