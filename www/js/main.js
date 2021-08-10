@@ -90,6 +90,7 @@ const Dispatch = {
 		View.twitchLClaw(5, 8);
 		View.twitchRClaw(10, 20);
 		this.cycleCrab(1, 5); // start crab moving back and forth.
+		Game.startTime();
 	},
 
 	// moves crab between regions at random time intervals.
@@ -108,7 +109,7 @@ const Dispatch = {
 		event.preventDefault();
 		event.stopPropagation(); // avoid click firing on background.
 		View.animateClickStar(event, true);
-		Game.hits.push(event.timeStamp);
+		Game.hits.push(Math.round(event.timeStamp));
 		console.log(Game.hits);
 		this.statusUpdate(event);
 	},
@@ -140,6 +141,7 @@ const Dispatch = {
 	},
 
 	updateCPS(event) {
+		
 	},
 	
 	updateMaxCPS(event) {
