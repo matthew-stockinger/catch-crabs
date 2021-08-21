@@ -8,7 +8,7 @@ const Game = {
   hits: [],
   time: null,
   startStamp: null,
-  
+
   start() {
     this.score = 0;
     this.maxScore = 0;
@@ -43,18 +43,20 @@ const Game = {
     return this.score;
   },
 
+  // else if (this.time < 5) {
+  //   // make the cps fall over time if user stops clicking.
+  //   if (this.time * 1000 - lastHit < 1000) {
+  //     this.cps = (this.hits.length / lastHit * 1000).toFixed(3);
+  //   } else {
+  //     this.cps = (this.hits.length / this.time).toFixed(3);
+  //   }
+
   getCPS() {
-    // rate over the past 5 seconds.
     let lastHit = this.hits[this.hits.length - 1];
-    if (this.hits.length <= 1) {
+    if (this.hits.length <= 1 || this.time < 5) {
       this.cps = 0;
-    } else if (this.time < 5) {
-      if (this.time * 1000 - lastHit < 1000) {
-        this.cps = (this.hits.length / lastHit * 1000).toFixed(3);
-      } else {
-        this.cps = (this.hits.length / this.time).toFixed(3);
-      }
     } else {
+      // what's the cps rate over the past 5 seconds?
       let gap = 2;
       let firstHit = this.hits[this.hits.length - gap];
       // find the index of the first hit that is >= 5000 ms away.
@@ -62,26 +64,27 @@ const Game = {
         gap += 1;
         firstHit = this.hits[this.hits.length - gap];
       }
-      // if the user just stops clicking before 5 seconds, revert
-      // to logic for first 5 s above.
-      // *** flawed logic here ***
+      // if the user quits clicking before 5s, or if there isn't a first hit 
+      // that is >= 5000 ms away:
       if (!firstHit) {
         if (this.time * 1000 - lastHit < 1000) {
           this.cps = (this.hits.length / lastHit * 1000).toFixed(3);
         } else {
+          // ensures that cps decays over time if no user interaction.
           this.cps = (this.hits.length / this.time).toFixed(3);
         }
+        // finally, this is the typical scenario of continued button mashing:
       } else {
         if (this.time * 1000 - lastHit < 1000) {
           this.cps = (gap / (lastHit - firstHit) * 1000).toFixed(3);
         } else {
-          this.cps = (gap / (this.time - firstHit/1000)).toFixed(3);
+          this.cps = (gap / (this.time - firstHit / 1000)).toFixed(3);
         }
       }
     }
     return this.cps;
   },
-  
+
   randBetween(a, b) {
     return Math.floor(Math.random() * (b - a + 1) + a);
   }

@@ -53,7 +53,9 @@ const Dispatch = {
 		View.playAgainBtn.addEventListener("click", (event) => {
 			this.gameStart(event);
 		}, false);
-		window.addEventListener("timeUpdate", this.updateCPS);
+		window.addEventListener("timeUpdate", (event) => {
+			this.updateCPS()
+		}, false);
 
 		// desktop
 		View.hitbox.addEventListener("mousedown", (event) => {
@@ -137,12 +139,16 @@ const Dispatch = {
 	updateCPS() {
 		let cps = Game.getCPS();
 		View.render(View.cpsLabel, cps);
+		this.updateMaxCPS(cps);
 	},
 	
-	updateMaxCPS() {
-
+	updateMaxCPS(cps) {
+		if (cps > Game.maxCPS) {
+			Game.maxCPS = cps;
+			View.render(View.maxCPSLabel, cps);
+		}
 	},
-
+	
 	resetScore(event) {
 		Game.setScore(0);
 		View.render(View.scoreLabel, 0);

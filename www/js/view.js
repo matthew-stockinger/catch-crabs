@@ -9,6 +9,7 @@ const View = {
   maxScoreLabel: document.querySelector("#max-score"),
   timeLabel: document.querySelector("#time-label"),
   cpsLabel: document.querySelector("#cps-label"),
+  maxCPSLabel: document.querySelector("#max-cps"),
   // game over screen elements.
   gameOverScreen: document.querySelector("#game-over-screen"),
   gameOverMsg: document.querySelector("#game-over-msg"),
