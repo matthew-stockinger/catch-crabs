@@ -128,15 +128,16 @@ const View = {
     }, t * 1000);
   },
 
-  // parameter = string name of animation class to add.
-  animate(animation) {
+  // target must be reference to dom object.
+  // animation = string name of animation class to add.
+  animate(target, animation) {
     // in case the current animation is already in process, remove that.
-    this.svg.classList.remove(animation);
+    target.classList.remove(animation);
     // restarts animation.
     // explanation here: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Tips
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        crab.classList.add(animation);
+        target.classList.add(animation);
       });
     });
   },

@@ -93,14 +93,15 @@ v 0.3.0-6
 --info on bar: clicks per second, time elapsed, settings icon
     get timer working
     get cps and max cps to work.
-****bookmark here, as of 8.21.2021.  ****
-    add miss/reset behavior.  don't forget to kill timeUpdate event listener?
     add styling to new max events.  CSS transitions?
+
+****bookmark here, as of 8.21.2021.  ****
+add a reset button.
 
 settings:
 -mode: idle, 5s time trial, 10s time trial
 -checkbox: strict hit box
--checkbox: misses reset game
+-checkbox: misses reset game, don't forget to kill timeUpdate event listener?
 
 v 0.4.0
 -sound, with accessibility in mind.

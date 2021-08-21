@@ -54,6 +54,7 @@ const Dispatch = {
 			this.gameStart(event);
 		}, false);
 		window.addEventListener("timeUpdate", (event) => {
+			// timeUpdate event fires every 1 second.
 			this.updateCPS()
 		}, false);
 
@@ -146,6 +147,7 @@ const Dispatch = {
 		if (cps > Game.maxCPS) {
 			Game.maxCPS = cps;
 			View.render(View.maxCPSLabel, cps);
+			View.animate(View.maxCPSLabel, "green-fade");
 		}
 	},
 	
