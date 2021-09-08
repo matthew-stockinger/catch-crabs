@@ -61,31 +61,39 @@ const Dispatch = {
 		// desktop
 		View.hitbox.addEventListener("mousedown", (event) => {
 			if (!this.gameRunning) {
-				this.gameStart(event);
 				this.gameRunning = true;
+				this.gameStart(event);
 			}
 			this.crabClick(event);
 		}, false);
 		View.gameScreen.addEventListener("mousedown", (event) => {
 			this.crabMiss(event);
 		}, false);
+		View.resetButton.addEventListener("mousedown", (event) => {
+			event.stopPropagation();
+			this.gameReset(event);
+		}, false);
 
 		// mobile
 		View.hitbox.addEventListener("touchstart", (event) => {
 			if (!this.gameRunning) {
-				this.gameStart(event);
 				this.gameRunning = true;
+				this.gameStart(event);
 			}
 			this.crabClick(event);
 		}, false);
 		View.gameScreen.addEventListener("touchstart", (event) => {
 			this.crabMiss(event);
 		}, false);
+		View.resetButton.addEventListener("touchstart", (event) => {
+			event.stopPropagation();
+			this.gameReset(event);
+		}, false);
 	},
 
 	gameStart(event) {
 		event.preventDefault();
-		Game.start(); // reset everything.
+		Game.start(); // reset backend data.
 		View.render(View.scoreLabel, 0);
 		this.resetCrab(); // put crab in left/top again.
 		View.hide(View.gameOverScreen);
@@ -97,16 +105,29 @@ const Dispatch = {
 		Game.startTime(event);
 	},
 
+	gameReset(event) {
+		Game.start(); // reset backend data.
+		View.render(View.scoreLabel, 0);
+		View.render(View.maxScoreLabel, 0);
+		View.render(View.cpsLabel, 0);
+		View.render(View.maxCPSLabel, 0);
+		this.resetCrab(); // put crab in left/top again.
+		this.gameRunning = false;
+		Game.stopTime(event);
+	},
+
 	// moves crab between regions at random time intervals.
 	cycleCrab(minTime, maxTime) {
-		let t = Math.random() * (maxTime - minTime) + minTime;
-		t = t.toFixed(3);
-		swapTimer = setTimeout(() => {
-			this.crabSwap();
-			// safari <=12 doesn't fire transitionstart event, so need synthetic.
-			View.svgWrap.dispatchEvent(crabMoveStart); // listener is in view.js
-			this.cycleCrab(minTime, maxTime);
-		}, t * 1000);
+		if (this.gameRunning) {
+			let t = Math.random() * (maxTime - minTime) + minTime;
+			t = t.toFixed(3);
+			swapTimer = setTimeout(() => {
+				this.crabSwap();
+				// safari <=12 doesn't fire transitionstart event, so need synthetic.
+				View.svgWrap.dispatchEvent(crabMoveStart); // listener is in view.js
+				this.cycleCrab(minTime, maxTime);
+			}, t * 1000);
+		}
 	},
 
 	crabClick(event) {
@@ -142,7 +163,7 @@ const Dispatch = {
 		View.render(View.cpsLabel, cps);
 		this.updateMaxCPS(cps);
 	},
-	
+
 	updateMaxCPS(cps) {
 		if (cps > Game.maxCPS) {
 			Game.maxCPS = cps;
@@ -150,7 +171,7 @@ const Dispatch = {
 			View.animate(View.maxCPSLabel, "green-fade");
 		}
 	},
-	
+
 	resetScore(event) {
 		Game.setScore(0);
 		View.render(View.scoreLabel, 0);

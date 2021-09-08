@@ -32,6 +32,7 @@ html {
     box-sizing: border-box;
 }
 
+/* possible performance hit here */
 *, *:before, *:after {
     box-sizing: inherit;
 }
@@ -157,6 +158,13 @@ body {
 
 #hitbox {
     width: 100%;
+}
+
+#reset-button {
+    display: block;
+    width: 3vw;
+
+    border: 1px solid black;
 }
 
 /* Game Over Screen

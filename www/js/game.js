@@ -15,11 +15,13 @@ const Game = {
     this.cps = 0;
     this.maxCPS = 0;
     this.time = 0;
+    this.hits = [];
+    this.startStamp = null;
   },
 
   startTime(event) {
     this.startStamp = Math.round(event.timeStamp);
-    setInterval(() => {
+    this.timeInterval = setInterval(() => {
       this.time += 1;
       window.dispatchEvent(timeUpdate);
       let minutes = Math.floor(this.time / 60);
@@ -29,6 +31,11 @@ const Game = {
       let timeString = `${minutes}:${seconds}`;
       View.render(View.timeLabel, timeString);
     }, 1000);
+  },
+
+  stopTime(event) {
+    clearInterval(this.timeInterval);
+    View.render(View.timeLabel, "0:00");
   },
 
   setScore(value) {

@@ -10,6 +10,7 @@ const View = {
   timeLabel: document.querySelector("#time-label"),
   cpsLabel: document.querySelector("#cps-label"),
   maxCPSLabel: document.querySelector("#max-cps"),
+  resetButton: document.querySelector("#reset-button"),
   // game over screen elements.
   gameOverScreen: document.querySelector("#game-over-screen"),
   gameOverMsg: document.querySelector("#game-over-msg"),
@@ -155,7 +156,7 @@ const View = {
     let clientX = 15, clientY = 15;
     // star1-dist.svg is yellow.  star2 is red.
     image.setAttribute("src", `img/star${hitCrab ? 1 : 2}-dist.svg`);
-    image.setAttribute("alt", "star");
+    // image.setAttribute("alt", "star");
     // get coords of touchstart/mousedown
     if (event.type === 'mousedown') {
       clientX = Math.round(event.clientX);

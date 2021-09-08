@@ -97,6 +97,10 @@ v 0.3.0-6
 
 ****bookmark here, as of 8.21.2021.  ****
 add a reset button.
+--works, but janky.  crab should return to top.  Then, when clicked again, it
+--shouldn't immediately cause the crab to move again.
+--also, finish up reset svg.
+clean up beach sand image spots.
 
 settings:
 -mode: idle, 5s time trial, 10s time trial
