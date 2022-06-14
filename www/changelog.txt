@@ -95,8 +95,8 @@ v 0.3.0-6
     get cps and max cps to work.
     add styling to new max events.  CSS transitions?
 
-****bookmark here, as of 8.21.2021.  ****
 --working on refactor.  View and Game speaking to each other.
+****bookmark here, as of 6.14.2022.  ****
 --double-check cps functionality.
 
 add a reset button.
