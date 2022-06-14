@@ -3,11 +3,11 @@ let timeUpdate = new Event('timeUpdate');
 const Game = {
   score: null,
   maxScore: null,
-  cps: null,
+  cps: null, // clicks per second
   maxCPS: null,
-  hits: [],
-  time: null,
-  startStamp: null,
+  hits: [], // timeStamp of each hit
+  time: null, // game time elapsed, in seconds
+  startStamp: null, // system timeStamp of game start (first click)
 
   start() {
     this.score = 0;
@@ -63,21 +63,24 @@ const Game = {
   //     this.cps = (this.hits.length / this.time).toFixed(3);
   //   }
 
+  
+  // calculates clicks per second over the past cpsInterval seconds, otherwise returns 0.
   getCPS() {
     let lastHit = this.hits[this.hits.length - 1];
-    if (this.hits.length <= 1 || this.time < 5) {
+    const cpsInterval = 3;
+    if (this.hits.length <= 1 || this.time < cpsInterval) {
       this.cps = 0;
     } else {
-      // what's the cps rate over the past 5 seconds?
-      let gap = 2;
+      // what's the cps rate over the past cpsInterval seconds?
+      let gap = 2; // how many hits earlier should we start looking?
       let firstHit = this.hits[this.hits.length - gap];
-      // find the index of the first hit that is >= 5000 ms away.
-      while (lastHit - firstHit < 5000) {
+      // find the index of the first hit that is >= cpsInterval seconds away.
+      while (lastHit - firstHit < cpsInterval * 1000) {
         gap += 1;
         firstHit = this.hits[this.hits.length - gap];
       }
-      // if the user quits clicking before 5s, or if there isn't a first hit 
-      // that is >= 5000 ms away:
+      // if the user quits clicking before cpsInterval, or if there isn't 
+      // a first hit that is >= cpsInterval away, firstHit == undefined:
       if (!firstHit) {
         if (this.time * 1000 - lastHit < 1000) {
           this.cps = (this.hits.length / lastHit * 1000).toFixed(3);
@@ -85,7 +88,7 @@ const Game = {
           // ensures that cps decays over time if no user interaction.
           this.cps = (this.hits.length / this.time).toFixed(3);
         }
-        // finally, this is the typical scenario of continued button mashing:
+        // finally, this is the typical scenario of continued button mashing
       } else {
         if (this.time * 1000 - lastHit < 1000) {
           this.cps = (gap / (lastHit - firstHit) * 1000).toFixed(3);
