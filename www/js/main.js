@@ -96,7 +96,7 @@ const Dispatch = {
 		event.preventDefault();
 		Game.start(); // reset backend data.
 		View.render(View.scoreLabel, 0);
-		this.resetCrab(); // put crab in left/top again.
+		this.resetCrab(); 
 		View.hide(View.gameOverScreen);
 		View.show(View.gameScreen);
 		View.animateEyes(2, 4);
@@ -112,7 +112,7 @@ const Dispatch = {
 		View.render(View.maxScoreLabel, 0);
 		View.render(View.cpsLabel, 0);
 		View.render(View.maxCPSLabel, 0);
-		this.resetCrab(); // put crab in left/top again.
+		this.resetCrab(); 
 		this.gameRunning = false;
 		Game.stopTime(event);
 		this.resetClock();
@@ -188,7 +188,9 @@ const Dispatch = {
 	},
 
 	resetCrab() {
-		View.resetCrab();
+		clearTimeout(swapTimer); // stop crab walking.
+		View.resetCrab(); // put crab back to start region.
+		View.animateResetAll(); // stop eye and claw animations.
 	},
 
 	gameOver(event) {

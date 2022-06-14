@@ -52,7 +52,6 @@ const View = {
   },
 
   resetCrab() {
-    /* new code */
     this.svgWrap.classList.remove("region2");
     this.svgWrap.classList.add("region1");
   },
@@ -145,7 +144,14 @@ const View = {
 
   animateResetAll() {
     // stop crab animations
+    clearTimeout(lEyeTimer);
+    clearTimeout(rEyeTimer);
+    clearTimeout(lClawTimer);
+    clearTimeout(rClawTimer);
     this.svg.removeAttribute("class");
+    // put eyes back
+    this.lEyePhong.style.transform = `translate(0px, 0px)`;
+    this.rEyePhong.style.transform = `translate(0px, 0px)`;
     // delete stars
     this.animateResetStars();
   },
@@ -177,12 +183,11 @@ const View = {
       this.gameScreen.removeChild(image);
     });
 
-    // this.gameScreen.insertBefore(image, this.scoreLabel);
     this.gameScreen.insertBefore(image, null);
   },
 
   animateResetStars() {
-    this.gameScreen.querySelectorAll("img").forEach((im) => {
+    this.gameScreen.querySelectorAll("img.star").forEach((im) => {
       im.remove();
     });
   }
