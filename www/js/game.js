@@ -1,5 +1,5 @@
 /* Back-end game functionality.  e.g. score handling. */
-const timeUpdate = new Event('timeUpdate');
+let timeUpdate = new Event('timeUpdate');
 const Game = {
   score: null,
   maxScore: null,
@@ -19,23 +19,28 @@ const Game = {
     this.startStamp = null;
   },
 
+  // starts game timer.
   startTime(event) {
     this.startStamp = Math.round(event.timeStamp);
     this.timeInterval = setInterval(() => {
       this.time += 1;
-      window.dispatchEvent(timeUpdate);
       let minutes = Math.floor(this.time / 60);
       if (minutes === 0) minutes = "0";
       let seconds = this.time % 60;
       if (seconds < 10) seconds = "0" + seconds;
       let timeString = `${minutes}:${seconds}`;
-      View.render(View.timeLabel, timeString);
+      timeUpdate = new CustomEvent('timeUpdate', {
+        detail: {
+          timeString: timeString
+        }
+      });
+      window.dispatchEvent(timeUpdate);
     }, 1000);
   },
 
   stopTime(event) {
     clearInterval(this.timeInterval);
-    View.render(View.timeLabel, "0:00");
+    this.time = 0;
   },
 
   setScore(value) {

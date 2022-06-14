@@ -96,6 +96,9 @@ v 0.3.0-6
     add styling to new max events.  CSS transitions?
 
 ****bookmark here, as of 8.21.2021.  ****
+--working on refactor.  View and Game speaking to each other.
+--double-check cps functionality.
+
 add a reset button.
 --works, but janky.  crab should return to top.  Then, when clicked again, it
 --shouldn't immediately cause the crab to move again.

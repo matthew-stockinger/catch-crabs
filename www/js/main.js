@@ -44,7 +44,7 @@ const crabMoveEnd = new Event('crabMoveEnd');
 const Dispatch = {
 	init() {
 		this.gameRunning = false;
-		View.preventDrag();
+		View.preventDrag(); //prevents selecting or dragging objects on game screen.
 
 		// note:
 		// all event listener callbacks in this code use anonymous arrow functions
@@ -54,8 +54,9 @@ const Dispatch = {
 			this.gameStart(event);
 		}, false);
 		window.addEventListener("timeUpdate", (event) => {
-			// timeUpdate event fires every 1 second.
-			this.updateCPS()
+			// timeUpdate event fires every 1 second during gameplay.
+			this.updateCPS();
+			View.render(View.timeLabel, event.detail.timeString);
 		}, false);
 
 		// desktop
@@ -114,6 +115,7 @@ const Dispatch = {
 		this.resetCrab(); // put crab in left/top again.
 		this.gameRunning = false;
 		Game.stopTime(event);
+		this.resetClock();
 	},
 
 	// moves crab between regions at random time intervals.
@@ -175,6 +177,10 @@ const Dispatch = {
 	resetScore(event) {
 		Game.setScore(0);
 		View.render(View.scoreLabel, 0);
+	},
+
+	resetClock() {
+		View.render(View.timeLabel, "0:00");
 	},
 
 	crabSwap() {
