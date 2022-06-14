@@ -161,10 +161,17 @@ body {
 }
 
 #reset-button {
+    background-color: #515151;
     display: block;
-    width: 3vw;
-
+    width: 3.8vw;
+    padding: 0.5rem;
     border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+#reset-button:hover {
+    background-color: gray;
+    border-radius: 0.5rem;
 }
 
 /* Game Over Screen
