@@ -218,3 +218,20 @@ When fired, adds/removes e.g. .rLeg1-move class.
         opacity: 0;
     }
 }
+
+/***************** Max CPS updates **********************/
+.green-fade {
+    animation: green-fade 1.5s 1;
+}
+
+@keyframes green-fade {
+    from {
+        color: rgb(0, 255, 0);
+        font-size: 3.5vw;
+    }
+    to {
+        color: white;
+        /* this is the original font-size, from #status-bar in index.css */
+        font-size: 3vw;
+    }
+}

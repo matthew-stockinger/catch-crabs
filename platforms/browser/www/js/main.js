@@ -44,7 +44,7 @@ const crabMoveEnd = new Event('crabMoveEnd');
 const Dispatch = {
 	init() {
 		this.gameRunning = false;
-		View.preventDrag();
+		View.preventDrag(); //prevents selecting or dragging objects on game screen.
 
 		// note:
 		// all event listener callbacks in this code use anonymous arrow functions
@@ -53,62 +53,92 @@ const Dispatch = {
 		View.playAgainBtn.addEventListener("click", (event) => {
 			this.gameStart(event);
 		}, false);
+		window.addEventListener("timeUpdate", (event) => {
+			// timeUpdate event fires every 1 second during gameplay.
+			this.updateCPS();
+			View.render(View.timeLabel, event.detail.timeString);
+		}, false);
 
 		// desktop
 		View.hitbox.addEventListener("mousedown", (event) => {
 			if (!this.gameRunning) {
-				this.gameStart(event);
 				this.gameRunning = true;
+				this.gameStart(event);
 			}
 			this.crabClick(event);
 		}, false);
 		View.gameScreen.addEventListener("mousedown", (event) => {
 			this.crabMiss(event);
 		}, false);
+		View.resetButton.addEventListener("mousedown", (event) => {
+			event.stopPropagation();
+			this.gameReset(event);
+		}, false);
 
 		// mobile
 		View.hitbox.addEventListener("touchstart", (event) => {
 			if (!this.gameRunning) {
-				this.gameStart(event);
 				this.gameRunning = true;
+				this.gameStart(event);
 			}
 			this.crabClick(event);
 		}, false);
 		View.gameScreen.addEventListener("touchstart", (event) => {
 			this.crabMiss(event);
 		}, false);
+		View.resetButton.addEventListener("touchstart", (event) => {
+			event.stopPropagation();
+			this.gameReset(event);
+		}, false);
 	},
 
 	gameStart(event) {
 		event.preventDefault();
-		Game.start(); // reset score to 0.
+		Game.start(); // reset backend data.
 		View.render(View.scoreLabel, 0);
-		this.resetCrab(); // put crab in left/top again.
+		this.resetCrab(); 
 		View.hide(View.gameOverScreen);
 		View.show(View.gameScreen);
 		View.animateEyes(2, 4);
 		View.twitchLClaw(5, 8);
 		View.twitchRClaw(10, 20);
 		this.cycleCrab(1, 5); // start crab moving back and forth.
+		Game.startTime(event);
+	},
+
+	gameReset(event) {
+		Game.start(); // reset backend data.
+		View.render(View.scoreLabel, 0);
+		View.render(View.maxScoreLabel, 0);
+		View.render(View.cpsLabel, 0);
+		View.render(View.maxCPSLabel, 0);
+		this.resetCrab(); 
+		this.gameRunning = false;
+		Game.stopTime(event);
+		this.resetClock();
 	},
 
 	// moves crab between regions at random time intervals.
 	cycleCrab(minTime, maxTime) {
-		let t = Math.random() * (maxTime - minTime) + minTime;
-		t = t.toFixed(3);
-		swapTimer = setTimeout(() => {
-			this.crabSwap();
-			// safari <=12 doesn't fire transitionstart event, so need synthetic.
-			View.svgWrap.dispatchEvent(crabMoveStart); // listener is in view.js
-			this.cycleCrab(minTime, maxTime);
-		}, t * 1000);
+		if (this.gameRunning) {
+			let t = Math.random() * (maxTime - minTime) + minTime;
+			t = t.toFixed(3);
+			swapTimer = setTimeout(() => {
+				this.crabSwap();
+				// safari <=12 doesn't fire transitionstart event, so need synthetic.
+				View.svgWrap.dispatchEvent(crabMoveStart); // listener is in view.js
+				this.cycleCrab(minTime, maxTime);
+			}, t * 1000);
+		}
 	},
 
 	crabClick(event) {
 		event.preventDefault();
-		event.stopPropagation();
+		event.stopPropagation(); // avoid click firing on background.
 		View.animateClickStar(event, true);
-		this.statusUpdate(event);
+		Game.hits.push(Math.round(event.timeStamp) - Game.startStamp);
+		this.scorePoint(event);
+		this.updateMaxScore(event);
 	},
 
 	crabMiss(event) {
@@ -118,26 +148,39 @@ const Dispatch = {
 		// this.gameOver(event);
 	},
 
-	statusUpdate(event) {
-		event.preventDefault();
-		this.scorePoint(event);
-		this.updateCPS(event);
-	},
-
 	scorePoint(event) {
-		event.preventDefault();
-		Game.scorePoint(); // update score variable
+		Game.score += 1;
 		View.render(View.scoreLabel, Game.getScore());
 	},
 
-	updateCPS(event) {
-		event.preventDefault();
+	updateMaxScore(event) {
+		if (Game.score > Game.maxScore) {
+			Game.maxScore = Game.score;
+			View.render(View.maxScoreLabel, Game.maxScore);
+		}
+	},
+
+	updateCPS() {
+		let cps = Game.getCPS();
+		View.render(View.cpsLabel, cps);
+		this.updateMaxCPS(cps);
+	},
+
+	updateMaxCPS(cps) {
+		if (cps > Game.maxCPS) {
+			Game.maxCPS = cps;
+			View.render(View.maxCPSLabel, cps);
+			View.animate(View.maxCPSLabel, "green-fade");
+		}
 	},
 
 	resetScore(event) {
-		event.preventDefault();
 		Game.setScore(0);
 		View.render(View.scoreLabel, 0);
+	},
+
+	resetClock() {
+		View.render(View.timeLabel, "0:00");
 	},
 
 	crabSwap() {
@@ -145,7 +188,9 @@ const Dispatch = {
 	},
 
 	resetCrab() {
-		View.resetCrab();
+		clearTimeout(swapTimer); // stop crab walking.
+		View.resetCrab(); // put crab back to start region.
+		View.animateResetAll(); // stop eye and claw animations.
 	},
 
 	gameOver(event) {

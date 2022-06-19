@@ -22,6 +22,8 @@
 
 /* Trying to follow Snook's SMACSS.
 http://smacss.com/book/formatting#grouping
+
+box border background text other
 */
 
 /* Global Styles
@@ -29,19 +31,22 @@ http://smacss.com/book/formatting#grouping
 html {
     box-sizing: border-box;
 }
+
+/* possible performance hit here */
 *, *:before, *:after {
     box-sizing: inherit;
 }
+
 body {
     margin: 0;
 }
+
 :root {
     --status-bar-height: 8vw;
 }
 
 /* Game Screen
 ---------------------------------------------*/
-
 /* portrait */
 @media screen and (max-aspect-ratio: 1/1) {
     #svg-wrap {
@@ -130,11 +135,8 @@ body {
     user-select: none;
 }
 
-#score-label {
-    /* font-family: Verdana, sans-serif;
-    font-size: 2rem;
-    color: white;
-    z-index: 2; */
+#settings-icon {
+    display: none;
 }
 
 #svg-wrap {
@@ -156,6 +158,20 @@ body {
 
 #hitbox {
     width: 100%;
+}
+
+#reset-button {
+    background-color: #515151;
+    display: block;
+    width: 3.8vw;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+#reset-button:hover {
+    background-color: gray;
+    border-radius: 0.5rem;
 }
 
 /* Game Over Screen
