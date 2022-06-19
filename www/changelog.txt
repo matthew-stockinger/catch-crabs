@@ -105,7 +105,12 @@ add a reset button.
 clean up beach sand image spots.
 
 ****bookmark here, as of 6.14.2022.  ****
+test reset button on all devices.  
+rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
+
 add reward banners on click-count victories and/or cps victories
+--how it should look: trophies appear across the top.  Big number flashes.
+--
 
 settings:
 -mode: idle, 5s time trial, 10s time trial
@@ -144,6 +149,9 @@ v 1.1
 -full accessibility
     keyboard playability on web
     really dig into blind user experience.  Can it be played independently from the beginning?
+
+v 1.?
+-give the crab different clothes or something, for each milestone.
 
 v 1.?
 -difficulty settings.  Use crabswap parameters to set things.

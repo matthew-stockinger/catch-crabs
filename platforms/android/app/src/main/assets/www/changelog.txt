@@ -1,13 +1,8 @@
-See below for current progress point.
-
-Problems:
-2. multiple touches won't register.  perhaps change event away from click.
-    maybe use touchstart or mouseon.
-3. figure out package.json, npm, and folder structure setup better.
-    
+See below for current progress point bookmark.
 
 ** mobile testing CLI notes *********************
 cordova run android --device
+cordova run browser
 
 ***** Plans *******
 
@@ -57,7 +52,7 @@ v 0.3.2.1
 -cross-browser testing.  if I wait until app is out, I may run into serious problems.
 https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction
 
-v 0.3.3
+v 0.3.0-3
 LESSONS LEARNED:
 -a laptop touchpad is indistinguishable from a mouse.  This means that a touch-move-release on the touchpad is the same as a quick mouse move.  On a touch device, however, this will fire a touchstart.  Bottom line: use event listeners for both mousedown and touchstart.
 -a <g> element is not a rectangle, for the purposes of event listeners.  The boundaries are set by the svg elements inside of it.  For this game, can use parent svg element for a loose hitbox, or can use the <g> for a strict hitbox.
@@ -83,20 +78,53 @@ LESSONS LEARNED:
 --spinny eyes?
 --mouse-tracking eyes?  Check out https://creepyface.io/
 --blinking?
-****bookmark here, as of 8.23.2020.  ****
 --randomly moving eye Phongs.  Model after Dispatch.cycleCrab method.
+--randomly twitching claws.
 
-v 0.3.4
--add background.
--splash screen.
+v 0.3.0-4
+-add game screen background.
 
-v 0.4
+v 0.3.0-5
+-no splash screen.  Just status/action bar.
+--first click begins game.
+--what happens if you miss? default: score gets reset.
+
+v 0.3.0-6
+--info on bar: clicks per second, time elapsed, settings icon
+    get timer working
+    get cps and max cps to work.
+    add styling to new max events.  CSS transitions?
+
+--working on refactor.  View and Game speaking to each other.
+--double-check cps functionality.
+
+add a reset button.
+--works, but janky.  crab should return to top.  Then, when clicked again, it
+--shouldn't immediately cause the crab to move again.
+--also, finish up reset svg.
+clean up beach sand image spots.
+
+****bookmark here, as of 6.14.2022.  ****
+test reset button on all devices.  
+rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
+
+add reward banners on click-count victories and/or cps victories
+--how it should look: trophies appear across the top.  Big number flashes.
+--
+
+settings:
+-mode: idle, 5s time trial, 10s time trial
+-checkbox: strict hit box
+-checkbox: misses reset game, don't forget to kill timeUpdate event listener?
+
+v 0.4.0
 -sound, with accessibility in mind.
+-settings checkbox: sound
 -animated background?
 
 v 0.5
 -remove game over.  Change to some sort of penalty, with visual and audible feedback.
--add clicks per second logic and view.
+-add clicks per second logic and view.  Status bar(s).  Anything else?
 
 v 0.6
 -monetize
@@ -121,6 +149,9 @@ v 1.1
 -full accessibility
     keyboard playability on web
     really dig into blind user experience.  Can it be played independently from the beginning?
+
+v 1.?
+-give the crab different clothes or something, for each milestone.
 
 v 1.?
 -difficulty settings.  Use crabswap parameters to set things.

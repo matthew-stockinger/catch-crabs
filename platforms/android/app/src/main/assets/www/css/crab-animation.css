@@ -9,9 +9,25 @@ When fired, adds/removes e.g. .rLeg1-move class.
 
 */
 
-
 :root {
     --crab-duration: 1s;
+}
+
+/********* transition for whole-crab region-switching *********************/
+/* portrait */
+
+@media screen and (max-aspect-ratio: 1/1) {
+    .region1, .region2 {
+        transition: top var(--crab-duration) ease-in-out;
+    }
+}
+
+/* landscape */
+
+@media screen and (min-aspect-ratio: 1/1) {
+    .region1, .region2 {
+        transition: left var(--crab-duration) ease-in-out;
+    }
 }
 
 /*   Legs */
@@ -172,24 +188,6 @@ When fired, adds/removes e.g. .rLeg1-move class.
     100% { transform: rotate(0deg); }
 }
 
-
-/********* transition for whole-crab region-switching *********************/
-/* portrait */
-
-@media screen and (max-aspect-ratio: 1/1) {
-    .region1, .region2 {
-        transition: top var(--crab-duration) ease-in-out;
-    }
-}
-
-/* landscape */
-
-@media screen and (min-aspect-ratio: 1/1) {
-    .region1, .region2 {
-        transition: left var(--crab-duration) ease-in-out;
-    }
-}
-
 /*************** click star stuff ***************************/
 
 .star {
@@ -218,5 +216,22 @@ When fired, adds/removes e.g. .rLeg1-move class.
     }
     to {
         opacity: 0;
+    }
+}
+
+/***************** Max CPS updates **********************/
+.green-fade {
+    animation: green-fade 1.5s 1;
+}
+
+@keyframes green-fade {
+    from {
+        color: rgb(0, 255, 0);
+        font-size: 3.5vw;
+    }
+    to {
+        color: white;
+        /* this is the original font-size, from #status-bar in index.css */
+        font-size: 3vw;
     }
 }
