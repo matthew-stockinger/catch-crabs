@@ -42,7 +42,7 @@ body {
 }
 
 :root {
-    --status-bar-height: 8vw;
+    --status-bar-height: 14vw;
 }
 
 /* Game Screen
@@ -116,6 +116,7 @@ body {
     position: absolute;
     top: 0;
     height: var(--status-bar-height);
+    min-height: 60px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -126,7 +127,7 @@ body {
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
     
     font-family: Verdana, sans-serif;
-    font-size: 3vw;
+    font-size: calc(0.5rem + 3vw);
     color: white;
     
     -moz-user-select: none;
@@ -161,12 +162,14 @@ body {
 }
 
 #reset-button {
-    background-color: #515151;
     display: block;
-    width: 3.8vw;
+    height: calc(1.5rem + 3vw);
     padding: 8px;
+    
     border: 1px solid black;
     border-radius: 0.5rem;
+    
+    background-color: #515151;
 }
 
 #reset-button:hover {

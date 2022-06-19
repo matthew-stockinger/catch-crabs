@@ -6,10 +6,6 @@
   "config_munge": {
     "files": {}
   },
-  "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.honkbeefnoodle.catchcrabs"
-    }
-  },
+  "installed_plugins": {},
   "dependent_plugins": {}
 }
