@@ -227,11 +227,11 @@ When fired, adds/removes e.g. .rLeg1-move class.
 @keyframes green-fade {
     from {
         color: rgb(0, 255, 0);
-        font-size: 3.5vw;
+        font-size: calc(0.5rem + 4vw);
     }
     to {
         color: white;
         /* this is the original font-size, from #status-bar in index.css */
-        font-size: 3vw;
+        font-size: calc(0.5rem + 3vw);
     }
 }
