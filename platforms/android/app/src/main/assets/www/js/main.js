@@ -102,7 +102,7 @@ const Dispatch = {
 		View.animateEyes(2, 4);
 		View.twitchLClaw(5, 8);
 		View.twitchRClaw(10, 20);
-		this.cycleCrab(1, 5); // start crab moving back and forth.
+		// this.cycleCrab(1, 5); // start crab moving back and forth.
 		Game.startTime(event);
 	},
 
@@ -162,15 +162,22 @@ const Dispatch = {
 
 	updateCPS() {
 		let cps = Game.getCPS();
-		View.render(View.cpsLabel, cps);
+		View.render(View.cpsLabel, cps.toFixed(2));
 		this.updateMaxCPS(cps);
 	},
 
 	updateMaxCPS(cps) {
+		console.log(`updateMaxCPS called with cps = ${cps}, ${typeof cps}`);
+		console.log(`Game.maxCPS = ${Game.maxCPS}, ${typeof Game.maxCPS}`);
+		console.log(`codition cps > Game.maxCPS: ${cps > Game.maxCPS}`);
 		if (cps > Game.maxCPS) {
+			console.log(`inside of cps > Game.maxCPS`);
 			Game.maxCPS = cps;
-			View.render(View.maxCPSLabel, cps);
+			console.log(`ran Game.maxCPS = cps.  New values: ${Game.maxCPS} and cps = ${cps}`);
+			View.render(View.maxCPSLabel, cps.toFixed(2));
+			console.log(`ran View.render`);
 			View.animate(View.maxCPSLabel, "green-fade");
+			console.log(`ran View.animate`);
 		}
 	},
 

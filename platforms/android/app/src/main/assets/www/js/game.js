@@ -83,17 +83,17 @@ const Game = {
       // a first hit that is >= cpsInterval away, firstHit == undefined:
       if (!firstHit) {
         if (this.time * 1000 - lastHit < 1000) {
-          this.cps = (this.hits.length / lastHit * 1000).toFixed(2);
+          this.cps = (this.hits.length / lastHit * 1000);
         } else {
           // ensures that cps decays over time if no user interaction.
-          this.cps = (this.hits.length / this.time).toFixed(2);
+          this.cps = (this.hits.length / this.time);
         }
         // finally, this is the typical scenario of continued button mashing
       } else {
         if (this.time * 1000 - lastHit < 1000) {
-          this.cps = (gap / (lastHit - firstHit) * 1000).toFixed(2);
+          this.cps = (gap / (lastHit - firstHit) * 1000);
         } else {
-          this.cps = (gap / (this.time - firstHit / 1000)).toFixed(2);
+          this.cps = (gap / (this.time - firstHit / 1000));
         }
       }
     }

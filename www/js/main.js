@@ -162,14 +162,14 @@ const Dispatch = {
 
 	updateCPS() {
 		let cps = Game.getCPS();
-		View.render(View.cpsLabel, cps);
+		View.render(View.cpsLabel, cps.toFixed(2));
 		this.updateMaxCPS(cps);
 	},
 
 	updateMaxCPS(cps) {
 		if (cps > Game.maxCPS) {
 			Game.maxCPS = cps;
-			View.render(View.maxCPSLabel, cps);
+			View.render(View.maxCPSLabel, cps.toFixed(2));
 			View.animate(View.maxCPSLabel, "green-fade");
 		}
 	},
