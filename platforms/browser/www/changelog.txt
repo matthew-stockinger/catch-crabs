@@ -105,7 +105,10 @@ add a reset button.
 clean up beach sand image spots.
 
 green highlight text on cps doesn't match other text sizes.  use calc?
-****bookmark here, as of 6.14.2022.  ****
+
+bug: max cps won't update any number over 10.  discovered while testing webview.
+
+****bookmark here, as of 6.20.2022.  ****
 check status bar layout if time is over 100 minutes.
 
 compress background image?
