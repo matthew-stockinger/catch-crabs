@@ -109,6 +109,10 @@ green highlight text on cps doesn't match other text sizes.  use calc?
 bug: max cps won't update any number over 10.  discovered while testing webview.
 
 ****bookmark here, as of 6.20.2022.  ****
+dependabot
+do device testing checks.
+look for other toFixed type errors.
+
 check status bar layout if time is over 100 minutes.
 
 compress background image?

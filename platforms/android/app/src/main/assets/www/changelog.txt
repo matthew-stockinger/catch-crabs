@@ -106,10 +106,12 @@ clean up beach sand image spots.
 
 green highlight text on cps doesn't match other text sizes.  use calc?
 
-****bookmark here, as of 6.20.2022.  ****
 bug: max cps won't update any number over 10.  discovered while testing webview.
---I think maybe it has something to do with the reset button not resetting Game.maxCPS?
 
+****bookmark here, as of 6.20.2022.  ****
+dependabot
+do device testing checks.
+look for other toFixed type errors.
 
 check status bar layout if time is over 100 minutes.
 
