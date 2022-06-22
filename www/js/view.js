@@ -63,7 +63,7 @@ const View = {
 
   animateLeft(minTime, maxTime) {
     let t1 = Math.random() * (maxTime - minTime) + minTime;
-    t1 = t1.toFixed(3);
+    t1 = Number(t1.toFixed(3));
     lEyeTimer = setTimeout(() => {
       this.moveEye("left");
       this.animateLeft(minTime, maxTime);
@@ -72,7 +72,7 @@ const View = {
 
   animateRight(minTime, maxTime) {
     let t2 = Math.random() * (maxTime - minTime) + minTime;
-    t2 = t2.toFixed(3);
+    t2 = Number(t2.toFixed(3));
     rEyeTimer = setTimeout(() => {
       this.moveEye("right");
       this.animateRight(minTime, maxTime);
@@ -106,7 +106,7 @@ const View = {
     });
         
     let t = Math.random() * (maxTime - minTime) + minTime;
-    t = t.toFixed(3);
+    t = Number(t.toFixed(3));
     lClawTimer = setTimeout(() => {
       this.twitchLClaw(minTime, maxTime);
     }, t * 1000);
@@ -122,7 +122,7 @@ const View = {
     });
 
     let t = Math.random() * (maxTime - minTime) + minTime;
-    t = t.toFixed(3);
+    t = Number(t.toFixed(3));
     rClawTimer = setTimeout(() => {
       this.twitchRClaw(minTime, maxTime);
     }, t * 1000);

@@ -55,15 +55,6 @@ const Game = {
     return this.score;
   },
 
-  // else if (this.time < 5) {
-  //   // make the cps fall over time if user stops clicking.
-  //   if (this.time * 1000 - lastHit < 1000) {
-  //     this.cps = (this.hits.length / lastHit * 1000).toFixed(3);
-  //   } else {
-  //     this.cps = (this.hits.length / this.time).toFixed(3);
-  //   }
-
-  
   // calculates clicks per second over the past cpsInterval seconds, otherwise returns 0.
   getCPS() {
     let lastHit = this.hits[this.hits.length - 1];

@@ -122,7 +122,7 @@ const Dispatch = {
 	cycleCrab(minTime, maxTime) {
 		if (this.gameRunning) {
 			let t = Math.random() * (maxTime - minTime) + minTime;
-			t = t.toFixed(3);
+			t = Number(t.toFixed(3));
 			swapTimer = setTimeout(() => {
 				this.crabSwap();
 				// safari <=12 doesn't fire transitionstart event, so need synthetic.
