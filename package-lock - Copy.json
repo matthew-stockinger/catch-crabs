@@ -372,7 +372,7 @@
         "cordova-common": "^3.1.0",
         "cordova-serve": "^3.0.0",
         "nopt": "^4.0.1",
-        "shelljs": "^0.8.5"
+        "shelljs": "^0.5.3"
       },
       "bin": {
         "cordova-browser": "bin/create"
@@ -2059,7 +2059,7 @@
         "cordova-common": "^3.1.0",
         "cordova-serve": "^3.0.0",
         "nopt": "^4.0.1",
-        "shelljs": "^0.8.5"
+        "shelljs": "^0.5.3"
       },
       "dependencies": {
         "bplist-parser": {
