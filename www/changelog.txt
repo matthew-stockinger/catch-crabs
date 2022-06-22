@@ -112,11 +112,11 @@ dependabot
 do device testing checks.
 look for other toFixed type errors.
 
-****bookmark here, as of 6.22.2022.  ****
 check status bar layout if time is over 100 minutes.
 
 compress background image?
 
+****bookmark here, as of 6.22.2022.  ****
 rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
 
 add reward banners on click-count victories and/or cps victories
