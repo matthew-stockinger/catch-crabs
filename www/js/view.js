@@ -5,6 +5,7 @@ const View = {
   svgWrap: document.querySelector("#svg-wrap"), // the container div
   hitbox: document.querySelector("#g-wrap"), // g elt. inside svg elt.
   svg: document.querySelector("#svg-crab"), // main svg elt.
+  statusBar: document.querySelector("#status-bar"),
   scoreLabel: document.querySelector("#score-label"),
   maxScoreLabel: document.querySelector("#max-score"),
   timeLabel: document.querySelector("#time-label"),
@@ -190,6 +191,20 @@ const View = {
     this.gameScreen.querySelectorAll("img.star").forEach((im) => {
       im.remove();
     });
+  },
+
+  animateScoreMilestone(score) {
+    const elt = document.createElement("p");
+    elt.textContent = score;
+    elt.classList.add("score-milestone"); // positioning, etc
+    elt.classList.add("red-fade"); // animation
+
+    // make elt remove itself from DOM once animation completes.
+    elt.addEventListener("animationend", () => {
+      this.gameScreen.removeChild(elt);
+    });
+
+    this.gameScreen.insertBefore(elt, null);
   }
 };
 

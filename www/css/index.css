@@ -42,7 +42,7 @@ body {
 }
 
 :root {
-    --status-bar-height: 14vw;
+    --status-bar-height: min(20vw, 180px);
 }
 
 /* Game Screen
@@ -134,6 +134,10 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#score-box, #cps-box {
+    margin: 0 1px;
 }
 
 #settings-icon {
