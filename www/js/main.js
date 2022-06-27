@@ -102,7 +102,7 @@ const Dispatch = {
 		View.animateEyes(2, 4);
 		View.twitchLClaw(5, 8);
 		View.twitchRClaw(10, 20);
-		this.cycleCrab(1, 5); // start crab moving back and forth.
+		// this.cycleCrab(1, 5); // start crab moving back and forth.
 		Game.startTime(event);
 	},
 
@@ -157,6 +157,10 @@ const Dispatch = {
 		if (Game.score > Game.maxScore) {
 			Game.maxScore = Game.score;
 			View.render(View.maxScoreLabel, Game.maxScore);
+		}
+		if (Game.score % 100 === 0) {
+			View.animate(View.maxScoreLabel, "red-fade");
+			View.animate(View.scoreLabel, "red-fade");
 		}
 	},
 

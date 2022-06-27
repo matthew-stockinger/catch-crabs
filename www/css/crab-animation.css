@@ -235,3 +235,20 @@ When fired, adds/removes e.g. .rLeg1-move class.
         font-size: calc(0.5rem + 3vw);
     }
 }
+
+/*********** Max Score updates ***************/
+.red-fade {
+    animation: red-fade 1.5s 1;
+}
+
+@keyframes red-fade {
+    from {
+        color: rgb(255, 0, 0);
+        font-size: calc(0.5rem + 5vw);
+    }
+    to {
+        color: white;
+        /* this is the original font-size, from #status-bar in index.css */
+        font-size: calc(0.5rem + 3vw);
+    }
+}

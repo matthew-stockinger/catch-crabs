@@ -116,12 +116,13 @@ check status bar layout if time is over 100 minutes.
 
 compress background image?
 
-****bookmark here, as of 6.22.2022.  ****
-rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
-
 add reward banners on click-count victories and/or cps victories
---how it should look: trophies appear across the top.  Big number flashes.
---
+--Big number flashes.
+
+****bookmark here, as of 6.22.2022.  ****
+testing: thousands of clicks, >= 100 min time, double-digit cps(?)
+
+rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
 
 settings:
 -mode: idle, 5s time trial, 10s time trial
@@ -163,6 +164,7 @@ v 1.1
 
 v 1.?
 -give the crab different clothes or something, for each milestone.
+-idea: trophies?
 
 v 1.?
 -difficulty settings.  Use crabswap parameters to set things.
