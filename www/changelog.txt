@@ -119,9 +119,10 @@ compress background image?
 add reward banners on click-count victories and/or cps victories
 --Big number flashes.
 
-****bookmark here, as of 6.22.2022.  ****
 testing: thousands of clicks, >= 100 min time, double-digit cps(?)
 --reset button is too close to time on some devices
+
+****bookmark here, as of 6.22.2022.  ****
 --after  fixing 10k issue, should switch cps milestone to new style.
 
 rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
