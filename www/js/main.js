@@ -102,7 +102,7 @@ const Dispatch = {
 		View.animateEyes(2, 4);
 		View.twitchLClaw(5, 8);
 		View.twitchRClaw(10, 20);
-		// this.cycleCrab(1, 5); // start crab moving back and forth.  testing
+		this.cycleCrab(1, 5); // start crab moving back and forth.
 		Game.startTime(event);
 	},
 
@@ -149,7 +149,7 @@ const Dispatch = {
 	},
 
 	scorePoint(event) {
-		Game.score += 1000; // testing, originally += 1
+		Game.score += 1;
 		View.render(View.scoreLabel, Game.getScore());
 	},
 
@@ -173,7 +173,7 @@ const Dispatch = {
 		if (cps > Game.maxCPS) {
 			Game.maxCPS = cps;
 			View.render(View.maxCPSLabel, cps.toFixed(2));
-			View.animate(View.maxCPSLabel, "green-fade");
+			View.animateCPSMilestone(cps);
 		}
 	},
 

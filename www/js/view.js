@@ -197,14 +197,33 @@ const View = {
     const elt = document.createElement("p");
     elt.textContent = score;
     elt.classList.add("score-milestone"); // positioning, etc
-    elt.classList.add("red-fade"); // animation
-
+    this.animate(elt, "red-fade");
+    
     // make elt remove itself from DOM once animation completes.
     elt.addEventListener("animationend", () => {
       this.gameScreen.removeChild(elt);
     });
-
+    
     this.gameScreen.insertBefore(elt, null);
+  },
+  
+  animateCPSMilestone(cps) {
+    const cpsElt = document.createElement("p");
+    cpsElt.textContent = cps.toFixed(2);
+    
+    cpsElt.classList.add("cps-milestone"); // main styling
+    // dynamic position:
+    cpsElt.style.top = `${this.maxCPSLabel.getBoundingClientRect().top}px`;
+    cpsElt.style.left = `${this.maxCPSLabel.getBoundingClientRect().left}px`;
+
+    this.animate(cpsElt, "green-fade");
+    
+    // make elt remove itself from DOM once animation completes.
+    cpsElt.addEventListener("animationend", () => {
+      this.gameScreen.removeChild(cpsElt);
+    });
+
+    this.gameScreen.insertBefore(cpsElt, null);
   }
 };
 

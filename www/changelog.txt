@@ -122,9 +122,9 @@ add reward banners on click-count victories and/or cps victories
 testing: thousands of clicks, >= 100 min time, double-digit cps(?)
 --reset button is too close to time on some devices
 
-****bookmark here, as of 6.22.2022.  ****
 --after  fixing 10k issue, should switch cps milestone to new style.
 
+****bookmark here, as of 6.28.2022.  ****
 rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
 
 settings:
