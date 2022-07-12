@@ -5,6 +5,7 @@ const View = {
   svgWrap: document.querySelector("#svg-wrap"), // the container div
   hitbox: document.querySelector("#g-wrap"), // g elt. inside svg elt.
   svg: document.querySelector("#svg-crab"), // main svg elt.
+  statusBar: document.querySelector("#status-bar"),
   scoreLabel: document.querySelector("#score-label"),
   maxScoreLabel: document.querySelector("#max-score"),
   timeLabel: document.querySelector("#time-label"),
@@ -161,7 +162,7 @@ const View = {
     const image = document.createElement("img");
     let clientX = 15, clientY = 15;
     // star1-dist.svg is yellow.  star2 is red.
-    image.setAttribute("src", `img/star${hitCrab ? 1 : 2}-dist.svg`);
+    image.setAttribute("src", `img/star${hitCrab ? 1 : 2}-dist-optim.svg`);
     // image.setAttribute("alt", "star");
     // get coords of touchstart/mousedown
     if (event.type === 'mousedown') {
@@ -190,6 +191,39 @@ const View = {
     this.gameScreen.querySelectorAll("img.star").forEach((im) => {
       im.remove();
     });
+  },
+
+  animateScoreMilestone(score) {
+    const elt = document.createElement("p");
+    elt.textContent = score;
+    elt.classList.add("score-milestone"); // positioning, etc
+    this.animate(elt, "red-fade");
+    
+    // make elt remove itself from DOM once animation completes.
+    elt.addEventListener("animationend", () => {
+      this.gameScreen.removeChild(elt);
+    });
+    
+    this.gameScreen.insertBefore(elt, null);
+  },
+  
+  animateCPSMilestone(cps) {
+    const cpsElt = document.createElement("p");
+    cpsElt.textContent = cps.toFixed(2);
+    
+    cpsElt.classList.add("cps-milestone"); // main styling
+    // dynamic position:
+    cpsElt.style.top = `${this.maxCPSLabel.getBoundingClientRect().top}px`;
+    cpsElt.style.left = `${this.maxCPSLabel.getBoundingClientRect().left}px`;
+
+    this.animate(cpsElt, "green-fade");
+    
+    // make elt remove itself from DOM once animation completes.
+    cpsElt.addEventListener("animationend", () => {
+      this.gameScreen.removeChild(cpsElt);
+    });
+
+    this.gameScreen.insertBefore(cpsElt, null);
   }
 };
 

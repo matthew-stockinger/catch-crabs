@@ -220,18 +220,73 @@ When fired, adds/removes e.g. .rLeg1-move class.
 }
 
 /***************** Max CPS updates **********************/
+.cps-milestone {
+    position: absolute;
+    /* this top & left are close-enough defaults.  True values found in JS */
+    /* top: 2.1rem;
+    left: 44%; */
+    margin: 0;
+
+    font-family: Verdana, sans-serif;
+    font-size: calc(0.5rem + 10vw);
+    font-weight: 900;
+    color: green;
+    opacity: 0;
+    text-shadow: 
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+}
+
 .green-fade {
-    animation: green-fade 1.5s 1;
+    /* animation: green-fade 1.5s 1; */
+    animation: green-fade 1s 1 ease-in;
 }
 
 @keyframes green-fade {
     from {
-        color: rgb(0, 255, 0);
-        font-size: calc(0.5rem + 4vw);
+        font-size: calc(0.5rem + 10vw);
+        opacity: 1;
     }
     to {
-        color: white;
         /* this is the original font-size, from #status-bar in index.css */
         font-size: calc(0.5rem + 3vw);
+        opacity: 0;
+    }
+}
+
+/*********** Max Score updates ***************/
+.score-milestone {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    margin: 0;
+
+    font-family: Verdana, sans-serif;
+    font-size: calc(0.5rem + 20vw);
+    font-weight: 900;
+    color: red;
+    opacity: 0;
+    text-shadow: 
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+}
+
+.red-fade {
+    animation: red-fade 1s 1 ease-in;
+    
+}
+
+@keyframes red-fade {
+    from {
+        font-size: calc(0.5rem + 20vw);
+        opacity: 1;
+    }
+    to {
+        font-size: calc(0.5rem + 3vw);
+        opacity: 0;
     }
 }

@@ -14,7 +14,7 @@ const Game = {
     this.maxScore = 0;
     this.cps = 0;
     this.maxCPS = 0;
-    this.time = 5999;
+    this.time = 0;
     this.hits = [];
     this.startStamp = null;
   },

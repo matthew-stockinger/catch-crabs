@@ -5,6 +5,7 @@ const View = {
   svgWrap: document.querySelector("#svg-wrap"), // the container div
   hitbox: document.querySelector("#g-wrap"), // g elt. inside svg elt.
   svg: document.querySelector("#svg-crab"), // main svg elt.
+  statusBar: document.querySelector("#status-bar"),
   scoreLabel: document.querySelector("#score-label"),
   maxScoreLabel: document.querySelector("#max-score"),
   timeLabel: document.querySelector("#time-label"),
@@ -63,7 +64,7 @@ const View = {
 
   animateLeft(minTime, maxTime) {
     let t1 = Math.random() * (maxTime - minTime) + minTime;
-    t1 = t1.toFixed(3);
+    t1 = Number(t1.toFixed(3));
     lEyeTimer = setTimeout(() => {
       this.moveEye("left");
       this.animateLeft(minTime, maxTime);
@@ -72,7 +73,7 @@ const View = {
 
   animateRight(minTime, maxTime) {
     let t2 = Math.random() * (maxTime - minTime) + minTime;
-    t2 = t2.toFixed(3);
+    t2 = Number(t2.toFixed(3));
     rEyeTimer = setTimeout(() => {
       this.moveEye("right");
       this.animateRight(minTime, maxTime);
@@ -106,7 +107,7 @@ const View = {
     });
         
     let t = Math.random() * (maxTime - minTime) + minTime;
-    t = t.toFixed(3);
+    t = Number(t.toFixed(3));
     lClawTimer = setTimeout(() => {
       this.twitchLClaw(minTime, maxTime);
     }, t * 1000);
@@ -122,7 +123,7 @@ const View = {
     });
 
     let t = Math.random() * (maxTime - minTime) + minTime;
-    t = t.toFixed(3);
+    t = Number(t.toFixed(3));
     rClawTimer = setTimeout(() => {
       this.twitchRClaw(minTime, maxTime);
     }, t * 1000);
@@ -161,7 +162,7 @@ const View = {
     const image = document.createElement("img");
     let clientX = 15, clientY = 15;
     // star1-dist.svg is yellow.  star2 is red.
-    image.setAttribute("src", `img/star${hitCrab ? 1 : 2}-dist.svg`);
+    image.setAttribute("src", `img/star${hitCrab ? 1 : 2}-dist-optim.svg`);
     // image.setAttribute("alt", "star");
     // get coords of touchstart/mousedown
     if (event.type === 'mousedown') {
@@ -190,6 +191,39 @@ const View = {
     this.gameScreen.querySelectorAll("img.star").forEach((im) => {
       im.remove();
     });
+  },
+
+  animateScoreMilestone(score) {
+    const elt = document.createElement("p");
+    elt.textContent = score;
+    elt.classList.add("score-milestone"); // positioning, etc
+    this.animate(elt, "red-fade");
+    
+    // make elt remove itself from DOM once animation completes.
+    elt.addEventListener("animationend", () => {
+      this.gameScreen.removeChild(elt);
+    });
+    
+    this.gameScreen.insertBefore(elt, null);
+  },
+  
+  animateCPSMilestone(cps) {
+    const cpsElt = document.createElement("p");
+    cpsElt.textContent = cps.toFixed(2);
+    
+    cpsElt.classList.add("cps-milestone"); // main styling
+    // dynamic position:
+    cpsElt.style.top = `${this.maxCPSLabel.getBoundingClientRect().top}px`;
+    cpsElt.style.left = `${this.maxCPSLabel.getBoundingClientRect().left}px`;
+
+    this.animate(cpsElt, "green-fade");
+    
+    // make elt remove itself from DOM once animation completes.
+    cpsElt.addEventListener("animationend", () => {
+      this.gameScreen.removeChild(cpsElt);
+    });
+
+    this.gameScreen.insertBefore(cpsElt, null);
   }
 };
 

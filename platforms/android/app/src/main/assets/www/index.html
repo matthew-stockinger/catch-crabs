@@ -50,16 +50,16 @@
 <body>
   <div id="game-screen" class="visible">
     <div id="status-bar">
-      <p>Score<br><span id="score-label">0</span> / <span id="max-score">0</span></p>
-      <p>CPS<br><span id="cps-label">0</span> / <span id="max-cps">0</span></p>
+      <p id="score-box">Score<br><span id="score-label">0</span> / <span id="max-score">0</span></p>
+      <p id="cps-box">CPS<br><span id="cps-label">0</span> / <span id="max-cps">0</span></p>
       <p id="time-label">0:00</p>
-      <p id="settings-icon">iconhere</p>
-      <img id="reset-button" src="img/restart.svg" alt="reset button">
+      <img id="reset-button" src="img/restart-optim.svg" alt="reset button">
     </div>
     <!-- svg-wrap is half screen size, crab centered inside. -->
     <div id="svg-wrap" class="region1">
-      <svg id="svg-crab" viewBox="0 0 90.358 57.685" xmlns="http://www.w3.org/2000/svg"
-        xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <!-- <svg id="svg-crab" viewBox="0 0 90.358 57.685" xmlns="http://www.w3.org/2000/svg"
+        xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:xlink="http://www.w3.org/1999/xlink"> -->
+      <svg id="svg-crab" viewBox="0 0 90.358 57.685" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="linearGradient1215">
             <stop style="stop-color:#ffb53f" offset="0" />

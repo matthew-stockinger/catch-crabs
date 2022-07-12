@@ -124,12 +124,13 @@ testing: thousands of clicks, >= 100 min time, double-digit cps(?)
 
 --after  fixing 10k issue, should switch cps milestone to new style.
 
-****bookmark here, as of 6.28.2022.  ****
 update version.
 rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
+****bookmark here, as of 7.12.2022.  ****
+final svg workflow check: watch inkscape and "Creating Icon Fonts for the Web"
 
 v 0.5.0
--sound, with accessibility in mind.
+-sound, with accessibility in mind. (use chromevox to check)
 -settings checkbox: sound
 -animated background?
 

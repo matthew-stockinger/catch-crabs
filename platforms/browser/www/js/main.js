@@ -158,6 +158,9 @@ const Dispatch = {
 			Game.maxScore = Game.score;
 			View.render(View.maxScoreLabel, Game.maxScore);
 		}
+		if (Game.score % 100 === 0) {
+			View.animateScoreMilestone(Game.score);
+		}
 	},
 
 	updateCPS() {
@@ -170,7 +173,7 @@ const Dispatch = {
 		if (cps > Game.maxCPS) {
 			Game.maxCPS = cps;
 			View.render(View.maxCPSLabel, cps.toFixed(2));
-			View.animate(View.maxCPSLabel, "green-fade");
+			View.animateCPSMilestone(cps);
 		}
 	},
 

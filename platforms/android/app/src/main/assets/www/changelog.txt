@@ -89,7 +89,7 @@ v 0.3.0-5
 --first click begins game.
 --what happens if you miss? default: score gets reset.
 
-v 0.3.0-6
+v 0.4.0
 --info on bar: clicks per second, time elapsed, settings icon
     get timer working
     get cps and max cps to work.
@@ -108,7 +108,6 @@ green highlight text on cps doesn't match other text sizes.  use calc?
 
 bug: max cps won't update any number over 10.  discovered while testing webview.
 
-****bookmark here, as of 6.20.2022.  ****
 dependabot
 do device testing checks.
 look for other toFixed type errors.
@@ -117,30 +116,31 @@ check status bar layout if time is over 100 minutes.
 
 compress background image?
 
+add reward banners on click-count victories and/or cps victories
+--Big number flashes.
+
+testing: thousands of clicks, >= 100 min time, double-digit cps(?)
+--reset button is too close to time on some devices
+
+--after  fixing 10k issue, should switch cps milestone to new style.
+
+update version.
+****bookmark here, as of 7.12.2022.  ****
 rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
 
-add reward banners on click-count victories and/or cps victories
---how it should look: trophies appear across the top.  Big number flashes.
---
-
-settings:
--mode: idle, 5s time trial, 10s time trial
--checkbox: strict hit box
--checkbox: misses reset game, don't forget to kill timeUpdate event listener?
-
-v 0.4.0
--sound, with accessibility in mind.
+v 0.5.0
+-sound, with accessibility in mind. (use chromevox to check)
 -settings checkbox: sound
 -animated background?
 
-v 0.5
+v 0.6
 -remove game over.  Change to some sort of penalty, with visual and audible feedback.
 -add clicks per second logic and view.  Status bar(s).  Anything else?
 
-v 0.6
+v 0.7
 -monetize
 
-v 0.7
+v 0.8
 -device state change testing.
 
 v 1.0
@@ -163,11 +163,17 @@ v 1.1
 
 v 1.?
 -give the crab different clothes or something, for each milestone.
+-idea: trophies?
 
 v 1.?
 -difficulty settings.  Use crabswap parameters to set things.
     also consider changing animation and sound timings to be tighter or looser.
 --option for loose or strict hitbox.  (target parent <svg> or <g> inside, respectively)
+
+settings:
+-mode: idle, 5s time trial, 10s time trial
+-checkbox: strict hit box
+-checkbox: misses reset game, don't forget to kill timeUpdate event listener?
 
 v 2.0?
 -social
