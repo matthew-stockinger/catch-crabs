@@ -126,15 +126,26 @@ testing: thousands of clicks, >= 100 min time, double-digit cps(?)
 
 update version.
 rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
-****bookmark here, as of 7.12.2022.  ****
 final svg workflow check: watch inkscape and "Creating Icon Fonts for the Web"
 
 v 0.5.0
+****bookmark here, as of 7.12.2022.  ****
 -sound, with accessibility in mind. (use chromevox to check)
+--crabClick sound works, but:
+--perhaps a little percussive.
+--latency issues.  Most pronounced on phone.
+    try: preloading audio instead of using new Audio().  Will have to deal with overlapping plays somehow.
+    see mdn HTMLAudioElement and HTMLMediaElement events perhaps.
+
+    another possibility: https://stackoverflow.com/questions/38768375/html5-audio-streaming-precisely-measure-latency#:~:text=Ideally%2C%20there%20would%20be%20little%20or%20no%20latency,3-7%20second%20range%20%28browser-%2C%20environment-%2C%20network-%20and%20phase-of-the-moon-dependent%29.
+
+
 -settings checkbox: sound
 -animated background?
 
 v 0.6
+-icon https://cordova.apache.org/docs/en/11.x/config_ref/images.html
+-splash screen https://cordova.apache.org/docs/en/11.x/core/features/splashscreen/index.html
 -remove game over.  Change to some sort of penalty, with visual and audible feedback.
 -add clicks per second logic and view.  Status bar(s).  Anything else?
 
