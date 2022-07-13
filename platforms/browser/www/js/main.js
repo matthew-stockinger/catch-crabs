@@ -136,6 +136,7 @@ const Dispatch = {
 		event.preventDefault();
 		event.stopPropagation(); // avoid click firing on background.
 		View.animateClickStar(event, true);
+		Sounds.play(Sounds.pop);
 		Game.hits.push(Math.round(event.timeStamp) - Game.startStamp);
 		this.scorePoint(event);
 		this.updateMaxScore(event);

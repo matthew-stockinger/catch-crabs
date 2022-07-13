@@ -125,15 +125,22 @@ testing: thousands of clicks, >= 100 min time, double-digit cps(?)
 --after  fixing 10k issue, should switch cps milestone to new style.
 
 update version.
-****bookmark here, as of 7.12.2022.  ****
 rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
+final svg workflow check: watch inkscape and "Creating Icon Fonts for the Web"
 
+****bookmark here, as of 7.12.2022.  ****
 v 0.5.0
--sound, with accessibility in mind.
+-sound, with accessibility in mind. (use chromevox to check)
+--crabClick sound works, but:
+--perhaps a little percussive.
+--latency issues
+
 -settings checkbox: sound
 -animated background?
 
 v 0.6
+-icon https://cordova.apache.org/docs/en/11.x/config_ref/images.html
+-splash screen https://cordova.apache.org/docs/en/11.x/core/features/splashscreen/index.html
 -remove game over.  Change to some sort of penalty, with visual and audible feedback.
 -add clicks per second logic and view.  Status bar(s).  Anything else?
 
