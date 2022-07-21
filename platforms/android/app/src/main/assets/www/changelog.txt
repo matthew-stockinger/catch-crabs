@@ -128,10 +128,34 @@ update version.
 rewatch svg lesson and clean up star, reset button svg.  Rewrite workflow.
 final svg workflow check: watch inkscape and "Creating Icon Fonts for the Web"
 
-****bookmark here, as of 7.12.2022.  ****
 v 0.5.0
 -sound, with accessibility in mind. (use chromevox to check)
+--latency issues.  Most pronounced on phone.
+    preloading a pool didn't work.
+
+    trying cordova plugin.
+        currently debugging Sounds.play().
+        having trouble getting position from Media object.
+
+        has a file storage dependency that pops an alert on browser.
+        Need to remove this if we go this route.
+
+        followup: cordova plugin doesn't work on my android phone!
+
+    another possibility: https://stackoverflow.com/questions/38768375/html5-audio-streaming-precisely-measure-latency#:~:text=Ideally%2C%20there%20would%20be%20little%20or%20no%20latency,3-7%20second%20range%20%28browser-%2C%20environment-%2C%20network-%20and%20phase-of-the-moon-dependent%29.
+
+****bookmark here, as of 7.18.2022.  ****
+    start a new branch.  start over on sound using below.
+    could also try https://github.com/floatinghotpot/cordova-plugin-nativeaudio
+
+    finally, could use howler.js
+
+--crabClick sound works, but:
+--perhaps a little percussive.
+
+
 -settings checkbox: sound
+-accessibility
 -animated background?
 
 v 0.6
