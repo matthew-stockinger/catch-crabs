@@ -144,11 +144,16 @@ v 0.5.0
 
     another possibility: https://stackoverflow.com/questions/38768375/html5-audio-streaming-precisely-measure-latency#:~:text=Ideally%2C%20there%20would%20be%20little%20or%20no%20latency,3-7%20second%20range%20%28browser-%2C%20environment-%2C%20network-%20and%20phase-of-the-moon-dependent%29.
 
-****bookmark here, as of 7.18.2022.  ****
-    start a new branch.  start over on sound using below.
     could also try https://github.com/floatinghotpot/cordova-plugin-nativeaudio
+        followup: sucks for both browser and android
 
-    finally, could use howler.js
+****bookmark here, as of 7.18.2022.  ****
+    next attempts for sound:
+    1. web audio api
+    2. howler.js
+    3. phaser
+    4. ionic
+    5. flutter
 
 --crabClick sound works, but:
 --perhaps a little percussive.
