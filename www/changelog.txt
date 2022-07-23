@@ -147,7 +147,6 @@ v 0.5.0
     could also try https://github.com/floatinghotpot/cordova-plugin-nativeaudio
         followup: sucks for both browser and android
 
-****bookmark here, as of 7.18.2022.  ****
     next attempts for sound:
     1. web audio api
     2. howler.js
@@ -158,6 +157,9 @@ v 0.5.0
 --crabClick sound works, but:
 --perhaps a little percussive.
 
+--use strict
+****bookmark here, as of 7.23.2022.  ****
+--modules
 
 -settings checkbox: sound
 -accessibility

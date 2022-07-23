@@ -1,3 +1,4 @@
+'use strict';
 let lEyeTimer, rEyeTimer, lClawTimer, rClawTimer;
 const View = {
   // main game screen elements.

@@ -1,3 +1,4 @@
+'use strict';
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -136,8 +137,8 @@ const Dispatch = {
 		event.preventDefault();
 		event.stopPropagation(); // avoid click firing on background.
 		View.animateClickStar(event, true);
-		Sounds.play(Sounds.pop);
 		Game.hits.push(Math.round(event.timeStamp) - Game.startStamp);
+		Sounds.pop.play();
 		this.scorePoint(event);
 		this.updateMaxScore(event);
 	},

@@ -1,8 +1,8 @@
-const Sounds = {
-  pop: '../audio/pop.mp3',
+'use strict';
 
-  play(soundFilePath) {
-    const audioElt = new Audio(soundFilePath);
-    audioElt.play();
-  }
+const Sounds = {
+  pop: new Howl({
+    src: ['audio/pop.mp3']
+  })
+  
 };
