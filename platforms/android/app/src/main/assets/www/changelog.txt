@@ -157,9 +157,8 @@ v 0.5.0
 --crabClick sound works, but:
 --perhaps a little percussive.
 
-****bookmark here, as of 7.23.2022.  ****
 --use strict
---modules
+****bookmark here, as of 7.23.2022.  ****
 
 -settings checkbox: sound
 -accessibility

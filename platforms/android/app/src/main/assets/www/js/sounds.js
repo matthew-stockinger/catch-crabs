@@ -1,8 +1,6 @@
 'use strict';
 
 const Sounds = {
-  pop: new Howl({
-    src: ['audio/pop.mp3']
-  })
-  
+  crabClick: new Howl({ src: ['audio/pop.mp3'] }),
+  crabMiss: new Howl({ src: ['audio/misspop1.mp3'] })
 };

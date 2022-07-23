@@ -138,7 +138,7 @@ const Dispatch = {
 		event.stopPropagation(); // avoid click firing on background.
 		View.animateClickStar(event, true);
 		Game.hits.push(Math.round(event.timeStamp) - Game.startStamp);
-		Sounds.pop.play();
+		Sounds.crabClick.play();
 		this.scorePoint(event);
 		this.updateMaxScore(event);
 	},
@@ -146,6 +146,7 @@ const Dispatch = {
 	crabMiss(event) {
 		event.preventDefault();
 		View.animateClickStar(event, false);
+		Sounds.crabMiss.play();
 		this.resetScore(event);
 		// this.gameOver(event);
 	},
