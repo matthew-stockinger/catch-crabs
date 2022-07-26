@@ -152,7 +152,7 @@ const Dispatch = {
 	},
 
 	scorePoint(event) {
-		Game.score += 10; // testing.  originally += 1.
+		Game.score += 1;
 		View.render(View.scoreLabel, Game.getScore());
 	},
 

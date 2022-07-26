@@ -163,6 +163,7 @@ const Dispatch = {
 		}
 		if (Game.score % 100 === 0) {
 			View.animateScoreMilestone(Game.score);
+			Sounds.hundo.play();
 		}
 	},
 
