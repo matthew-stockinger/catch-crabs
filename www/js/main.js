@@ -45,6 +45,9 @@ const crabMoveEnd = new Event('crabMoveEnd');
 const Dispatch = {
 	init() {
 		this.gameRunning = false;
+		this.userPrefs = {};
+		this.updateUserPrefs();
+		console.log(this.userPrefs);
 		View.preventDrag(); //prevents selecting or dragging objects on game screen.
 
 		// note:
@@ -93,6 +96,28 @@ const Dispatch = {
 		}, false);
 	},
 
+	// checks localStorage for existing using preferences.
+	// populates Dispatch.userPrefs object accordingly.
+	// list of available preferences:
+	// sound {boolean}
+	updateUserPrefs() {
+		console.log('localStorage at top of updateUserPrefs');
+		console.log(localStorage);
+		const soundPref = localStorage.getItem('sound');
+		console.log('getting soundpref:');
+		console.log(soundPref);
+		if (soundPref === 'true') {
+			this.userPrefs.sound = true;
+		} else if (soundPref === 'false') {
+			this.userPrefs.sound = false;
+		} else {
+			this.userPrefs.sound = true;
+			localStorage.setItem('sound', 'true');
+		}
+		console.log('localStorage after running some logic.');
+		console.log(localStorage);
+	},
+
 	gameStart(event) {
 		event.preventDefault();
 		Game.start(); // reset backend data.
@@ -138,7 +163,7 @@ const Dispatch = {
 		event.stopPropagation(); // avoid click firing on background.
 		View.animateClickStar(event, true);
 		Game.hits.push(Math.round(event.timeStamp) - Game.startStamp);
-		Sounds.crabClick.play();
+		if (this.userPrefs.sound) Sounds.crabClick.play();
 		this.scorePoint(event);
 		this.updateMaxScore(event);
 	},
@@ -146,7 +171,7 @@ const Dispatch = {
 	crabMiss(event) {
 		event.preventDefault();
 		View.animateClickStar(event, false);
-		Sounds.crabMiss.play();
+		if (this.userPrefs.sound) Sounds.crabMiss.play();
 		this.resetScore(event);
 		// this.gameOver(event);
 	},
@@ -163,7 +188,7 @@ const Dispatch = {
 		}
 		if (Game.score % 100 === 0) {
 			View.animateScoreMilestone(Game.score);
-			Sounds.hundo.play();
+			if (this.userPrefs.sound) Sounds.hundo.play();
 		}
 	},
 
