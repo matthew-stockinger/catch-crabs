@@ -159,10 +159,9 @@ v 0.5.0
 
 --use strict
 ****bookmark here, as of 7.23.2022.  ****
+-see sounds.js for next sounds to add.
 
 -settings checkbox: sound
--accessibility
--animated background?
 
 v 0.6
 -icon https://cordova.apache.org/docs/en/11.x/config_ref/images.html

@@ -152,7 +152,7 @@ const Dispatch = {
 	},
 
 	scorePoint(event) {
-		Game.score += 1;
+		Game.score += 10; // testing.  originally += 1.
 		View.render(View.scoreLabel, Game.getScore());
 	},
 
@@ -163,6 +163,7 @@ const Dispatch = {
 		}
 		if (Game.score % 100 === 0) {
 			View.animateScoreMilestone(Game.score);
+			Sounds.hundo.play();
 		}
 	},
 
