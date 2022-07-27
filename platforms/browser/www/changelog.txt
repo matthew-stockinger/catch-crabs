@@ -160,19 +160,23 @@ v 0.5.0
 --use strict
 -see sounds.js for next sounds to add.
 
-****bookmark here, as of 7.24.2022.  ****
 -settings checkbox: sound
---try out local storage.  test on all devices.  https://cordova.apache.org/docs/en/11.x/cordova/storage/storage.html#localstorage
+--added Dispatch.userPrefs object with one key so far: sound.
+****bookmark here, as of 7.24.2022.  ****
+--next: add UI way to change this preference.
+    on click of cog, pause game and open modal.
 --will need an onchange event handler for when any preferences change.
 
 v 0.6
 -icon https://cordova.apache.org/docs/en/11.x/config_ref/images.html
 -splash screen https://cordova.apache.org/docs/en/11.x/core/features/splashscreen/index.html
--remove game over.  Change to some sort of penalty, with visual and audible feedback.
--add clicks per second logic and view.  Status bar(s).  Anything else?
 
 v 0.7
 -monetize
+-marketing
+--calls to action within the app.   reviews, shares, etc.
+--social media links?  ability to share their high scores on social media.  use '#crabs' or something
+--memes from my own game
 
 v 0.8
 -device state change testing.

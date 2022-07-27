@@ -57,6 +57,13 @@ const Dispatch = {
 		View.playAgainBtn.addEventListener("click", (event) => {
 			this.gameStart(event);
 		}, false);
+		View.prefsButton.addEventListener("click", () => {
+			//prevent click from registering elsewhere
+			this.openPrefs();
+		}, false);
+		View.closeModalButton.addEventListener("click", () => {
+			this.closePrefs();
+		}, false);
 		window.addEventListener("timeUpdate", (event) => {
 			// timeUpdate event fires every 1 second during gameplay.
 			this.updateCPS();
@@ -94,6 +101,15 @@ const Dispatch = {
 			event.stopPropagation();
 			this.gameReset(event);
 		}, false);
+	},
+
+	// pause game, open modal, .
+	openPrefs() {
+		View.modal.style.display = "block";
+	},
+
+	closePrefs() {
+		View.modal.style.display = "none";
 	},
 
 	// checks localStorage for existing using preferences.

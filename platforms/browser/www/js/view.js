@@ -13,6 +13,9 @@ const View = {
   cpsLabel: document.querySelector("#cps-label"),
   maxCPSLabel: document.querySelector("#max-cps"),
   resetButton: document.querySelector("#reset-button"),
+  modal: document.querySelector("#prefs-modal"),
+  prefsButton: document.querySelector("#prefs-cog"),
+  closeModalButton: document.querySelector(".close"),
   // game over screen elements.
   gameOverScreen: document.querySelector("#game-over-screen"),
   gameOverMsg: document.querySelector("#game-over-msg"),
