@@ -46,7 +46,7 @@ const Dispatch = {
 	init() {
 		this.gameRunning = false;
 		this.userPrefs = {};
-		this.updateUserPrefs();
+		this.updateUserPrefs(); // check for locally stored preferences
 		console.log(this.userPrefs);
 		View.preventDrag(); //prevents selecting or dragging objects on game screen.
 
@@ -54,24 +54,68 @@ const Dispatch = {
 		// all event listener callbacks in this code use anonymous arrow functions
 		// so that the value of 'this' will always be the parent object, not
 		// the click target element.
+		
+		// play again button on game over screen.
 		View.playAgainBtn.addEventListener("click", (event) => {
 			this.gameStart(event);
 		}, false);
-		View.prefsButton.addEventListener("click", () => {
-			//prevent click from registering elsewhere
+		
+		// preferences menu
+		View.prefsButton.addEventListener("mousedown", (event) => {
+			event.stopPropagation();
 			this.openPrefs();
 		}, false);
-		View.closeModalButton.addEventListener("click", () => {
+		View.prefsButton.addEventListener("touchstart", (event) => {
+			event.stopPropagation();
+			this.openPrefs();
+		}, false);
+		View.closeModalButton.addEventListener("mousedown", (event) => {
+			event.stopPropagation();
 			this.closePrefs();
 		}, false);
+		View.closeModalButton.addEventListener("touchstart", (event) => {
+			event.stopPropagation();
+			this.closePrefs();
+		}, false);
+		View.soundCheckbox.addEventListener("mousedown", (event) => {
+			event.stopPropagation();
+		}, false);
+		View.soundCheckbox.addEventListener("touchstart", (event) => {
+			event.stopPropagation();
+		}, false);
+		// prevent clicks or touches on modal window from bubbling up to a crabMiss
+		View.modal.addEventListener("mousedown", (event) => {
+			event.stopPropagation();
+		}, false);
+		View.modal.addEventListener("touchstart", (event) => {
+			event.stopPropagation();
+		}, false);
+		
+		// reset button
+		View.resetButton.addEventListener("mousedown", (event) => {
+			event.stopPropagation();
+			this.gameReset(event);
+		}, false);
+		View.resetButton.addEventListener("touchstart", (event) => {
+			event.stopPropagation();
+			this.gameReset(event);
+		}, false);
+
+		// timeUpdate event fires every 1 second during gameplay.
 		window.addEventListener("timeUpdate", (event) => {
-			// timeUpdate event fires every 1 second during gameplay.
 			this.updateCPS();
 			View.render(View.timeLabel, event.detail.timeString);
 		}, false);
 
-		// desktop
+		// crab hits and misses
 		View.hitbox.addEventListener("mousedown", (event) => {
+			if (!this.gameRunning) {
+				this.gameRunning = true;
+				this.gameStart(event);
+			}
+			this.crabClick(event);
+		}, false);
+		View.hitbox.addEventListener("touchstart", (event) => {
 			if (!this.gameRunning) {
 				this.gameRunning = true;
 				this.gameStart(event);
@@ -81,25 +125,8 @@ const Dispatch = {
 		View.gameScreen.addEventListener("mousedown", (event) => {
 			this.crabMiss(event);
 		}, false);
-		View.resetButton.addEventListener("mousedown", (event) => {
-			event.stopPropagation();
-			this.gameReset(event);
-		}, false);
-
-		// mobile
-		View.hitbox.addEventListener("touchstart", (event) => {
-			if (!this.gameRunning) {
-				this.gameRunning = true;
-				this.gameStart(event);
-			}
-			this.crabClick(event);
-		}, false);
 		View.gameScreen.addEventListener("touchstart", (event) => {
 			this.crabMiss(event);
-		}, false);
-		View.resetButton.addEventListener("touchstart", (event) => {
-			event.stopPropagation();
-			this.gameReset(event);
 		}, false);
 	},
 

@@ -58,7 +58,7 @@ const Dispatch = {
 			this.gameStart(event);
 		}, false);
 		View.prefsButton.addEventListener("click", () => {
-			console.log(`prefsbutton clicked`);
+			//prevent click from registering elsewhere
 			this.openPrefs();
 		}, false);
 		View.closeModalButton.addEventListener("click", () => {
@@ -103,10 +103,9 @@ const Dispatch = {
 		}, false);
 	},
 
+	// pause game, open modal, .
 	openPrefs() {
-		console.log(`in dispatch.openprefs`);
 		View.modal.style.display = "block";
-		console.log(`View.show(View.modal) ran`);
 	},
 
 	closePrefs() {
