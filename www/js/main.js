@@ -62,41 +62,53 @@ const Dispatch = {
 		
 		// preferences menu
 		View.prefsButton.addEventListener("mousedown", (event) => {
+			console.log(`prefsButton mousedown`);
 			event.stopPropagation();
 			this.openPrefs();
 		}, false);
 		View.prefsButton.addEventListener("touchstart", (event) => {
+			console.log(`prefsButton touchstart`);
 			event.stopPropagation();
 			this.openPrefs();
 		}, false);
 		View.closeModalButton.addEventListener("mousedown", (event) => {
+			console.log(`closeModalButton mousedown`);
 			event.stopPropagation();
+			event.preventDefault();
 			this.closePrefs();
 		}, false);
 		View.closeModalButton.addEventListener("touchstart", (event) => {
+			console.log(`closeModalButton touchstart`);
 			event.stopPropagation();
+			event.preventDefault();
 			this.closePrefs();
 		}, false);
 		View.soundCheckbox.addEventListener("mousedown", (event) => {
+			console.log(`soundCheckbox mousedown`);
 			event.stopPropagation();
 		}, false);
 		View.soundCheckbox.addEventListener("touchstart", (event) => {
+			console.log(`soundCheckbox touchstart`);
 			event.stopPropagation();
 		}, false);
 		// prevent clicks or touches on modal window from bubbling up to a crabMiss
 		View.modal.addEventListener("mousedown", (event) => {
+			console.log(`modal mousedown`);
 			event.stopPropagation();
 		}, false);
 		View.modal.addEventListener("touchstart", (event) => {
+			console.log(`modal touchstart`);
 			event.stopPropagation();
 		}, false);
 		
 		// reset button
 		View.resetButton.addEventListener("mousedown", (event) => {
+			console.log(`resetButton mousedown`);
 			event.stopPropagation();
 			this.gameReset(event);
 		}, false);
 		View.resetButton.addEventListener("touchstart", (event) => {
+			console.log(`resetButton touchstart`);
 			event.stopPropagation();
 			this.gameReset(event);
 		}, false);
@@ -109,6 +121,7 @@ const Dispatch = {
 
 		// crab hits and misses
 		View.hitbox.addEventListener("mousedown", (event) => {
+			console.log(`hitbox mousedown`);
 			if (!this.gameRunning) {
 				this.gameRunning = true;
 				this.gameStart(event);
@@ -116,6 +129,7 @@ const Dispatch = {
 			this.crabClick(event);
 		}, false);
 		View.hitbox.addEventListener("touchstart", (event) => {
+			console.log(`hitbox touchstart`);
 			if (!this.gameRunning) {
 				this.gameRunning = true;
 				this.gameStart(event);
@@ -123,9 +137,11 @@ const Dispatch = {
 			this.crabClick(event);
 		}, false);
 		View.gameScreen.addEventListener("mousedown", (event) => {
+			console.log(`gamescreen mousedown`);
 			this.crabMiss(event);
 		}, false);
 		View.gameScreen.addEventListener("touchstart", (event) => {
+			console.log(`gameScreen touchstart`);
 			this.crabMiss(event);
 		}, false);
 	},

@@ -15,6 +15,7 @@ const View = {
   resetButton: document.querySelector("#reset-button"),
   modal: document.querySelector("#prefs-modal"),
   prefsButton: document.querySelector("#prefs-cog"),
+  soundCheckbox: document.querySelector("#sound-pref"),
   closeModalButton: document.querySelector(".close"),
   // game over screen elements.
   gameOverScreen: document.querySelector("#game-over-screen"),

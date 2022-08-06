@@ -1,11 +1,11 @@
-PC
+PC - mouse & touchpad
 -------
 chrome
 firefox
 edge
 
 
-Mac
+Mac - mouse & touchpad
 ------
 chrome
 firefox
