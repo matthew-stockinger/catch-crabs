@@ -74,22 +74,17 @@ const Dispatch = {
 		View.closeModalButton.addEventListener("mousedown", (event) => {
 			console.log(`closeModalButton mousedown`);
 			event.stopPropagation();
+			event.preventDefault();
 			this.closePrefs();
 		}, false);
 		View.closeModalButton.addEventListener("touchstart", (event) => {
 			console.log(`closeModalButton touchstart`);
 			event.stopPropagation();
-			// event.stopImmediatePropagation();
 			event.preventDefault();
 			this.closePrefs();
 		}, false);
-		View.soundCheckbox.addEventListener("mousedown", (event) => {
-			console.log(`soundCheckbox mousedown`);
-			event.stopPropagation();
-		}, false);
-		View.soundCheckbox.addEventListener("touchstart", (event) => {
-			console.log(`soundCheckbox touchstart`);
-			event.stopPropagation();
+		View.soundCheckbox.addEventListener("change", (event) => {
+			console.log(`soundCheckbox change`);
 		}, false);
 		// prevent clicks or touches on modal window from bubbling up to a crabMiss
 		View.modal.addEventListener("mousedown", (event) => {
