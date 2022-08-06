@@ -142,10 +142,16 @@ const Dispatch = {
 
 	// pause game, open modal, .
 	openPrefs() {
+		if (this.gameRunning) {
+			this.pause();
+		}
 		View.modal.style.display = "block";
 	},
 
 	closePrefs() {
+		if (this.gameRunning) {
+			this.unpause();
+		}
 		View.modal.style.display = "none";
 	},
 
@@ -194,7 +200,7 @@ const Dispatch = {
 		this.cycleCrab(1, 5); // start crab moving back and forth.
 		Game.startTime(event);
 	},
-
+	
 	gameReset(event) {
 		Game.start(); // reset backend data.
 		View.render(View.scoreLabel, 0);
@@ -205,6 +211,18 @@ const Dispatch = {
 		this.gameRunning = false;
 		Game.stopTime(event);
 		this.resetClock();
+	},
+
+	// stop crab transitions, clock, cps
+	pause() {
+		clearTimeout(swapTimer);
+		Game.pauseTime();
+	},
+
+	// restart crab transitions, clock, cps
+	unpause() {
+		this.cycleCrab(1, 5);
+		Game.unpauseTime();
 	},
 
 	// moves crab between regions at random time intervals.

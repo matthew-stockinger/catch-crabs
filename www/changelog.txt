@@ -162,10 +162,10 @@ v 0.5.0
 
 -settings checkbox: sound
 --added Dispatch.userPrefs object with one key so far: sound.
-****bookmark here, as of 8.2.2022.  ****
 --next: add UI way to change this preference.
     on click of cog, pause game and open modal.  
-    fix: pause game
+****bookmark here, as of 8.2.2022.  ****
+    fix: pause game results in wrong cps because of Game.hits timestamp handling.
     fix: modal styling
 --will need an onchange event handler for when any preferences change.
 
