@@ -2,6 +2,7 @@
 /* Back-end game functionality.  e.g. score handling. */
 let timeUpdate = new Event('timeUpdate');
 const Game = {
+  userPrefs: {},
   score: null,
   maxScore: null,
   cps: null, // clicks per second
