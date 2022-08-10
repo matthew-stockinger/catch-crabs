@@ -2,6 +2,7 @@
 /* Back-end game functionality.  e.g. score handling. */
 let timeUpdate = new Event('timeUpdate');
 const Game = {
+  userPrefs: {},
   score: null,
   maxScore: null,
   cps: null, // clicks per second
@@ -39,9 +40,33 @@ const Game = {
     }, 1000);
   },
 
+  // full reset of game time, to zero.
   stopTime(event) {
     clearInterval(this.timeInterval);
     this.time = 0;
+  },
+
+  // prevent time from elapsing, but retain current value.
+  pauseTime() {
+    clearInterval(this.timeInterval);
+  },
+
+  // restart timer from previous pause point.
+  unpauseTime() {
+    this.timeInterval = setInterval(() => {
+      this.time += 1;
+      let minutes = Math.floor(this.time / 60);
+      if (minutes === 0) minutes = "0";
+      let seconds = this.time % 60;
+      if (seconds < 10) seconds = "0" + seconds;
+      let timeString = `${minutes}:${seconds}`;
+      timeUpdate = new CustomEvent('timeUpdate', {
+        detail: {
+          timeString: timeString
+        }
+      });
+      window.dispatchEvent(timeUpdate);
+    }, 1000);
   },
 
   setScore(value) {

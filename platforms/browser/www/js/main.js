@@ -45,9 +45,7 @@ const crabMoveEnd = new Event('crabMoveEnd');
 const Dispatch = {
 	init() {
 		this.gameRunning = false;
-		this.userPrefs = {};
-		this.updateUserPrefs(); // check for locally stored preferences
-		console.log(this.userPrefs);
+		this.getStoragePrefs(); // check for locally stored preferences
 		View.preventDrag(); //prevents selecting or dragging objects on game screen.
 
 		// note:
@@ -85,6 +83,7 @@ const Dispatch = {
 		}, false);
 		View.soundCheckbox.addEventListener("change", (event) => {
 			console.log(`soundCheckbox change`);
+			this.changeSoundPref();
 		}, false);
 		// prevent clicks or touches on modal window from bubbling up to a crabMiss
 		View.modal.addEventListener("mousedown", (event) => {
@@ -143,33 +142,49 @@ const Dispatch = {
 
 	// pause game, open modal, .
 	openPrefs() {
+		if (this.gameRunning) {
+			this.pause();
+		}
 		View.modal.style.display = "block";
 	},
 
 	closePrefs() {
+		if (this.gameRunning) {
+			this.unpause();
+		}
 		View.modal.style.display = "none";
 	},
 
 	// checks localStorage for existing using preferences.
-	// populates Dispatch.userPrefs object accordingly.
+	// update Game.userPrefs object and View.soundCheckbox
 	// list of available preferences:
 	// sound {boolean}
-	updateUserPrefs() {
-		console.log('localStorage at top of updateUserPrefs');
-		console.log(localStorage);
-		const soundPref = localStorage.getItem('sound');
-		console.log('getting soundpref:');
-		console.log(soundPref);
-		if (soundPref === 'true') {
-			this.userPrefs.sound = true;
-		} else if (soundPref === 'false') {
-			this.userPrefs.sound = false;
+	getStoragePrefs() {
+		const storageSoundPref = localStorage.getItem('sound');
+		if (storageSoundPref === 'true') {
+			Game.userPrefs.sound = true;
+			View.soundCheckbox.checked = true;
+			Sounds.mute(false);
+		} else if (storageSoundPref === 'false') {
+			Game.userPrefs.sound = false;
+			View.soundCheckbox.checked = false;
+			Sounds.mute(true);
 		} else {
-			this.userPrefs.sound = true;
+			// if there is no sound pref in local storage, default to true.
+			Game.userPrefs.sound = true;
+			View.soundCheckbox.checked = true;
 			localStorage.setItem('sound', 'true');
+			Sounds.mute(false);
 		}
-		console.log('localStorage after running some logic.');
-		console.log(localStorage);
+	},
+
+	// get new state of sound pref checkbox.  turn sound on/off, update Game and 
+	// local storage.
+	changeSoundPref() {
+		const currentSoundPref = View.soundCheckbox.checked;
+		Game.userPrefs.sound = currentSoundPref;
+		localStorage.setItem('sound', currentSoundPref.toString());
+		Sounds.mute(!currentSoundPref);
 	},
 
 	gameStart(event) {
@@ -185,7 +200,7 @@ const Dispatch = {
 		this.cycleCrab(1, 5); // start crab moving back and forth.
 		Game.startTime(event);
 	},
-
+	
 	gameReset(event) {
 		Game.start(); // reset backend data.
 		View.render(View.scoreLabel, 0);
@@ -196,6 +211,18 @@ const Dispatch = {
 		this.gameRunning = false;
 		Game.stopTime(event);
 		this.resetClock();
+	},
+
+	// stop crab transitions, clock, cps
+	pause() {
+		clearTimeout(swapTimer);
+		Game.pauseTime();
+	},
+
+	// restart crab transitions, clock, cps
+	unpause() {
+		this.cycleCrab(1, 5);
+		Game.unpauseTime();
 	},
 
 	// moves crab between regions at random time intervals.
@@ -217,7 +244,7 @@ const Dispatch = {
 		event.stopPropagation(); // avoid click firing on background.
 		View.animateClickStar(event, true);
 		Game.hits.push(Math.round(event.timeStamp) - Game.startStamp);
-		if (this.userPrefs.sound) Sounds.crabClick.play();
+		if (Game.userPrefs.sound) Sounds.crabClick.play();
 		this.scorePoint(event);
 		this.updateMaxScore(event);
 	},
@@ -225,7 +252,7 @@ const Dispatch = {
 	crabMiss(event) {
 		event.preventDefault();
 		View.animateClickStar(event, false);
-		if (this.userPrefs.sound) Sounds.crabMiss.play();
+		if (Game.userPrefs.sound) Sounds.crabMiss.play();
 		this.resetScore(event);
 		// this.gameOver(event);
 	},
@@ -242,7 +269,7 @@ const Dispatch = {
 		}
 		if (Game.score % 100 === 0) {
 			View.animateScoreMilestone(Game.score);
-			if (this.userPrefs.sound) Sounds.hundo.play();
+			if (Game.userPrefs.sound) Sounds.hundo.play();
 		}
 	},
 
