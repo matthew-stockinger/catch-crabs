@@ -1,9 +1,9 @@
 {
-  "name": "com.honkbeefnoodle.catchcrabs",
+  "name": "com.stockmobilesoftware.catchcrabs",
   "displayName": "CatchCrabs",
   "version": "0.5.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "index.js",
+  "description": "Click the crab!",
+  "main": "js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
