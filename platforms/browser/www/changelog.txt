@@ -164,9 +164,11 @@ v 0.5.0
 --added Dispatch.userPrefs object with one key so far: sound.
 --next: add UI way to change this preference.
     on click of cog, pause game and open modal.  
-****bookmark here, as of 8.2.2022.  ****
     fix: pause game results in wrong cps because of Game.hits timestamp handling.
     fix: modal styling
+****bookmark here, as of 8.10.2022.  ****
+merge branch to master.
+update app version.
 
 v 0.6
 -icon https://cordova.apache.org/docs/en/11.x/config_ref/images.html
