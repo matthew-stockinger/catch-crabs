@@ -162,18 +162,15 @@ v 0.5.0
 
 -settings checkbox: sound
 --added Dispatch.userPrefs object with one key so far: sound.
-****bookmark here, as of 8.2.2022.  ****
 --next: add UI way to change this preference.
     on click of cog, pause game and open modal.  
-    fix: test on all targets.  android browser has checkbox problems.  
-        Seems like a rework of the events is in order.  console.log everything like crazy, without stopping propagation or preventDefault.  Work out how it should all work on paper?
-    fix: closemodal touch event bubbles up on android.  (but not while inspected??)
-    fix: make sound pref actually change sound behavior in the app.
-    fix: pause game
+    fix: pause game results in wrong cps because of Game.hits timestamp handling.
     fix: modal styling
---will need an onchange event handler for when any preferences change.
+merge branch to master.
+update app version.
 
 v 0.6
+****bookmark here, as of 8.10.2022.  ****
 -icon https://cordova.apache.org/docs/en/11.x/config_ref/images.html
 -splash screen https://cordova.apache.org/docs/en/11.x/core/features/splashscreen/index.html
 

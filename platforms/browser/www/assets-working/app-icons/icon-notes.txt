@@ -1,0 +1,10 @@
+Android: 
+https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive
+
+using svg: https://developer.android.com/training/multiscreen/screendensities#use_vector_graphics_instead
+
+
+
+adaptive icon layers.  Make 2.  108 x 108 dp.  Inner 72 x 72 dp is main icon image.
+66dp x 66dp is true safe zone
+

@@ -3,9 +3,15 @@
   "display": "standalone",
   "name": "CatchCrabs",
   "short_name": "CatchCrabs",
-  "version": "com.honkbeefnoodle.catchcrabs",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "version": "com.stockmobilesoftware.catchcrabs",
+  "description": "Click the crab!",
   "author": "Apache Cordova Team",
-  "icons": [],
+  "icons": [
+    {
+      "src": "res/ic_app-icon2.xml",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
   "start_url": "index.html"
 }
