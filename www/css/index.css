@@ -183,7 +183,7 @@ body {
     cursor: pointer;
 }
 
-/* Preferences Cog
+/* Preferences Menu
 ---------------------------------------------------*/
 #prefs-cog {
     display: block;
@@ -240,6 +240,15 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+fieldset {
+    margin: 2rem 0 2rem 1rem;
+    width: 90%;
+}
+
+fieldset > div {
+    margin: 0.5rem 0;
 }
 
 /* Game Over Screen

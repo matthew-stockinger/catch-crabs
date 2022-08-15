@@ -85,6 +85,14 @@ const Dispatch = {
 			console.log(`soundCheckbox change`);
 			this.changeSoundPref();
 		}, false);
+		View.hitboxStrict.addEventListener("change", (event) => {
+			console.log(`hitbox change`);
+			this.changeHitbox();
+		}, false);
+		View.hitboxLarge.addEventListener("change", (event) => {
+			console.log(`hitbox change`);
+			this.changeHitbox();
+		}, false);
 		// prevent clicks or touches on modal window from bubbling up to a crabMiss
 		View.modal.addEventListener("mousedown", (event) => {
 			console.log(`modal mousedown`);
@@ -160,18 +168,37 @@ const Dispatch = {
 	// list of available preferences:
 	// sound {boolean}
 	getStoragePrefs() {
+		// hitbox
+		const hitboxPref = localStorage.getItem('hitbox');
+		if (hitboxPref === 'large') {
+			Game.setPref('hitbox', 'large');
+			View.hitbox = document.querySelector("#svg-crab");
+			View.hitboxLarge.checked = true;
+		} else if (hitboxPref === 'strict') {
+			Game.setPref('hitbox', 'strict');
+			View.hitbox = document.querySelector("#g-wrap");
+			View.hitboxStrict.checked = true;
+		} else {
+			// default to strict
+			Game.setPref('hitbox', 'strict');
+			localStorage.setItem('hitbox', 'strict');
+			View.hitbox = document.querySelector("#g-wrap");
+			View.hitboxStrict.checked = true;
+		}
+
+		// sound
 		const storageSoundPref = localStorage.getItem('sound');
 		if (storageSoundPref === 'true') {
-			Game.userPrefs.sound = true;
+			Game.setPref('sound', true);
 			View.soundCheckbox.checked = true;
 			Sounds.mute(false);
 		} else if (storageSoundPref === 'false') {
-			Game.userPrefs.sound = false;
+			Game.setPref('sound', false);
 			View.soundCheckbox.checked = false;
 			Sounds.mute(true);
 		} else {
 			// if there is no sound pref in local storage, default to true.
-			Game.userPrefs.sound = true;
+			Game.setPref('sound', true);
 			View.soundCheckbox.checked = true;
 			localStorage.setItem('sound', 'true');
 			Sounds.mute(false);
@@ -182,9 +209,23 @@ const Dispatch = {
 	// local storage.
 	changeSoundPref() {
 		const currentSoundPref = View.soundCheckbox.checked;
-		Game.userPrefs.sound = currentSoundPref;
+		Game.setPref('sound', currentSoundPref);
 		localStorage.setItem('sound', currentSoundPref.toString());
 		Sounds.mute(!currentSoundPref);
+	},
+
+	// when hitbox preference is changed.
+	changeHitbox() {
+		let currentHitboxPref = 'strict'; // default
+		if (View.hitboxStrict.checked) {
+			currentHitboxPref = 'strict';
+			View.hitbox = document.querySelector("#g-wrap");
+		} else {
+			currentHitboxPref = 'large';
+			View.hitbox = document.querySelector("#svg-crab")
+		}
+		Game.setPref('hitbox', currentHitboxPref);
+		localStorage.setItem('hitbox', currentHitboxPref);
 	},
 
 	gameStart(event) {

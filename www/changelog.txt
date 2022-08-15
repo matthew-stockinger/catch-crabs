@@ -170,8 +170,14 @@ merge branch to master.
 update app version.
 
 v 0.6
-****bookmark here, as of 8.10.2022.  ****
 -icon https://cordova.apache.org/docs/en/11.x/config_ref/images.html
+****bookmark here, as of 8.10.2022.  ****
+-hit box setting
+---> See lines 125 and following.  Event listeners don't get reattached to other dom objects when
+    view.hitbox is redefined.
+    Therefore, don't redefine hitbox any more.
+    Instead, put event listeners up front, onto both svg-crab and g-wrap.  Put a conditional
+    inside of each that will test the current preference.
 -splash screen https://cordova.apache.org/docs/en/11.x/core/features/splashscreen/index.html
 
 v 0.7

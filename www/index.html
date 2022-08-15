@@ -134,17 +134,33 @@
             d="m47.536 12.022s1.7808 1.6282 0.55968 6.7162c-0.45792 0.91584-0.61056 1.1702-1.272 1.7299-0.66144 0.55968-2.1713 0.48781-3.3581 1.1702-0.5088 0.29256-0.81408 0.54696-0.99852 0.83634" />
           <path class="face"
             d="m48.096 18.738s0.40704 2.0861 2.137 2.3405c0.43248 0.0636 0.88426 0.22056 1.2738 0.4455 0.37969 0.21926 0.70099 0.54348 0.99673 0.8583" />
-          </g>
+        </g>
         <!-- <rect x="0" y="0" width="1" height="1" style="transform: translateX(0%) translateY(0%);" /> -->
       </svg>
     </div>
-    
+
     <img id="prefs-cog" src="img/cog-optim.svg" alt="preferences">
     <div id="prefs-modal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <label for="sound-pref">Sound</label>
-        <input type="checkbox" id="sound-pref" name="sound-pref" checked>
+
+        <fieldset>
+          <input type="checkbox" id="sound-pref" name="sound-pref" checked>
+          <label for="sound-pref">Sound</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Hitbox</legend>
+          <div>
+            <input type="radio" id="strict" name="hitbox" value="strict" checked>
+            <label for="strict">Strict</label>
+          </div>
+          <div>
+            <input type="radio" id="large" name="hitbox" value="large">
+            <label for="large">Easy</label>
+          </div>
+        </fieldset>
+
       </div>
     </div>
   </div>
