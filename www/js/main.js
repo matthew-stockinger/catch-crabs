@@ -60,57 +60,46 @@ const Dispatch = {
 		
 		// preferences menu
 		View.prefsButton.addEventListener("mousedown", (event) => {
-			console.log(`prefsButton mousedown`);
 			event.stopPropagation();
 			this.openPrefs();
 		}, false);
 		View.prefsButton.addEventListener("touchstart", (event) => {
-			console.log(`prefsButton touchstart`);
 			event.stopPropagation();
 			this.openPrefs();
 		}, false);
 		View.closeModalButton.addEventListener("mousedown", (event) => {
-			console.log(`closeModalButton mousedown`);
 			event.stopPropagation();
 			event.preventDefault();
 			this.closePrefs();
 		}, false);
 		View.closeModalButton.addEventListener("touchstart", (event) => {
-			console.log(`closeModalButton touchstart`);
 			event.stopPropagation();
 			event.preventDefault();
 			this.closePrefs();
 		}, false);
 		View.soundCheckbox.addEventListener("change", (event) => {
-			console.log(`soundCheckbox change`);
 			this.changeSoundPref();
 		}, false);
 		View.hitboxStrict.addEventListener("change", (event) => {
-			console.log(`hitbox change`);
 			this.changeHitbox();
 		}, false);
 		View.hitboxLarge.addEventListener("change", (event) => {
-			console.log(`hitbox change`);
 			this.changeHitbox();
 		}, false);
 		// prevent clicks or touches on modal window from bubbling up to a crabMiss
 		View.modal.addEventListener("mousedown", (event) => {
-			console.log(`modal mousedown`);
 			event.stopPropagation();
 		}, false);
 		View.modal.addEventListener("touchstart", (event) => {
-			console.log(`modal touchstart`);
 			event.stopPropagation();
 		}, false);
 		
 		// reset button
 		View.resetButton.addEventListener("mousedown", (event) => {
-			console.log(`resetButton mousedown`);
 			event.stopPropagation();
 			this.gameReset(event);
 		}, false);
 		View.resetButton.addEventListener("touchstart", (event) => {
-			console.log(`resetButton touchstart`);
 			event.stopPropagation();
 			this.gameReset(event);
 		}, false);
@@ -124,7 +113,6 @@ const Dispatch = {
 		// crab hits
 		View.hitbox.addEventListener("mousedown", (event) => {
 			// mousedown on strict hitbox
-			console.log(`hitbox mousedown`);
 			if (Game.userPrefs.hitbox === 'strict') {
 				if (!this.gameRunning) {
 					this.gameRunning = true;
@@ -135,7 +123,6 @@ const Dispatch = {
 		}, false);
 		View.hitbox.addEventListener("touchstart", (event) => {
 			// touchstart on strict hitbox
-			console.log(`hitbox touchstart`);
 			if (Game.userPrefs.hitbox === 'strict') {
 				if (!this.gameRunning) {
 					this.gameRunning = true;
@@ -146,7 +133,6 @@ const Dispatch = {
 		}, false);
 		View.svg.addEventListener("mousedown", (event) => {
 			// mousedown on large hitbox
-			console.log(`svg mousedown`);
 			if (Game.userPrefs.hitbox === 'large') {
 				if (!this.gameRunning) {
 					this.gameRunning = true;
@@ -157,7 +143,6 @@ const Dispatch = {
 		}, false);
 		View.svg.addEventListener("touchstart", (event) => {
 			// touchstart on large hitbox
-			console.log(`svg touchstart`);
 			if (Game.userPrefs.hitbox === 'large') {
 				if (!this.gameRunning) {
 					this.gameRunning = true;
@@ -166,14 +151,12 @@ const Dispatch = {
 				this.crabClick(event);
 			}
 		}, false);
-		
+
 		// crab misses
 		View.gameScreen.addEventListener("mousedown", (event) => {
-			console.log(`gamescreen mousedown`);
 			this.crabMiss(event);
 		}, false);
 		View.gameScreen.addEventListener("touchstart", (event) => {
-			console.log(`gameScreen touchstart`);
 			this.crabMiss(event);
 		}, false);
 	},
@@ -243,14 +226,8 @@ const Dispatch = {
 
 	// when hitbox preference is changed.
 	changeHitbox() {
-		// let currentHitboxPref = 'strict'; // default
-		// if (View.hitboxStrict.checked) {
-		// 	currentHitboxPref = 'strict';
-		// } else {
-		// 	currentHitboxPref = 'large';
-		// }
-		Game.setPref('hitbox', View.hitboxStrict.checked ? 'strict' : 'large');
-		// Game.setPref('hitbox', currentHitboxPref);
+		const currentHitboxPref = View.hitboxStrict.checked ? 'strict' : 'large';
+		Game.setPref('hitbox', currentHitboxPref);
 		localStorage.setItem('hitbox', currentHitboxPref);
 	},
 
