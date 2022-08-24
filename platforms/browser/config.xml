@@ -15,5 +15,5 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <icon src="res/ic_app-icon2.xml" />
+    <icon src="res/ic_app_icon2.xml" />
 </widget>

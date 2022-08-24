@@ -8,7 +8,7 @@
   "author": "Apache Cordova Team",
   "icons": [
     {
-      "src": "res/ic_app-icon2.xml",
+      "src": "res/ic_app_icon2.xml",
       "type": "image/png",
       "sizes": "undefinedxundefined"
     }

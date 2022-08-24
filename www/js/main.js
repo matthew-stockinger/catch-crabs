@@ -121,23 +121,53 @@ const Dispatch = {
 			View.render(View.timeLabel, event.detail.timeString);
 		}, false);
 
-		// crab hits and misses
+		// crab hits
 		View.hitbox.addEventListener("mousedown", (event) => {
+			// mousedown on strict hitbox
 			console.log(`hitbox mousedown`);
-			if (!this.gameRunning) {
-				this.gameRunning = true;
-				this.gameStart(event);
+			if (Game.userPrefs.hitbox === 'strict') {
+				if (!this.gameRunning) {
+					this.gameRunning = true;
+					this.gameStart(event);
+				}
+				this.crabClick(event);
 			}
-			this.crabClick(event);
 		}, false);
 		View.hitbox.addEventListener("touchstart", (event) => {
+			// touchstart on strict hitbox
 			console.log(`hitbox touchstart`);
-			if (!this.gameRunning) {
-				this.gameRunning = true;
-				this.gameStart(event);
+			if (Game.userPrefs.hitbox === 'strict') {
+				if (!this.gameRunning) {
+					this.gameRunning = true;
+					this.gameStart(event);
+				}
+				this.crabClick(event);
 			}
-			this.crabClick(event);
 		}, false);
+		View.svg.addEventListener("mousedown", (event) => {
+			// mousedown on large hitbox
+			console.log(`svg mousedown`);
+			if (Game.userPrefs.hitbox === 'large') {
+				if (!this.gameRunning) {
+					this.gameRunning = true;
+					this.gameStart(event);
+				}
+				this.crabClick(event);
+			}
+		}, false);
+		View.svg.addEventListener("touchstart", (event) => {
+			// touchstart on large hitbox
+			console.log(`svg touchstart`);
+			if (Game.userPrefs.hitbox === 'large') {
+				if (!this.gameRunning) {
+					this.gameRunning = true;
+					this.gameStart(event);
+				}
+				this.crabClick(event);
+			}
+		}, false);
+		
+		// crab misses
 		View.gameScreen.addEventListener("mousedown", (event) => {
 			console.log(`gamescreen mousedown`);
 			this.crabMiss(event);
@@ -172,17 +202,14 @@ const Dispatch = {
 		const hitboxPref = localStorage.getItem('hitbox');
 		if (hitboxPref === 'large') {
 			Game.setPref('hitbox', 'large');
-			View.hitbox = document.querySelector("#svg-crab");
 			View.hitboxLarge.checked = true;
 		} else if (hitboxPref === 'strict') {
 			Game.setPref('hitbox', 'strict');
-			View.hitbox = document.querySelector("#g-wrap");
 			View.hitboxStrict.checked = true;
 		} else {
 			// default to strict
 			Game.setPref('hitbox', 'strict');
 			localStorage.setItem('hitbox', 'strict');
-			View.hitbox = document.querySelector("#g-wrap");
 			View.hitboxStrict.checked = true;
 		}
 
@@ -216,15 +243,14 @@ const Dispatch = {
 
 	// when hitbox preference is changed.
 	changeHitbox() {
-		let currentHitboxPref = 'strict'; // default
-		if (View.hitboxStrict.checked) {
-			currentHitboxPref = 'strict';
-			View.hitbox = document.querySelector("#g-wrap");
-		} else {
-			currentHitboxPref = 'large';
-			View.hitbox = document.querySelector("#svg-crab")
-		}
-		Game.setPref('hitbox', currentHitboxPref);
+		// let currentHitboxPref = 'strict'; // default
+		// if (View.hitboxStrict.checked) {
+		// 	currentHitboxPref = 'strict';
+		// } else {
+		// 	currentHitboxPref = 'large';
+		// }
+		Game.setPref('hitbox', View.hitboxStrict.checked ? 'strict' : 'large');
+		// Game.setPref('hitbox', currentHitboxPref);
 		localStorage.setItem('hitbox', currentHitboxPref);
 	},
 

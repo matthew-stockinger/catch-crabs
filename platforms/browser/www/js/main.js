@@ -85,6 +85,14 @@ const Dispatch = {
 			console.log(`soundCheckbox change`);
 			this.changeSoundPref();
 		}, false);
+		View.hitboxStrict.addEventListener("change", (event) => {
+			console.log(`hitbox change`);
+			this.changeHitbox();
+		}, false);
+		View.hitboxLarge.addEventListener("change", (event) => {
+			console.log(`hitbox change`);
+			this.changeHitbox();
+		}, false);
 		// prevent clicks or touches on modal window from bubbling up to a crabMiss
 		View.modal.addEventListener("mousedown", (event) => {
 			console.log(`modal mousedown`);
@@ -113,23 +121,53 @@ const Dispatch = {
 			View.render(View.timeLabel, event.detail.timeString);
 		}, false);
 
-		// crab hits and misses
+		// crab hits
 		View.hitbox.addEventListener("mousedown", (event) => {
+			// mousedown on strict hitbox
 			console.log(`hitbox mousedown`);
-			if (!this.gameRunning) {
-				this.gameRunning = true;
-				this.gameStart(event);
+			if (Game.userPrefs.hitbox === 'strict') {
+				if (!this.gameRunning) {
+					this.gameRunning = true;
+					this.gameStart(event);
+				}
+				this.crabClick(event);
 			}
-			this.crabClick(event);
 		}, false);
 		View.hitbox.addEventListener("touchstart", (event) => {
+			// touchstart on strict hitbox
 			console.log(`hitbox touchstart`);
-			if (!this.gameRunning) {
-				this.gameRunning = true;
-				this.gameStart(event);
+			if (Game.userPrefs.hitbox === 'strict') {
+				if (!this.gameRunning) {
+					this.gameRunning = true;
+					this.gameStart(event);
+				}
+				this.crabClick(event);
 			}
-			this.crabClick(event);
 		}, false);
+		View.svg.addEventListener("mousedown", (event) => {
+			// mousedown on large hitbox
+			console.log(`svg mousedown`);
+			if (Game.userPrefs.hitbox === 'large') {
+				if (!this.gameRunning) {
+					this.gameRunning = true;
+					this.gameStart(event);
+				}
+				this.crabClick(event);
+			}
+		}, false);
+		View.svg.addEventListener("touchstart", (event) => {
+			// touchstart on large hitbox
+			console.log(`svg touchstart`);
+			if (Game.userPrefs.hitbox === 'large') {
+				if (!this.gameRunning) {
+					this.gameRunning = true;
+					this.gameStart(event);
+				}
+				this.crabClick(event);
+			}
+		}, false);
+		
+		// crab misses
 		View.gameScreen.addEventListener("mousedown", (event) => {
 			console.log(`gamescreen mousedown`);
 			this.crabMiss(event);
@@ -160,18 +198,34 @@ const Dispatch = {
 	// list of available preferences:
 	// sound {boolean}
 	getStoragePrefs() {
+		// hitbox
+		const hitboxPref = localStorage.getItem('hitbox');
+		if (hitboxPref === 'large') {
+			Game.setPref('hitbox', 'large');
+			View.hitboxLarge.checked = true;
+		} else if (hitboxPref === 'strict') {
+			Game.setPref('hitbox', 'strict');
+			View.hitboxStrict.checked = true;
+		} else {
+			// default to strict
+			Game.setPref('hitbox', 'strict');
+			localStorage.setItem('hitbox', 'strict');
+			View.hitboxStrict.checked = true;
+		}
+
+		// sound
 		const storageSoundPref = localStorage.getItem('sound');
 		if (storageSoundPref === 'true') {
-			Game.userPrefs.sound = true;
+			Game.setPref('sound', true);
 			View.soundCheckbox.checked = true;
 			Sounds.mute(false);
 		} else if (storageSoundPref === 'false') {
-			Game.userPrefs.sound = false;
+			Game.setPref('sound', false);
 			View.soundCheckbox.checked = false;
 			Sounds.mute(true);
 		} else {
 			// if there is no sound pref in local storage, default to true.
-			Game.userPrefs.sound = true;
+			Game.setPref('sound', true);
 			View.soundCheckbox.checked = true;
 			localStorage.setItem('sound', 'true');
 			Sounds.mute(false);
@@ -182,9 +236,22 @@ const Dispatch = {
 	// local storage.
 	changeSoundPref() {
 		const currentSoundPref = View.soundCheckbox.checked;
-		Game.userPrefs.sound = currentSoundPref;
+		Game.setPref('sound', currentSoundPref);
 		localStorage.setItem('sound', currentSoundPref.toString());
 		Sounds.mute(!currentSoundPref);
+	},
+
+	// when hitbox preference is changed.
+	changeHitbox() {
+		// let currentHitboxPref = 'strict'; // default
+		// if (View.hitboxStrict.checked) {
+		// 	currentHitboxPref = 'strict';
+		// } else {
+		// 	currentHitboxPref = 'large';
+		// }
+		Game.setPref('hitbox', View.hitboxStrict.checked ? 'strict' : 'large');
+		// Game.setPref('hitbox', currentHitboxPref);
+		localStorage.setItem('hitbox', currentHitboxPref);
 	},
 
 	gameStart(event) {
