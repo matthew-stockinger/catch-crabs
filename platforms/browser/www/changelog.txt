@@ -177,11 +177,11 @@ v 0.6
     Therefore, don't redefine hitbox any more.
     Instead, put event listeners up front, onto both svg-crab and g-wrap.  Put a conditional
     inside of each that will test the current preference.
-****bookmark here, as of 8.24.2022.  ****
 -clean up console.logs
 -splash screen https://cordova.apache.org/docs/en/11.x/core/features/splashscreen/index.html
 
 v 0.7
+****bookmark here, as of 8.24.2022.  ****
 -monetize
 -marketing
 --calls to action within the app.   reviews, shares, etc.
@@ -198,6 +198,10 @@ v 1.0
 --lint all js.
 --minifying or packaging for browser?  optimize svg (svgomg or svgo)
 --see readme.md and index.html comments.
+
+-lock down LLC
+--github subscription
+--
 
 v 1.1
 -publish to web
