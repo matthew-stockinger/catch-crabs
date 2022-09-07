@@ -170,11 +170,23 @@ merge branch to master.
 update app version.
 
 v 0.6
-****bookmark here, as of 8.10.2022.  ****
 -icon https://cordova.apache.org/docs/en/11.x/config_ref/images.html
+-hit box setting
+---> See lines 125 and following.  Event listeners don't get reattached to other dom objects when
+    view.hitbox is redefined.
+    Therefore, don't redefine hitbox any more.
+    Instead, put event listeners up front, onto both svg-crab and g-wrap.  Put a conditional
+    inside of each that will test the current preference.
+-clean up console.logs
 -splash screen https://cordova.apache.org/docs/en/11.x/core/features/splashscreen/index.html
 
 v 0.7
+****bookmark here, as of 9.6.2022.  ****
+-fix: gradle build failing on desktop PC
+-fix: safari tab icon not working.  Must be viewport 0 0 16 16.  black on transparent background.
+    https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df
+    https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
+    needs testing & a couple other icons from medium article.
 -monetize
 -marketing
 --calls to action within the app.   reviews, shares, etc.
@@ -191,6 +203,10 @@ v 1.0
 --lint all js.
 --minifying or packaging for browser?  optimize svg (svgomg or svgo)
 --see readme.md and index.html comments.
+
+-lock down LLC
+--github subscription
+--
 
 v 1.1
 -publish to web

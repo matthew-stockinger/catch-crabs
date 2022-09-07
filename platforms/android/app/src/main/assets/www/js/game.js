@@ -119,5 +119,9 @@ const Game = {
 
   randBetween(a, b) {
     return Math.floor(Math.random() * (b - a + 1) + a);
+  },
+
+  setPref(name, value) {
+    this.userPrefs[name] = value;
   }
 };
