@@ -13,17 +13,17 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "cordova-browser": "^6.0.0",
     "howler": "^2.2.3"
   },
   "cordova": {
     "plugins": {},
     "platforms": [
-      "browser",
-      "android"
+      "android",
+      "browser"
     ]
   },
   "devDependencies": {
-    "cordova-android": "^10.1.2"
+    "cordova-android": "^10.1.2",
+    "cordova-browser": "^6.0.0"
   }
 }
