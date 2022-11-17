@@ -21,3 +21,11 @@ webview
 iOS
 -------
 safari
+
+==========================================
+
+distribution channels
+---------------------
+
+google play store
+amazon app store (but beware ad restrictions on fire kids devices)

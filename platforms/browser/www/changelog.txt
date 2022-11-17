@@ -182,10 +182,10 @@ v 0.6
 
 v 0.7
 -fix: gradle build failing on desktop PC
-****bookmark here, as of 9.13.2022.  ****
 -fix: safari tab icon not working.  Must be viewport 0 0 16 16.  black on transparent background.
     https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df
     https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
+****bookmark here, as of 9.15.2022.  ****
     needs testing & a couple other icons from medium article.
 -monetize
 -marketing
