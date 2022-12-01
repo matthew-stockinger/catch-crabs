@@ -44,7 +44,7 @@ const crabMoveStart = new Event('crabMoveStart'); // see Dispatch.cycleCrab
 const crabMoveEnd = new Event('crabMoveEnd');
 const Dispatch = {
 	init() {
-		this.gameRunning = false;
+		this.gameIsRunning = false;
 		this.getStoragePrefs(); // check for locally stored preferences
 		View.preventDrag(); //prevents selecting or dragging objects on game screen.
 
@@ -114,8 +114,8 @@ const Dispatch = {
 		View.hitbox.addEventListener("mousedown", (event) => {
 			// mousedown on strict hitbox
 			if (Game.userPrefs.hitbox === 'strict') {
-				if (!this.gameRunning) {
-					this.gameRunning = true;
+				if (!this.gameIsRunning) {
+					this.gameIsRunning = true;
 					this.gameStart(event);
 				}
 				this.crabClick(event);
@@ -124,8 +124,8 @@ const Dispatch = {
 		View.hitbox.addEventListener("touchstart", (event) => {
 			// touchstart on strict hitbox
 			if (Game.userPrefs.hitbox === 'strict') {
-				if (!this.gameRunning) {
-					this.gameRunning = true;
+				if (!this.gameIsRunning) {
+					this.gameIsRunning = true;
 					this.gameStart(event);
 				}
 				this.crabClick(event);
@@ -134,8 +134,8 @@ const Dispatch = {
 		View.svg.addEventListener("mousedown", (event) => {
 			// mousedown on large hitbox
 			if (Game.userPrefs.hitbox === 'large') {
-				if (!this.gameRunning) {
-					this.gameRunning = true;
+				if (!this.gameIsRunning) {
+					this.gameIsRunning = true;
 					this.gameStart(event);
 				}
 				this.crabClick(event);
@@ -144,8 +144,8 @@ const Dispatch = {
 		View.svg.addEventListener("touchstart", (event) => {
 			// touchstart on large hitbox
 			if (Game.userPrefs.hitbox === 'large') {
-				if (!this.gameRunning) {
-					this.gameRunning = true;
+				if (!this.gameIsRunning) {
+					this.gameIsRunning = true;
 					this.gameStart(event);
 				}
 				this.crabClick(event);
@@ -163,15 +163,15 @@ const Dispatch = {
 
 	// pause game, open modal, .
 	openPrefs() {
-		if (this.gameRunning) {
-			this.pause();
+		if (this.gameIsRunning) {
+			this.pauseGame();
 		}
 		View.modal.style.display = "block";
 	},
 
 	closePrefs() {
-		if (this.gameRunning) {
-			this.unpause();
+		if (this.gameIsRunning) {
+			this.resumeGame();
 		}
 		View.modal.style.display = "none";
 	},
@@ -241,7 +241,7 @@ const Dispatch = {
 		View.animateEyes(2, 4);
 		View.twitchLClaw(5, 8);
 		View.twitchRClaw(10, 20);
-		this.cycleCrab(1, 5); // start crab moving back and forth.
+		this.startCrabWalkCycle(1, 5); // start crab moving back and forth.
 		Game.startTime(event);
 	},
 	
@@ -252,34 +252,34 @@ const Dispatch = {
 		View.render(View.cpsLabel, 0);
 		View.render(View.maxCPSLabel, 0);
 		this.resetCrab(); 
-		this.gameRunning = false;
+		this.gameIsRunning = false;
 		Game.stopTime(event);
 		this.resetClock();
 	},
 
 	// stop crab transitions, clock, cps
-	pause() {
+	pauseGame() {
 		clearTimeout(swapTimer);
 		Game.pauseTime();
 	},
 
 	// restart crab transitions, clock, cps
-	unpause() {
-		this.cycleCrab(1, 5);
+	resumeGame() {
+		this.startCrabWalkCycle(1, 5);
 		Game.unpauseTime();
 	},
 
 	// moves crab between regions at random time intervals.
-	cycleCrab(minTime, maxTime) {
-		if (this.gameRunning) {
-			let t = Math.random() * (maxTime - minTime) + minTime;
-			t = Number(t.toFixed(3));
+	startCrabWalkCycle(cycleMinSeconds, cycleMaxSeconds) {
+		if (this.gameIsRunning) {
+			let secondsToNextWalk = Math.random() * (cycleMaxSeconds - cycleMinSeconds) + cycleMinSeconds;
+			secondsToNextWalk = Number(secondsToNextWalk.toFixed(3));
 			swapTimer = setTimeout(() => {
 				this.crabSwap();
 				// safari <=12 doesn't fire transitionstart event, so need synthetic.
 				View.svgWrap.dispatchEvent(crabMoveStart); // listener is in view.js
-				this.cycleCrab(minTime, maxTime);
-			}, t * 1000);
+				this.startCrabWalkCycle(cycleMinSeconds, cycleMaxSeconds);
+			}, secondsToNextWalk * 1000);
 		}
 	},
 

@@ -207,13 +207,14 @@ https://developer.android.com/studio/publish/preparing#clean-up-your-project-dir
 --see video in youtube library.
 
 ****bookmark here, as of 11.17.2022.  ****
--lock down for production.  Is this the MCV product?
--remove logging
---security
-----vulnerability email: https://github.com/advisories/GHSA-c6pw-q7f2-97hv
---lint all js.
---minifying or packaging for browser?  optimize svg (svgomg or svgo)
---see readme.md and index.html comments.
+- lock down for production.  Is this the MCV product?
+- remove logging
+    - security
+        - vulnerability email: https://github.com/advisories/GHSA-c6pw-q7f2-97hv
+    - lint all js.
+    - see https://developer.android.com/studio/publish for more suggestions
+    - minifying or packaging for browser?  optimize svg (svgomg or svgo)
+    - see readme.md and index.html comments.
 
 
 -Google Play launch checklist https://developer.android.com/distribute/best-practices/launch/launch-checklist

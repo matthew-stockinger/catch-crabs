@@ -185,30 +185,46 @@ v 0.7
 -fix: safari tab icon not working.  Must be viewport 0 0 16 16.  black on transparent background.
     https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df
     https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
-****bookmark here, as of 9.15.2022.  ****
     needs testing & a couple other icons from medium article.
--monetize
--marketing
---calls to action within the app.   reviews, shares, etc.
---social media links?  ability to share their high scores on social media.  use '#crabs' or something
---memes from my own game
 
 v 0.8
+-signing the app https://cordova.apache.org/docs/en/11.x/guide/platforms/android/index.html#signing-an-app
 -device state change testing.
 
 v 1.0
+https://developer.android.com/studio/publish/preparing#clean-up-your-project-directories
+
+-lock down LLC
+--read sos filing document.  may need ein and state tax id number.  https://www.revenue.state.mn.us/limited-liability-companies-llcs
+--github subscription
+--EULA for app?
+--logins, such as google developer account
+
+-screenshots, videos, promotional text https://support.google.com/googleplay/android-developer/answer/9866151?visit_id=637994399341837212-1953888315&rd=1
+    - video: https://www.youtube.com/watch?v=-438hcku_rs
+-update bg image.  srcset, sizes
+--short description: Click the crab, but be careful!
+--see video in youtube library.
+
+****bookmark here, as of 11.17.2022.  ****
 -lock down for production.  Is this the MCV product?
+-remove logging
 --security
 ----vulnerability email: https://github.com/advisories/GHSA-c6pw-q7f2-97hv
 --lint all js.
 --minifying or packaging for browser?  optimize svg (svgomg or svgo)
 --see readme.md and index.html comments.
 
--lock down LLC
---github subscription
---
+
+-Google Play launch checklist https://developer.android.com/distribute/best-practices/launch/launch-checklist
 
 v 1.1
+-distribute
+-marketing/promotion
+--calls to action within the app.   reviews, shares, etc.
+--social media links?  ability to share their high scores on social media.  use '#crabs' or something
+--memes from my own game
+
 -publish to web
     cross browser testing.  See https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction
     scalability - how do I ensure service level?
