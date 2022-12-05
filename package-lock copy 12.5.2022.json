@@ -432,7 +432,7 @@
         "cordova-common": "^3.1.0",
         "cordova-serve": "^3.0.0",
         "nopt": "^4.0.1",
-        "shelljs": "^0.8.5"
+        "shelljs": "^0.5.3"
       },
       "bin": {
         "cordova-browser": "bin/create"
@@ -553,8 +553,8 @@
       }
     },
     "node_modules/cordova-browser/node_modules/shelljs": {
-      "version": "0.8.5",
-      "resolved": "https://registry.npmjs.org/shelljs/-/shelljs-0.8.5.tgz",
+      "version": "0.5.3",
+      "resolved": "https://registry.npmjs.org/shelljs/-/shelljs-0.5.3.tgz",
       "integrity": "sha512-C2FisSSW8S6TIYHHiMHN0NqzdjWfTekdMpA2FJTbRWnQMLO1RRIXEB9eVZYOlofYmjZA7fY3ChoFu09MeI3wlQ==",
       "dev": true,
       "bin": {
@@ -2348,7 +2348,7 @@
         "cordova-common": "^3.1.0",
         "cordova-serve": "^3.0.0",
         "nopt": "^4.0.1",
-        "shelljs": "^0.8.5"
+        "shelljs": "^0.5.3"
       },
       "dependencies": {
         "bplist-parser": {
@@ -2442,8 +2442,8 @@
           "dev": true
         },
         "shelljs": {
-          "version": "0.8.5",
-          "resolved": "https://registry.npmjs.org/shelljs/-/shelljs-0.8.5.tgz",
+          "version": "0.5.3",
+          "resolved": "https://registry.npmjs.org/shelljs/-/shelljs-0.5.3.tgz",
           "integrity": "sha512-C2FisSSW8S6TIYHHiMHN0NqzdjWfTekdMpA2FJTbRWnQMLO1RRIXEB9eVZYOlofYmjZA7fY3ChoFu09MeI3wlQ==",
           "dev": true
         },
