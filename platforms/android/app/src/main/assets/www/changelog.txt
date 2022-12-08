@@ -206,14 +206,16 @@ https://developer.android.com/studio/publish/preparing#clean-up-your-project-dir
 --short description: Click the crab, but be careful!
 --see video in youtube library.
 
-****bookmark here, as of 11.17.2022.  ****
--lock down for production.  Is this the MCV product?
--remove logging
---security
-----vulnerability email: https://github.com/advisories/GHSA-c6pw-q7f2-97hv
---lint all js.
---minifying or packaging for browser?  optimize svg (svgomg or svgo)
---see readme.md and index.html comments.
+- need to roll back last commit.  updating shelljs to 0.8.5 killed browser running.  resolution: stick with original.
+- lock down for production.  Is this the MCV product?
+- remove logging
+- security
+    - vulnerability email: https://github.com/advisories/GHSA-c6pw-q7f2-97hv
+- lint all js.
+****bookmark here, as of 12.8.2022.  ****
+- see https://developer.android.com/studio/publish for more suggestions
+- minifying or packaging for browser?  optimize svg (svgomg or svgo)
+- see readme.md and index.html comments.
 
 
 -Google Play launch checklist https://developer.android.com/distribute/best-practices/launch/launch-checklist
