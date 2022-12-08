@@ -1,7 +1,7 @@
 {
   "name": "com.stockmobilesoftware.catchcrabs",
   "displayName": "CatchCrabs",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "Click the crab!",
   "main": "js/main.js",
   "scripts": {
