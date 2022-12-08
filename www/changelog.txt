@@ -213,9 +213,10 @@ https://developer.android.com/studio/publish/preparing#clean-up-your-project-dir
     - vulnerability email: https://github.com/advisories/GHSA-c6pw-q7f2-97hv
 - lint all js.
 ****bookmark here, as of 12.8.2022.  ****
-- see https://developer.android.com/studio/publish for more suggestions
-- minifying or packaging for browser?  optimize svg (svgomg or svgo)
+- minifying or packaging for browser?  Try creating a production build and see if that does it in cordova.
+- optimize svg (svgomg or svgo)
 - see readme.md and index.html comments.
+- see https://developer.android.com/studio/publish for more suggestions
 
 
 -Google Play launch checklist https://developer.android.com/distribute/best-practices/launch/launch-checklist
