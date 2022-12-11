@@ -212,9 +212,11 @@ https://developer.android.com/studio/publish/preparing#clean-up-your-project-dir
 - security
     - vulnerability email: https://github.com/advisories/GHSA-c6pw-q7f2-97hv
 - lint all js.
-- minifying or packaging for browser?  optimize svg (svgomg or svgo)
+- optimize svg (svgomg or svgo)
 ****bookmark here, as of 12.8.2022.  ****
 - see readme.md and index.html comments.
+- https://cordova.apache.org/docs/en/11.x/guide/appdev/security/index.html
+- minifying or packaging for browser
 - see https://developer.android.com/studio/publish for more suggestions
 
 
