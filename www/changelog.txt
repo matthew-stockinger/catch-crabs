@@ -215,8 +215,13 @@ https://developer.android.com/studio/publish/preparing#clean-up-your-project-dir
 - optimize svg (svgomg or svgo)
 - see readme.md and index.html comments.  CSP.
 - https://cordova.apache.org/docs/en/11.x/guide/appdev/security/index.html
-****bookmark here, as of 12.11.2022.  ****
 - minifying or packaging for browser
+    - bug: parcel isn't catching everything.  parcel dev server isn't working.
+        - seems to be missing some cordova js file(s)
+        - not getting mp3 files.  needs URL JS object to work, according to parcel docs.  otherwise, it won't see the dependency.
+        - need to fix URL call.  Won't even build with cordova right now.
+    - bailed out on parcel.  Would need lots of restructuring.  Not worth it.
+****bookmark here, as of 12.15.2022.  ****
 - see https://developer.android.com/studio/publish for more suggestions
 
 

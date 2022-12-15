@@ -214,9 +214,13 @@ https://developer.android.com/studio/publish/preparing#clean-up-your-project-dir
 - lint all js.
 - optimize svg (svgomg or svgo)
 - see readme.md and index.html comments.  CSP.
-****bookmark here, as of 12.8.2022.  ****
 - https://cordova.apache.org/docs/en/11.x/guide/appdev/security/index.html
+****bookmark here, as of 12.11.2022.  ****
 - minifying or packaging for browser
+    - bug: parcel isn't catching everything.  parcel dev server isn't working.
+        - seems to be missing some cordova js file(s)
+        - not getting mp3 files.  needs URL JS object to work, according to parcel docs.  otherwise, it won't see the dependency.
+        - need to fix URL call.  Won't even build with cordova right now.
 - see https://developer.android.com/studio/publish for more suggestions
 
 
@@ -230,8 +234,10 @@ v 1.1
 --memes from my own game
 
 -publish to web
-    cross browser testing.  See https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction
-    scalability - how do I ensure service level?
+    - https
+    - cross browser testing.  See https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction
+    - scalability - how do I ensure service level?
+
 
 v 1.1
 -full accessibility
