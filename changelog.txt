@@ -227,6 +227,12 @@ https://developer.android.com/studio/publish/preparing#clean-up-your-project-dir
 
 -Google Play launch checklist https://developer.android.com/distribute/best-practices/launch/launch-checklist
 
+My checklist:
+- (optional) LLC web site
+- LLC email address
+    - add the address to monkeygrp@gmail.com.  Doesn't seem to be working quite yet.
+- LLC bank account?
+
 v 1.1
 -distribute
 -marketing/promotion
