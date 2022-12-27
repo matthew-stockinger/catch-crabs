@@ -17,12 +17,12 @@
   "cordova": {
     "plugins": {},
     "platforms": [
-      "android",
-      "browser"
+      "browser",
+      "android"
     ]
   },
   "devDependencies": {
-    "cordova-android": "^10.1.2",
+    "cordova-android": "^11.0.0",
     "cordova-browser": "^6.0.0"
   },
   "source": "platforms/browser/www/index.html",

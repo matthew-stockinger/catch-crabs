@@ -221,7 +221,6 @@ https://developer.android.com/studio/publish/preparing#clean-up-your-project-dir
         - not getting mp3 files.  needs URL JS object to work, according to parcel docs.  otherwise, it won't see the dependency.
         - need to fix URL call.  Won't even build with cordova right now.
     - bailed out on parcel.  Would need lots of restructuring.  Not worth it.
-****bookmark here, as of 12.15.2022.  ****
 - see https://developer.android.com/studio/publish for more suggestions
 
 
@@ -232,6 +231,13 @@ My checklist:
 - LLC email address
     - add the address to monkeygrp@gmail.com.  Doesn't seem to be working quite yet.
 - LLC bank account?
+- Internal testing error when uploading release aab: Your app currently targets API level 30 and must target at least API level 31 to ensure it is built on the latest APIs optimized for security and performance. Change your app's target API level to at least 31.
+    1. get debug build working on my phone.  I got cordova-android updated to 11.0.0, but latest debug build errors were about environment variables.
+****bookmark here, as of 12.27.2022.  ****
+    1.5. debug build deployed ok to phone, but icon on loading screen is cordova's.
+    2. make a new release build
+
+
 
 v 1.1
 -distribute

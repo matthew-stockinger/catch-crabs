@@ -1,0 +1,9 @@
+{
+  "android": {
+    "release": {
+      "keystore": "app_store_publishing/upload-keystore.jks",
+      "alias": "upload",
+      "packageType": "bundle"
+    }
+  }
+}
