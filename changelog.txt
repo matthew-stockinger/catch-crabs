@@ -233,8 +233,14 @@ My checklist:
 - LLC bank account?
 - Internal testing error when uploading release aab: Your app currently targets API level 30 and must target at least API level 31 to ensure it is built on the latest APIs optimized for security and performance. Change your app's target API level to at least 31.
     1. get debug build working on my phone.  I got cordova-android updated to 11.0.0, but latest debug build errors were about environment variables.
-****bookmark here, as of 12.27.2022.  ****
-    1.5. debug build deployed ok to phone, but icon on loading screen is cordova's.
+    1.5. debug build deployed ok to phone, but icon on splash screen is cordova's.  Seems android has a new API and cordova hasn't figured this out yet.
+        - from cordova's homepage footer, click stackoverflow, then search splash.
+        - try removing android api 32 from android studio sdk manager.  platforms\android\cdv-gradle-config.json shows that target is currently 32.  Maybe 31 will work better.  --> didn't work
+        - try the nightly build of cordova.  npm view cordova to get info about that.  use npm install cordova@nightly to execute. --> didn't work
+****bookmark here, as of 12.31.2022.  ****
+        - could try cordova splashscreen plugin
+        - could try migration guide for new API: https://developer.android.com/develop/ui/views/launch/splash-screen/migrate
+            - this means I'll need to extend build.gradle according to https://cordova.apache.org/docs/en/11.x/guide/platforms/android/index.html#extending-buildgradle
     2. make a new release build
 
 

@@ -6,6 +6,29 @@
   "config_munge": {
     "files": {}
   },
-  "installed_plugins": {},
-  "dependent_plugins": {}
+  "installed_plugins": {
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.stockmobilesoftware.catchcrabs"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "file": "plugins/cordova-plugin-splashscreen/src/browser/SplashScreenProxy.js",
+      "id": "cordova-plugin-splashscreen.SplashScreenProxy",
+      "pluginId": "cordova-plugin-splashscreen",
+      "runs": true
+    },
+    {
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "pluginId": "cordova-plugin-splashscreen",
+      "clobbers": [
+        "navigator.splashscreen"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-splashscreen": "6.0.1"
+  }
 }

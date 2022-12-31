@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.stockmobilesoftware.catchcrabs" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Catch Crabs</name>
     <description>
         Click the crab!
@@ -13,5 +17,4 @@
     <icon src="res/ic_app_icon2.xml" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="SplashScreenDelay" value="0" />
 </widget>
