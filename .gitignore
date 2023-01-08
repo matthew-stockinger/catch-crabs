@@ -1,2 +1,3 @@
-
-phonegap_old/
+node_modules/
+platforms/
+archive/
