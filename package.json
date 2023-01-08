@@ -15,9 +15,7 @@
     "howler": "^2.2.3"
   },
   "cordova": {
-    "plugins": {
-      "cordova-plugin-splashscreen": {}
-    },
+    "plugins": {},
     "platforms": [
       "browser",
       "android"
@@ -25,8 +23,7 @@
   },
   "devDependencies": {
     "cordova-android": "^11.0.0",
-    "cordova-browser": "^6.0.0",
-    "cordova-plugin-splashscreen": "^6.0.1"
+    "cordova-browser": "^6.0.0"
   },
   "source": "platforms/browser/www/index.html",
   "targets": {

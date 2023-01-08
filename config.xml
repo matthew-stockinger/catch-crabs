@@ -18,7 +18,4 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <icon src="res/ic_app_icon2.xml" />
-    <platform name="android">
-        <splash src="res/screen/android/ic_app_icon2.xml" />
-    </platform>
 </widget>

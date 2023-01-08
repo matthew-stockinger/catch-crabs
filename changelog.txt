@@ -237,8 +237,12 @@ My checklist:
         - from cordova's homepage footer, click stackoverflow, then search splash.
         - try removing android api 32 from android studio sdk manager.  platforms\android\cdv-gradle-config.json shows that target is currently 32.  Maybe 31 will work better.  --> didn't work
         - try the nightly build of cordova.  npm view cordova to get info about that.  use npm install cordova@nightly to execute. --> didn't work
-****bookmark here, as of 12.31.2022.  ****
         - could try cordova splashscreen plugin
+            - installed splashscreen plugin
+            - added lines to config.xml to try using android xml vector file as splash file.
+            - tested build on phone, got: The "<splash>" tags were detected and are no longer supported. Please migrate to the "preference" tag "AndroidWindowSplashScreenAnimatedIcon".
+**** bookmark here, as of 1.8.2023.  ****
+        - cordova android 11.0 adds splash screen as a core feature.
         - could try migration guide for new API: https://developer.android.com/develop/ui/views/launch/splash-screen/migrate
             - this means I'll need to extend build.gradle according to https://cordova.apache.org/docs/en/11.x/guide/platforms/android/index.html#extending-buildgradle
     2. make a new release build

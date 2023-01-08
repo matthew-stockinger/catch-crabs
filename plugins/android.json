@@ -6,10 +6,6 @@
   "config_munge": {
     "files": {}
   },
-  "installed_plugins": {
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.stockmobilesoftware.catchcrabs"
-    }
-  },
+  "installed_plugins": {},
   "dependent_plugins": {}
 }
