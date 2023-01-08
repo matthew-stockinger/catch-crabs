@@ -4,8 +4,8 @@
     <description>
         Click the crab!
     </description>
-    <author email="matthewstockinger88@gmail.com" href="http://catch-crabs.com">
-        Matthew Stockinger
+    <author email="stock@stockmobilesoftware.com">
+        Stock Mobile Software LLC
     </author>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
@@ -13,4 +13,5 @@
     <icon src="res/ic_app_icon2.xml" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/ic_app_icon2.xml" />
 </widget>
