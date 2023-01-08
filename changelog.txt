@@ -244,6 +244,7 @@ My checklist:
 **** bookmark here, as of 1.8.2023.  ****
         - cordova android 11.0 adds splash screen as a core feature.
             - made updates and it worked, but icon isn't fitting properly.
+            - see https://developer.android.com/studio/write/vector-asset-studio
         - could try migration guide for new API: https://developer.android.com/develop/ui/views/launch/splash-screen/migrate
             - this means I'll need to extend build.gradle according to https://cordova.apache.org/docs/en/11.x/guide/platforms/android/index.html#extending-buildgradle
     2. make a new release build
