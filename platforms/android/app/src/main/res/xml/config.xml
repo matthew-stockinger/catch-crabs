@@ -13,5 +13,5 @@
     <icon src="res/ic_app_icon2.xml" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/ic_app_icon2.xml" />
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/ic_splashscreen.xml" />
 </widget>

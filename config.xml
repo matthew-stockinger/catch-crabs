@@ -12,7 +12,7 @@
     <allow-intent href="https://*/*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/ic_app_icon2.xml" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/ic_splashscreen.xml" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
