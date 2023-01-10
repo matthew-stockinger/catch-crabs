@@ -244,10 +244,9 @@ My checklist:
         - cordova android 11.0 adds splash screen as a core feature.
             - made updates and it worked, but icon isn't fitting properly.
             - see https://developer.android.com/studio/write/vector-asset-studio
-**** bookmark here, as of 1.9.2023.  ****
             - have built xml splashscreen file, but need to add padding around icon.  width and height in the xml aren't doing the trick.  Try another edit.
-        - could try migration guide for new API: https://developer.android.com/develop/ui/views/launch/splash-screen/migrate
-            - this means I'll need to extend build.gradle according to https://cordova.apache.org/docs/en/11.x/guide/platforms/android/index.html#extending-buildgradle
+            - edited viewbox.  originally 0 0 1125 882.16.  Changed to -562.5 -683.92 2250 2250 to create white space around crab (crab must occupy 2/3 of space).
+**** bookmark here, as of 1.10.2023.  ****
     2. make a new release build
 
 
