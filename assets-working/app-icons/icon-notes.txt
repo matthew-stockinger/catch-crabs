@@ -11,3 +11,9 @@ adaptive icon layers.  Make 2.  108 x 108 dp.  Inner 72 x 72 dp is main icon ima
 **original ic_app_icon2.xml dimensions:  66.31149 x 52 (w x h)
 medium: 72 x 56.46080
 large: 108 x 84.69121
+
+
+---------------
+
+splash screen icon.
+https://developer.android.com/develop/ui/views/launch/splash-screen#splash_screen_dimensions
