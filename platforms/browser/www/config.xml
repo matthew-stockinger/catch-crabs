@@ -4,8 +4,8 @@
     <description>
         Click the crab!
     </description>
-    <author email="matthewstockinger88@gmail.com" href="http://catch-crabs.com">
-        Matthew Stockinger
+    <author email="stock@stockmobilesoftware.com">
+        Stock Mobile Software LLC
     </author>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
