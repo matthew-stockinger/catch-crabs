@@ -250,6 +250,7 @@ My checklist:
 **** bookmark here, as of 1.11.2023.  ****
     3. publish privacy policy.
         - have files on server.  Just need to set up https for stockmobilesoftware.com.
+            https://www.hostgator.com/help/article/hostgator-free-ssl
 
 
 
