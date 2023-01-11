@@ -246,8 +246,10 @@ My checklist:
             - see https://developer.android.com/studio/write/vector-asset-studio
             - have built xml splashscreen file, but need to add padding around icon.  width and height in the xml aren't doing the trick.  Try another edit.
             - edited viewbox.  originally 0 0 1125 882.16.  Changed to -562.5 -683.92 2250 2250 to create white space around crab (crab must occupy 2/3 of space).
-**** bookmark here, as of 1.10.2023.  ****
     2. make a new release build
+**** bookmark here, as of 1.11.2023.  ****
+    3. publish privacy policy.
+        - have files on server.  Just need to set up https for stockmobilesoftware.com.
 
 
 
