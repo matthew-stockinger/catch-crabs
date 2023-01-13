@@ -247,10 +247,10 @@ My checklist:
             - have built xml splashscreen file, but need to add padding around icon.  width and height in the xml aren't doing the trick.  Try another edit.
             - edited viewbox.  originally 0 0 1125 882.16.  Changed to -562.5 -683.92 2250 2250 to create white space around crab (crab must occupy 2/3 of space).
     2. make a new release build
-**** bookmark here, as of 1.11.2023.  ****
     3. publish privacy policy.
         - have files on server.  Just need to set up https for stockmobilesoftware.com.
             https://www.hostgator.com/help/article/hostgator-free-ssl
+**** bookmark here, as of 1.13.2023.  ****
 
 
 
