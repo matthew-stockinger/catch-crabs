@@ -251,6 +251,7 @@ My checklist:
         - have files on server.  Just need to set up https for stockmobilesoftware.com.
             https://www.hostgator.com/help/article/hostgator-free-ssl
 **** bookmark here, as of 1.13.2023.  ****
+    4. complete play console tasks and upload new release build.
 
 
 
