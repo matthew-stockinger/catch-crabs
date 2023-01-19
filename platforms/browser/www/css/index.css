@@ -273,6 +273,10 @@ fieldset > div {
   cursor: pointer;
 }
 
+#privacy-policy:active {
+  color: black;
+}
+
 /* Game Over Screen
 ----------------------------------------------------*/
 #game-over-screen {
