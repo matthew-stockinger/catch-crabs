@@ -23,6 +23,7 @@ So much! Here's a nonexhaustive list:
 ## Technologies List
 
 - HTML
+- SVG
 - CSS
 - JavaScript
 - Apache Cordova
