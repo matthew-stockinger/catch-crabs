@@ -19,3 +19,11 @@ So much! Here's a nonexhaustive list:
 - Project management (though I'm the only worker)
 - Source control (Git)
 - Supporting multiple browsers
+
+## Technologies List
+
+- HTML
+- CSS
+- JavaScript
+- Apache Cordova
+- Git
